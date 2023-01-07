@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Resume Builder</title>
+</head>
+
+<body>
+    <header class="header__editor">
+        <div class="header__top-row">
+            <div class="header__logo-box">
+                <a href="/" class="header__atag"><span>Free CV builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
+            </div>
+        </div>
+        
+    </header>
+
+    <main>
+
+        <section class="templates_saved">
+
+                {{#resumesEmpty}}
+                    <div class="resumes_empty primary_text">
+                        You don't have any resume yet, <a href="/newcv" class="newcvlink">Create one</a>
+                    </div>
+                {{/resumesEmpty}}
+
+                {{^resumesEmpty}}
+                    <h1 class="u-center-text heading-big u-margin-bottom-small">Your Resumes</h1>
+                    <div class="resumes">
+                       {{#resumes}}
+                            <div class="resume {{type}}">
+                                {{#isStandard}}
+                                    <div class="row cv_container">
+                                        <div class="leftCol col-4">
+                                            <div class="personal">
+                                                <div class="personal_top_wrapper">
+                                                    <div class="image_cont">
+                                                        <img class="prof_image" id="cvProfilePhoto" src="{{#personal.profilePhoto}}/images/{{personal.profilePhoto}}{{/personal.profilePhoto}}{{^personal.profilePhoto}}/images/profile.png{{/personal.profilePhoto}}" loading="lazy" alt="profile picture"/>
+                                                    </div>
+
+                                                    <h2>Personal</h2>
+                                                </div>
+                                                <div class="bio">
+                                                    <div class="bio_group">
+                                                        <span class="weighted address" data-text="Address">
+                                                            {{#personal.address}}
+                                                                Address
+                                                            {{/personal.address}}
+                                                        </span>
+                                                        <span class="address" id="address">{{#personal.address}}{{personal.address}}{{/personal.address}}</span>
+                                                        <span class="city" id="city">{{#personal.city}}{{personal.city}}{{/personal.city}}</span>
+                                                    </div>
+                                                    <div class="bio_group">
+                                                        <span class="weighted phone" data-text="Phone">
+                                                            {{#personal.phone}}
+                                                                Phone
+                                                            {{/personal.phone}}
+                                                        </span>
+                                                        <span class="phone" id="phone">{{#personal.phone}}{{personal.phone}}{{/personal.phone}}</span>
+                                                    </div>
+                                                    <div class="bio_group">
+                                                        <span class="weighted email" data-text="Email">
+                                                            {{#personal.email}}
+                                                                Email
+                                                            {{/personal.email}}
+                                                        </span>
+                                                        <span id="email">{{#personal.email}}{{personal.email}}{{/personal.email}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {{#routeskills}}
+
+                                                <div class="skills">
+                                                    <h2>Skills</h2>
+                                                    {{#skills}}
+                                                        <div class="skill_div_{{index}}">
+                                                            <div class="skill">{{skill}}</div>
+                                                            <div class="range_wrapper">
+                                                                <div class="skill_range" style="width: {{rangeValue}}%;"></div>
+                                                            </div>
+                                                        </div>
+                                                    {{/skills}}
+                                                </div>
+
+                                            {{/routeskills}}
+
+                                            {{#routelanguages}}
+                                                <div class="languages">
+                                                    <h2>Languages</h2>
+                                                    
+                                                    {{#languages}}
+                                                        <div class="language_div_{{index}}">
+                                                            <span class="language_name">{{language}}</span>
+                                                            <span class="rating star_{{starValue}}">
+                                                                <span class="star1"></span>
+                                                                <span class="star2"></span>
+                                                                <span class="star3"></span>
+                                                                <span class="star4"></span>
+                                                                <span class="star5"></span>
+                                                            </span>
+                                                        </div>
+                                                    {{/languages}}
+
+                                                </div>
+                                            {{/routelanguages}}
+
+                                        </div>
+
+                                        <div class="rightCol col-8">
+                                            <div class="name">
+                                                <h1><span id="firstName">
+                                                    {{#personal.firstName}}
+                                                        {{personal.firstName}}
+                                                    {{/personal.firstName}}
+                                                    {{^personal.firstName}}
+                                                        Name
+                                                    {{/personal.firstName}}
+                                                </span> <span id="lastName">
+                                                    {{#personal.lastName}}
+                                                        {{personal.lastName}}
+                                                    {{/personal.lastName}}
+                                                    {{^personal.lastName}}
+                                                        Name
+                                                    {{/personal.lastName}}
+                                                </span></h1>
+                                            </div>
+                                        {{#routeprofile}}
+                                            <div class="profile">
+                                                {{#profile.profile_desc}}
+                                                    {{profile.profile_desc}}
+                                                {{/profile.profile_desc}}
+                                            </div>
+                                        {{/routeprofile}}
+                                        {{#routeexperience}}
+                                            <div class="experience">
+                                                <h3 class="experience__title">Work Experience</h3>
+                                                <div class="experience__list">
+                                                    {{#experience}}
+                                                        <div class="experience__list__item experience__list__item__{{index}}">
+                                                            <span class="position">{{position}}</span>
+                                                            <div class="company_wrapper editor">
+                                                                <span class="company">{{company}}</span>
+                                                                <span class="dates">
+                                                                    <span class="date_span startMonth">{{startMonth}}</span>
+                                                                    <span class="date_span startYear">{{startYear}}</span>
+                                                                    <span class="date_span delimeter"> - </span>
+                                                                    {{#endMonth}}
+                                                                        <span class="date_span endMonth">{{endMonth}}</span>
+                                                                        <span class="date_span endYear">{{endYear}}</span>
+                                                                    {{/endMonth}}
+                                                                    {{^endMonth}}
+                                                                        <span class="date_span present">Present</span>
+                                                                    {{/endMonth}}
+                                                                </span>
+                                                            </div>
+                                                            {{#textarea_type_div}}
+                                                                <div class="description">
+                                                                    {{textarea_prof_desc}}
+                                                                </div>
+                                                            {{/textarea_type_div}}
+                                                            {{^textarea_type_div}}
+                                                                <ul class="description ul_holder">
+                                                                    {{{textarea_prof_desc}}}
+                                                                </ul>
+                                                            {{/textarea_type_div}}
+                                                        </div>
+                                                    {{/experience}}
+                                                </div>
+                                            </div>
+                                        {{/routeexperience}}
+                                        {{#routeeducation}}
+                                            {{#education}}
+                                                <div class="education">
+                                                    <h3 class="education__title">Education</h3>
+                                                    <div class="education__list">
+                                                        {{#education}}
+                                                            <div class="education__list__item education__list__item__{{index}}">
+                                                                <span class="degree">{{degree}}</span>
+                                                                <div class="company_wrapper editor">
+                                                                    <span class="school">{{school}}</span>
+                                                                    <span class="dates">
+                                                                        <span class="date_span startMonth">{{startMonth}}</span>
+                                                                        <span class="date_span startYear">{{startYear}}</span>
+                                                                        <span class="date_span delimeter"> - </span>
+                                                                        {{#endMonth}}
+                                                                            <span class="date_span endMonth">{{endMonth}}</span>
+                                                                            <span class="date_span endYear">{{endYear}}</span>
+                                                                        {{/endMonth}}
+                                                                        {{^endMonth}}
+                                                                            <span class="date_span">Present</span>
+                                                                        {{/endMonth}}
+                                                                    </span>
+                                                                </div>
+                                                                {{#textarea_type_div}}
+                                                                    <div class="description">
+                                                                        {{textarea_prof_desc}}
+                                                                    </div>
+                                                                {{/textarea_type_div}}
+                                                                {{^textarea_type_div}}
+                                                                    <ul class="description ul_holder">
+                                                                        {{{textarea_prof_desc}}}
+                                                                    </ul>
+                                                                {{/textarea_type_div}}
+                                                            </div>
+                                                        {{/education}}
+                                                    </div>
+                                                </div>
+                                            {{/education}}
+                                        {{/routeeducation}}
+                                        </div>
+                                    </div>
+                                {{/isStandard}}
+
+                                {{#isFancy}}
+                                    <div class="cv_container">
+                                        <div class="cv__header">
+                                            <div class="pic_info">
+                                                <div class="pic"><img class="prof_image" id="cvProfilePhoto" src="{{#personal.profilePhoto}}/images/{{personal.profilePhoto}}{{/personal.profilePhoto}}{{^personal.profilePhoto}}/images/profile.png{{/personal.profilePhoto}}" loading="lazy" alt="profile picture"/></div>
+                                                <div class="info">
+                                                    <h1 class="name"><span id="firstName">
+                                                        {{#personal.firstName}}
+                                                            {{personal.firstName}}
+                                                        {{/personal.firstName}}
+                                                        {{^personal.firstName}}
+                                                            Name
+                                                        {{/personal.firstName}}
+                                                        </span> <span id="lastName">
+                                                        {{#personal.lastName}}
+                                                            {{personal.lastName}}
+                                                        {{/personal.lastName}}
+                                                        {{^personal.lastName}}
+                                                            Name
+                                                        {{/personal.lastName}}
+                                                        </span></h1>
+                                                    <span id="position" class="position">
+                                                        {{#personal.position}}
+                                                            {{personal.position}}
+                                                        {{/personal.position}}
+                                                        {{^personal.position}}
+                                                            Position
+                                                        {{/personal.position}}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            <div class="address_info">
+                                                <div class="location">
+                                                    <span class="icon {{^personal.address}}d-none{{/personal.address}}"><i class="fa-2xl fa-solid fa-location-dot"></i></span>
+                                                    <div class="location_address">
+                                                        <span class="address text">{{#personal.address}}{{personal.address}}{{/personal.address}}</span>
+                                                        <div class="city_country">
+                                                            <span class="city text">{{#personal.city}}{{personal.city}}{{/personal.city}}</span><span class="comma {{^personal.country}}d-none{{/personal.country}}">,</span>
+                                                            <span class="country text">{{#personal.country}}{{personal.country}}{{/personal.country}}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="phone">
+                                                    <span class="icon {{^personal.phone}}d-none{{/personal.phone}}"><i class="fa-2xl fa-sharp fa-solid fa-phone"></i></span>
+                                                    <span id="phone" class="text">{{#personal.phone}}{{personal.phone}}{{/personal.phone}}</span>
+                                                </div>
+
+                                                <div class="email">
+                                                    <span class="icon {{^personal.email}}d-none{{/personal.email}}"><i class="fa-2xl fa-regular fa-envelope"></i></span>
+                                                    <span id="email" class="text">{{#personal.email}}{{personal.email}}{{/personal.email}}</span>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row cv__content">
+
+                                            <div class="leftCol col-4">
+                                            {{#routeskills}}
+                                                <div class="skills">
+                                                    <h2>Skills</h2>
+                                                    {{#skills}}
+                                                        <div class="skill_rating{{index}}">
+                                                            <span class="skill_name">{{skill}}</span>
+                                                            <span class="rating star_{{starValue}}">
+                                                                <span class="star1"></span>
+                                                                <span class="star2"></span>
+                                                                <span class="star3"></span>
+                                                                <span class="star4"></span>
+                                                                <span class="star5"></span>
+                                                            </span>
+                                                        </div>
+                                                    {{/skills}}
+                                                </div>
+                                            {{/routeskills}}
+                                            {{#routesocialLinks}}
+                                                <div class="social_links">
+                                                    <h2>Social Links</h2>
+                                                    {{#sociallinks}}
+                                                        <div class="social_link_{{index}}">
+                                                            <span class="icon">
+                                                                <i class="fa-brands fa-{{type}}"></i>
+                                                            </span>
+                                                            <span class="link"><a href="{{link}}" target="_blank">{{link}}</a></span>
+                                                        </div>
+                                                    {{/sociallinks}}
+                                                </div>       
+                                            {{/routesocialLinks}}
+                                            {{#routeportfolio}}
+                                                <div class="portfolio">
+                                                    <h2>Portfolio</h2>
+                                                    {{#portfolio}}
+                                                        <div class="portfolio_link_{{index}}">
+                                                            <span class="desc">{{portfolio_desc}}</span>
+                                                            <span class="link"><a href="{{link}}" target="_blank">{{link}}</a></span>
+                                                        </div>
+                                                    {{/portfolio}}
+                                                </div>
+                                            {{/routeportfolio}}
+
+                                            {{#routecertifications}}
+                                                <div class="certifications_resume">
+                                                    <div class="certifications_resume__title_image">
+                                                        <h3 class="certifications_resume__title">Certifications</h3>
+                                                    </div>
+
+                                                    <div class="certifications_resume__list">
+                                                        {{#certifications}}
+                                                            <div class="certifications_resume__list__item__{{index}}">
+                                                                {{certification}}
+                                                            </div>
+                                                        {{/certifications}}
+                                                    </div>
+                                                </div>
+                                            {{/routecertifications}}
+                                            </div>
+
+                                            <div class="rightCol col-8">
+                                            {{#routeexperience}}
+                                                <div class="experience">
+                                                    <div class="experience__title_image">
+                                                        <div class="image"><img src="/public/briefcase.png" alt="work experience"/></div>
+                                                        <h3 class="experience__title">Experience</h3>
+                                                    </div>
+                                                    <div class="experience__list">
+                                                        {{#experience}}
+                                                                <div class="experience__list__item experience__list__item__{{index}}">
+                                                                    <span class="position">{{position}}</span>
+                                                                    <div class="company_wrapper editor">
+                                                                        <span class="company">{{company}}</span>
+                                                                        <span class="dates">
+                                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                                            <span class="date_span delimeter"> - </span>
+                                                                            {{#endMonth}}
+                                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                                            {{/endMonth}}
+                                                                            {{^endMonth}}
+                                                                                <span class="date_span present">Present</span>
+                                                                            {{/endMonth}}
+                                                                        </span>
+                                                                    </div>
+                                                                    {{#textarea_type_div}}
+                                                                        <div class="description">
+                                                                            {{textarea_prof_desc}}
+                                                                        </div>
+                                                                    {{/textarea_type_div}}
+                                                                    {{^textarea_type_div}}
+                                                                        <ul class="description ul_holder">
+                                                                            {{{textarea_prof_desc}}}
+                                                                        </ul>
+                                                                    {{/textarea_type_div}}
+                                                                </div>
+                                                             {{/experience}}                
+                                                    </div>
+                                                </div>
+                                            {{/routeexperience}}
+                                            {{#routeeducation}}
+                                                <div class="education">
+                                                    <div class="education__title_image">
+                                                        <div class="image"><img src="/public/education.png" alt="education"/></div>
+                                                        <h3 class="education__title">Education</h3>
+                                                    </div>
+                                                    <div class="education__list">
+                                                        {{#education}}
+                                                            <div class="education__list__item education__list__item__{{index}}">
+                                                                <span class="degree">{{degree}}</span>
+                                                                <div class="company_wrapper editor">
+                                                                    <span class="school">{{school}}</span>
+                                                                    <span class="dates">
+                                                                        <span class="date_span startMonth">{{startMonth}}</span>
+                                                                        <span class="date_span startYear">{{startYear}}</span>
+                                                                        <span class="date_span delimeter"> - </span>
+                                                                        {{#endMonth}}
+                                                                            <span class="date_span endMonth">{{endMonth}}</span>
+                                                                            <span class="date_span endYear">{{endYear}}</span>
+                                                                        {{/endMonth}}
+                                                                        {{^endMonth}}
+                                                                            <span class="date_span">Present</span>
+                                                                        {{/endMonth}}
+                                                                    </span>
+                                                                </div>
+                                                                {{#textarea_type_div}}
+                                                                    <div class="description">
+                                                                        {{textarea_prof_desc}}
+                                                                    </div>
+                                                                {{/textarea_type_div}}
+                                                                {{^textarea_type_div}}
+                                                                    <ul class="description ul_holder">
+                                                                        {{{textarea_prof_desc}}}
+                                                                    </ul>
+                                                                {{/textarea_type_div}}
+                                                            </div>
+                                                        {{/education}}
+                                                    </div>
+                                                </div>
+                                            {{/routeeducation}}
+                                            
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                {{/isFancy}}
+                                
+                                    <div class="select-button-wrapper">
+                                        <div class="select-wrapper">
+                                            <a class="btn-text-select-resume" href="/editor/{{id}}/{{type}}">Edit</a>
+                                            <a class="btn-text-delete-resume" href="/deleteResume/{{id}}">Delete</a>
+                                        </div>
+                                    </div>
+
+                            </div>
+                       {{/resumes}}
+                    </div>
+
+                {{/resumesEmpty}}
+
+        </section>
+
+    </main>
+
+    <footer class="footer_resumes">
+        <div class="content">Free Cv Builder, get your dream job</div>
+    </footer>
+
+</body>
+
+</html>

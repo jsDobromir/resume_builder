@@ -1,0 +1,205 @@
+.education.editor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    .form_education {
+        width: 100%;
+    }
+
+    .form-select.date_select {
+        font-size: 2rem;
+        font-family: inherit;
+        color: inherit;
+    }
+
+    .row {
+        grid-column-gap: 2rem;
+    }
+    .date_top {
+        margin-top: 2rem;
+    }
+    .textarea_comp {
+        height: 25vh;
+
+        .wrapper_label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            
+            .bullet_text {
+                &::before{
+                    content: "\a";
+                    white-space: pre;
+                }
+            }
+            
+            .icon_label_list {
+                cursor: pointer;
+                background: url(../public/list.png);
+                background-size: cover;
+                background-position: center 100%;
+                width: 4rem;
+                height: 4rem;
+                margin-right: 2rem;
+            }
+    
+            .icon_label_text {
+                cursor: pointer;
+                background: url(../public/text.png);
+                background-size: cover;
+                background-position: center 100%;
+                width: 4rem;
+                height: 4rem;
+                margin-right: 2rem;
+            }
+
+        }
+    }
+
+    .list_holder {
+        padding-left: 3rem;
+        padding-top: 1rem;
+        overflow: scroll;
+        font-size: 1.5rem;
+        height: 22vh;
+
+        .divElemIcon {
+
+            .remove_icon {
+                padding-left: 1.5rem;
+                cursor: pointer;
+                i {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
+
+    #textarea_prof_desc {
+        resize: none;
+        font-size: 1.5rem;
+    }
+
+    .buttons {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .buttons_wrapper {
+            #cancelBtn {
+                margin-right: 2rem;
+            }
+        }
+    }
+
+    .education_list_wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 2rem;
+        height: 60vh;
+        width: 80%;
+        @include media-breakpoint-up(md) {
+            width: 100%;
+        }
+        overflow: auto;
+
+        .education_list {
+            width: 100%;
+            div[class^="education_"] {
+                word-break: break-all;
+                &:not(:first-child) {
+                    margin-top: 2rem;
+                }
+                padding: .5rem 1rem;
+                border: 1px solid $color-grey-dark;
+                position: relative;
+                .position {
+                    font-weight: 900;
+                    font-size: 1.5rem;
+                }
+
+                .dates_comp_wrapper {
+                    display: flex;
+                    align-items: center;
+                    font-weight: 600;
+                    font-size: 1.5rem;
+                    justify-content: space-between;
+                }
+                .description {
+                    margin-top: 1rem;
+                    font-size: 1.3rem;
+                }
+                .description.ul_holder {
+                    padding-left: 3rem;
+                }
+                .buttons_icons {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    font-size: 2.1rem;
+                    span {
+                        cursor: pointer;
+                        margin: 0 .5rem;
+                    }
+                    #delete_exp {
+                        &:before {
+                            content: attr(data-hover);
+                            visibility: hidden;
+                            opacity: 0;
+                            background-color: black;
+                            color: #fff;
+                            text-align: center;
+                            border-radius: 5px;
+                            width: 6rem;
+                            font-size: 1.5rem;
+                            padding: 5px 0;
+                            transition: opacity 1s ease-in-out;
+                          
+                            position: absolute;
+                            z-index: 1;
+                            left: 0;
+                            top: 110%; 
+                        }
+                        &:hover:before {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                    #edit_exp {
+                        &:before {
+                            content: attr(data-hover);
+                            visibility: hidden;
+                            opacity: 0;
+                            background-color: black;
+                            color: #fff;
+                            text-align: center;
+                            border-radius: 5px;
+                            width: 6rem;
+                            font-size: 1.5rem;
+                            padding: 5px 0;
+                            transition: opacity 1s ease-in-out;
+                          
+                            position: absolute;
+                            z-index: 1;
+                            left: 0;
+                            top: 110%; 
+                        }
+                        &:hover:before {
+                            opacity: 1;
+                            visibility: visible;
+                        }
+                    }
+                }
+            }
+        }
+
+        .add_education_div {
+            margin-top: 2rem;
+        }
+    }
+}

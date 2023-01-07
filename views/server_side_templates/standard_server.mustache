@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/editor.css"/>
+    <script type="text/javascript" src="/editor.js"></script>
+    <title>Resume Builder App</title>
+</head>
+
+<body>
+    <header class="header__editor">
+
+        <div class="header__top-row">
+            <div class="header__logo-box">
+                <a href="/" class="header__atag"><span>Free CV builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
+            </div>
+            <div class="track_bar">
+                <div class="track_bar_inner">
+                    {{#trackRoutes}}
+                        <span class="route {{#active}}active{{/active}} capitalize" data-url="{{route}}">{{route}}</span>
+                    {{/trackRoutes}}
+                </div>
+            </div>
+        </div>
+    </header>
+        
+    <div class="wrapper" data-active-route="{{activeRoute}}" data-active-cv="{{type}}" data-cv-id="{{cvId}}" data-routes="{{routes}}" data-resumes="{{resumes}}">
+
+        <div class="row comp_container">
+            <div class="col-12 col-md-6 cvcomp">
+                
+                    <div class="cv1_editor">
+
+                            <div class="row cv_container cv_editor">
+                                <div class="leftCol col-4">
+                                    <div class="personal">
+                                        <div class="persolan_top_wrapper">
+                                            <div class="image_cont">
+                                                <img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/images/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/>
+                                            </div>
+
+                                            <h2>Personal</h2>
+                                        </div>
+                                        <div class="bio">
+                                            <div class="bio_group">
+                                                <span class="weighted address" data-text="Address">
+                                                    {{#current_resume.personal.address}}
+                                                        Address
+                                                    {{/current_resume.personal.address}}
+                                                </span>
+                                                <span class="address" id="address">{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}</span>
+                                                <span class="city" id="city">{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}</span>
+                                            </div>
+                                            <div class="bio_group">
+                                                <span class="weighted phone" data-text="Phone">
+                                                    {{#current_resume.personal.phone}}
+                                                        Phone
+                                                    {{/current_resume.personal.phone}}
+                                                </span>
+                                                <span class="phone" id="phone">{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}</span>
+                                            </div>
+                                            <div class="bio_group">
+                                                <span class="weighted email" data-text="Email">
+                                                    {{#current_resume.personal.email}}
+                                                        Email
+                                                    {{/current_resume.personal.email}}
+                                                </span>
+                                                <span id="email">{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {{#skills}}
+                                        <div class="skills">
+                                            <h2>Skills</h2>
+                                            {{#current_resume.skills}}
+                                                <div class="skill_div_{{index}}">
+                                                    <div class="skill">{{skill}}</div>
+                                                    <div class="range_wrapper">
+                                                        <div class="skill_range" style="width: {{rangeValue}}%;"></div>
+                                                    </div>
+                                                </div>
+                                            {{/current_resume.skills}}
+                                        </div>
+                                    {{/skills}}
+
+                                    {{#languages}}
+                                        <div class="languages">
+                                            <h2>Languages</h2>
+                                            
+                                            {{#current_resume.languages}}
+                                                <div class="language_div_{{index}}">
+                                                    <span class="language_name">{{language}}</span>
+                                                    <span class="rating star_{{starValue}}">
+                                                        <span class="star1"></span>
+                                                        <span class="star2"></span>
+                                                        <span class="star3"></span>
+                                                        <span class="star4"></span>
+                                                        <span class="star5"></span>
+                                                    </span>
+                                                </div>
+                                            {{/current_resume.languages}}
+
+                                        </div>
+                                    {{/languages}}
+
+                                </div>
+                                <div class="rightCol col-8">
+                                    <div class="name">
+                                        <h1><span id="firstName">
+                                            {{#current_resume.personal.firstName}}
+                                                {{current_resume.personal.firstName}}
+                                            {{/current_resume.personal.firstName}}
+                                            {{^current_resume.personal.firstName}}
+                                                Name
+                                            {{/current_resume.personal.firstName}}
+                                        </span> <span id="lastName">
+                                            {{#current_resume.personal.lastName}}
+                                                {{current_resume.personal.lastName}}
+                                            {{/current_resume.personal.lastName}}
+                                            {{^current_resume.personal.lastName}}
+                                                Name
+                                            {{/current_resume.personal.lastName}}
+                                        </span></h1>
+                                    </div>
+                                {{#profile}}    
+                                    <div class="profile">
+                                        {{#current_resume.profile.profile_desc}}
+                                            {{current_resume.profile.profile_desc}}
+                                        {{/current_resume.profile.profile_desc}}
+                                    </div>
+                                {{/profile}}
+                                {{#experience}}
+                                    <div class="experience">
+                                        <h3 class="experience__title">Work Experience</h3>
+                                        <div class="experience__list">
+                                            {{#current_resume.experience}}
+                                                <div class="experience__list__item experience__list__item__{{index}}">
+                                                    <span class="position">{{position}}</span>
+                                                    <div class="company_wrapper editor">
+                                                        <span class="company">{{company}}</span>
+                                                        <span class="dates">
+                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                            <span class="date_span delimeter"> - </span>
+                                                            {{#endMonth}}
+                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                            {{/endMonth}}
+                                                            {{^endMonth}}
+                                                                <span class="date_span present">Present</span>
+                                                            {{/endMonth}}
+                                                        </span>
+                                                    </div>
+                                                    {{#textarea_type_div}}
+                                                        <div class="description">
+                                                            {{textarea_prof_desc}}
+                                                        </div>
+                                                    {{/textarea_type_div}}
+                                                    {{^textarea_type_div}}
+                                                        <ul class="description ul_holder">
+                                                            {{{textarea_prof_desc}}}
+                                                        </ul>
+                                                    {{/textarea_type_div}}
+                                                </div>
+                                            {{/current_resume.experience}}
+                                        </div>
+                                    </div>
+                                {{/experience}}
+                                {{#education}}
+                                    <div class="education">
+                                        <h3 class="education__title">Education</h3>
+                                        <div class="education__list">
+                                            {{#current_resume.education}}
+                                                <div class="education__list__item education__list__item__{{index}}">
+                                                    <span class="degree">{{degree}}</span>
+                                                    <div class="company_wrapper editor">
+                                                        <span class="school">{{school}}</span>
+                                                        <span class="dates">
+                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                            <span class="date_span delimeter"> - </span>
+                                                            {{#endMonth}}
+                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                            {{/endMonth}}
+                                                            {{^endMonth}}
+                                                                <span class="date_span">Present</span>
+                                                            {{/endMonth}}
+                                                        </span>
+                                                    </div>
+                                                    {{#textarea_type_div}}
+                                                        <div class="description">
+                                                            {{textarea_prof_desc}}
+                                                        </div>
+                                                    {{/textarea_type_div}}
+                                                    {{^textarea_type_div}}
+                                                        <ul class="description ul_holder">
+                                                            {{{textarea_prof_desc}}}
+                                                        </ul>
+                                                    {{/textarea_type_div}}
+                                                </div>
+                                            {{/current_resume.education}}
+                                        </div>
+                                    </div>
+                                {{/education}}
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="formcomp_wrapper">
+                <div class="col-12 col-md-6 formcomp">
+
+                    {{#isExperience}}
+
+                    <div class="experience editor" data-exp-exists="{{isCreate}}" data-is-edit="{{isEdit}}">
+
+                        {{#isForm}}
+                                <form class="form_experience">
+                                <div class="row">
+
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="position">Position</label>
+                                        <input type="text" class="form__input" id="position" name="position" required maxlength="40"/>
+                                    </div>
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="company">Company</label>
+                                        <input type="text" class="form__input" id="company" name="company" required maxlength="40"/>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startMonth" id="startMonth" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Month</option>
+                                            {{#months}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/months}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startYear" id="startYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Year</option>
+                                            {{#years}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/years}}
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form__group col-6">
+                                        <select name="endMonth" id="endMonth" class="form-select date_select" required>
+                                        <option value="" selected disabled hidden>Select End Month</option>
+                                            {{#months}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/months}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6">
+                                        <select name="endYear" id="endYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select End Year</option>
+                                           {{#years}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/years}}
+                                        </select>
+
+                                        <div class="form__check">
+                                            <input class="form__check__input" type="checkbox" id="present"/>
+                                            <label class="form__check__label" id="checkbox-inline" for="present">I currently work here</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form__group col-12 textarea_comp">
+                                        <div class="wrapper_label">
+                                            <label class="form__label" for="description">Describe your exeprience</label>
+                                            <span class="icon_label_list"></span>
+                                        </div>
+                                        <textarea class="form-control" rows="8" name="textarea_prof_desc" id="textarea_prof_desc"></textarea>
+                                    </div>
+                                
+                                    <div class="col-12 buttons">
+                                        <div class="buttons_wrapper">
+                                            <button type="button" class="btn btn_cancel" id="cancelBtn" {{^expExists}}disabled{{/expExists}}>Cancel</button>
+                                            <button type="submit" class="btn btn-form-submit" id="btnContinue">Add</button>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </form>
+                        {{/isForm}}
+
+                        {{#isList}}
+                            <div class="experience_list_wrapper">
+                                <div class="experience_list">
+                                    {{#current_resume.experience}}
+                                        <div class="experience_{{index}}">
+                                            <span class="position">{{position}}</span>
+                                            <div class="dates_comp_wrapper">
+                                                <span class="place">{{company}}</span>
+                                                <span class="dates">
+                                                    <span class="date_span startMonth">{{startMonth}}</span>
+                                                    <span class="date_span startYear">{{startYear}}</span>
+                                                    <span class="delimeter"> - </span>
+                                                    {{#endMonth}}
+                                                        <span class="date_span endMonth">{{endMonth}}</span>
+                                                        <span class="date_span endYear">{{endYear}}</span>
+                                                    {{/endMonth}}
+                                                    {{^endMonth}}
+                                                        <span class="date_span">Present</span>
+                                                    {{/endMonth}}
+                                                </span>
+                                            </div>
+                                            {{#textarea_type_div}}
+                                                <div class="description">
+                                                    {{textarea_prof_desc}}
+                                                </div>
+                                            {{/textarea_type_div}}
+                                            {{^textarea_type_div}}
+                                                <ul class="description ul_holder">
+                                                    {{{textarea_prof_desc}}}
+                                                </ul>
+                                            {{/textarea_type_div}}
+                                            <div class="buttons_icons">
+                                                <span id="delete_exp" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
+                                                <span id="edit_exp" data-hover="Edit"><i class="fa-solid fa-pen"></i></span>
+                                            </div>
+                                        </div>
+                                    {{/current_resume.experience}}
+                                </div>
+
+                            </div>
+                            <div class="add_experience_div">
+                                    <button type="button" id="add_experience" class="btn btn-add-experience">Add another Exeprience</button>
+                            </div>
+                        {{/isList}}
+
+                        {{#isEdit}}
+                            <form class="form_experience edit">
+                                <div class="row">
+
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="position">Position</label>
+                                        <input type="text" class="form__input" id="position" name="position" required maxlength="40" value="{{expItem.position}}"/>
+                                    </div>
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="company">Company</label>
+                                        <input type="text" class="form__input" id="company" name="company" required maxlength="40" value="{{expItem.company}}"/>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startMonth" id="startMonth" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Month</option>
+                                            {{#startMonths}}
+                                                <option value="{{month}}" {{#active}}selected{{/active}}>{{month}}</option>
+                                            {{/startMonths}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startYear" id="startYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Year</option>
+                                            {{#startYears}}
+                                                <option value="{{year}}" {{#active}}selected{{/active}}>{{year}}</option>
+                                            {{/startYears}}
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form__group col-6">
+                                        <select name="endMonth" id="endMonth" class="form-select date_select" required {{#checkboxChecked}}disabled{{/checkboxChecked}}>
+                                        <option value="" selected disabled hidden>Select End Month</option>
+                                            {{#endMonths}}
+                                                <option value="{{month}}" {{#active}}selected{{/active}}>{{month}}</option>
+                                            {{/endMonths}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6">
+                                        <select name="endYear" id="endYear" class="form-select date_select" required {{#checkboxChecked}}disabled{{/checkboxChecked}}>
+                                            <option value="" selected disabled hidden>Select End Year</option>
+                                           {{#endYears}}
+                                                <option value="{{year}}" {{#active}}selected{{/active}}>{{year}}</option>
+                                            {{/endYears}}
+                                        </select>
+
+                                        <div class="form__check">
+                                            <input class="form__check__input" type="checkbox" id="present" {{#checkboxChecked}}checked{{/checkboxChecked}}/>
+                                            <label class="form__check__label" id="checkbox-inline" for="present">I currently work here</label>
+                                        </div>
+                                    </div>
+                                    {{#expItem.textarea_type_div}}
+                                        <div class="form__group col-12 textarea_comp">
+                                            <div class="wrapper_label">
+                                                <label class="form__label" for="description">Describe your exeprience</label>
+                                                <span class="icon_label_list"></span>
+                                            </div>
+                                            <textarea class="form-control" rows="8" name="textarea_prof_desc" id="textarea_prof_desc">{{expItem.textarea_prof_desc}}</textarea>
+                                        </div>
+                                    {{/expItem.textarea_type_div}}
+
+                                    {{^expItem.textarea_type_div}}
+                                        <div class="form__group col-12 textarea_comp">
+                                            <div class="wrapper_label">
+                                                <label class="form__label" for="description">Describe your Experience<span class="bullet_text">(as bullet list)</span></label>
+                                                <span class="icon_label_text"></span>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <input type="text" class="form__input bullet_desc" id="bullet_desc" maxlength="250"/>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button type="button" class="btn btn_add_bullet">Save</button>
+                                                    </div>
+                                                </div>
+                                            <ul class="list_holder">
+                                                {{{textarea_prof_desc_string}}}
+                                            </ul>
+                                        </div>
+                                    {{/expItem.textarea_type_div}}
+                                
+                                    <div class="col-12 buttons">
+                                        <div class="buttons_wrapper">
+                                            <button type="button" class="btn btn_cancel" id="cancelBtn" {{^expExists}}disabled{{/expExists}}>Cancel</button>
+                                            <button type="submit" class="btn btn-form-submit" id="btnContinue">Update</button>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </form>
+                        {{/isEdit}}
+                    </div>
+
+                    {{/isExperience}}
+
+                    {{#isEducation}}
+
+                    <div class="education editor" data-exp-exists="{{isCreate}}" data-is-edit="{{isEdit}}">
+
+                        {{#isForm}}
+                                <form class="form_education">
+                                <div class="row">
+
+                                    <div class="form__group col-12">
+                                    <label class="form__label" for="degree">Degree</label>
+                                    <input type="text" class="form__input" id="degree" name="degree" required maxlength="40"/>
+                                </div>
+                                <div class="form__group col-12">
+                                    <label class="form__label" for="school">School</label>
+                                    <input type="text" class="form__input" id="school" name="school" required maxlength="40"/>
+                                </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startMonth" id="startMonth" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Month</option>
+                                            {{#months}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/months}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startYear" id="startYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Year</option>
+                                            {{#years}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/years}}
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form__group col-6">
+                                        <select name="endMonth" id="endMonth" class="form-select date_select" required>
+                                        <option value="" selected disabled hidden>Select End Month</option>
+                                            {{#months}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/months}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6">
+                                        <select name="endYear" id="endYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select End Year</option>
+                                           {{#years}}
+                                                <option value="{{.}}">{{.}}</option>
+                                            {{/years}}
+                                        </select>
+
+                                        <div class="form__check">
+                                            <input class="form__check__input" type="checkbox" id="present"/>
+                                            <label class="form__check__label" id="checkbox-inline" for="present">I currently work here</label>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="form__group col-12 textarea_comp">
+                                        <div class="wrapper_label">
+                                            <label class="form__label" for="description">Describe your education</label>
+                                            <span class="icon_label_list"></span>
+                                        </div>
+                                        <textarea class="form-control" rows="8" name="textarea_prof_desc" id="textarea_prof_desc"></textarea>
+                                    </div>
+                                
+                                    <div class="col-12 buttons">
+                                        <div class="buttons_wrapper">
+                                            <button type="button" class="btn btn_cancel" id="cancelBtn" {{^expExists}}disabled{{/expExists}}>Cancel</button>
+                                            <button type="submit" class="btn btn-form-submit" id="btnContinue">Add</button>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </form>
+                        {{/isForm}}
+
+                        {{#isList}}
+                            <div class="education_list_wrapper">
+                                <div class="education_list">
+                                    {{#current_resume.education}}
+                                        <div class="education_{{index}}">
+                                            <span class="position">{{degree}}</span>
+                                            <div class="dates_comp_wrapper">
+                                                <span class="place">{{school}}</span>
+                                                <span class="dates">
+                                                    <span class="date_span startMonth">{{startMonth}}</span>
+                                                    <span class="date_span startYear">{{startYear}}</span>
+                                                    <span class="delimeter"> - </span>
+                                                    {{#endMonth}}
+                                                        <span class="date_span endMonth">{{endMonth}}</span>
+                                                        <span class="date_span endYear">{{endYear}}</span>
+                                                    {{/endMonth}}
+                                                    {{^endMonth}}
+                                                        <span class="date_span">Present</span>
+                                                    {{/endMonth}}
+                                                </span>
+                                            </div>
+                                            {{#textarea_type_div}}
+                                                <div class="description">
+                                                    {{textarea_prof_desc}}
+                                                </div>
+                                            {{/textarea_type_div}}
+                                            {{^textarea_type_div}}
+                                                <ul class="description ul_holder">
+                                                    {{{textarea_prof_desc}}}
+                                                </ul>
+                                            {{/textarea_type_div}}
+                                            <div class="buttons_icons">
+                                                <span id="delete_exp" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
+                                                <span id="edit_exp" data-hover="Edit"><i class="fa-solid fa-pen"></i></span>
+                                            </div>
+                                        </div>
+                                    {{/current_resume.education}}
+                                </div>
+
+                            </div>
+                            <div class="add_education_div">
+                                    <button type="button" id="add_education" class="btn btn-add-education">Add another Education</button>
+                            </div>
+                        {{/isList}}
+
+                        {{#isEdit}}
+                            <form class="form_education edit">
+                                <div class="row">
+
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="degree">Degree</label>
+                                        <input type="text" class="form__input" id="degree" name="degree" required maxlength="40" value="{{eduItem.degree}}"/>
+                                    </div>
+                                    <div class="form__group col-12">
+                                        <label class="form__label" for="school">School</label>
+                                        <input type="text" class="form__input" id="school" name="school" required maxlength="40" value="{{eduItem.school}}"/>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startMonth" id="startMonth" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Month</option>
+                                            {{#startMonths}}
+                                                <option value="{{month}}" {{#active}}selected{{/active}}>{{month}}</option>
+                                            {{/startMonths}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6 date_top">
+                                        <select name="startYear" id="startYear" class="form-select date_select" required>
+                                            <option value="" selected disabled hidden>Select Start Year</option>
+                                            {{#startYears}}
+                                                <option value="{{year}}" {{#active}}selected{{/active}}>{{year}}</option>
+                                            {{/startYears}}
+                                        </select>
+                                    </div>
+                                
+                                    <div class="form__group col-6">
+                                        <select name="endMonth" id="endMonth" class="form-select date_select" required {{#checkboxChecked}}disabled{{/checkboxChecked}}>
+                                        <option value="" selected disabled hidden>Select End Month</option>
+                                            {{#endMonths}}
+                                                <option value="{{month}}" {{#active}}selected{{/active}}>{{month}}</option>
+                                            {{/endMonths}}
+                                        </select>
+                                    </div>
+
+                                    <div class="form__group col-6">
+                                        <select name="endYear" id="endYear" class="form-select date_select" required {{#checkboxChecked}}disabled{{/checkboxChecked}}>
+                                            <option value="" selected disabled hidden>Select End Year</option>
+                                           {{#endYears}}
+                                                <option value="{{year}}" {{#active}}selected{{/active}}>{{year}}</option>
+                                            {{/endYears}}
+                                        </select>
+
+                                        <div class="form__check">
+                                            <input class="form__check__input" type="checkbox" id="present" {{#checkboxChecked}}checked{{/checkboxChecked}}/>
+                                            <label class="form__check__label" id="checkbox-inline" for="present">I currently work here</label>
+                                        </div>
+                                    </div>
+                                    {{#eduItem.textarea_type_div}}
+                                        <div class="form__group col-12 textarea_comp">
+                                            <div class="wrapper_label">
+                                                <label class="form__label" for="description">Describe your exeprience</label>
+                                                <span class="icon_label_list"></span>
+                                            </div>
+                                            <textarea class="form-control" rows="8" name="textarea_prof_desc" id="textarea_prof_desc">{{eduItem.textarea_prof_desc}}</textarea>
+                                        </div>
+                                    {{/eduItem.textarea_type_div}}
+
+                                    {{^eduItem.textarea_type_div}}
+                                        <div class="form__group col-12 textarea_comp">
+                                            <div class="wrapper_label">
+                                                <label class="form__label" for="description">Describe your Education<span class="bullet_text">(as bullet list)</span></label>
+                                                <span class="icon_label_text"></span>
+                                            </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <input type="text" class="form__input bullet_desc" id="bullet_desc" maxlength="250"/>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <button type="button" class="btn btn_add_bullet">Save</button>
+                                                    </div>
+                                                </div>
+                                            <ul class="list_holder">
+                                                {{{textarea_prof_desc_string}}}
+                                            </ul>
+                                        </div>
+                                    {{/eduItem.textarea_type_div}}
+                                
+                                    <div class="col-12 buttons">
+                                        <div class="buttons_wrapper">
+                                            <button type="button" class="btn btn_cancel" id="cancelBtn" {{^expExists}}disabled{{/expExists}}>Cancel</button>
+                                            <button type="submit" class="btn btn-form-submit" id="btnContinue">Update</button>
+                                        </div>
+                                    </div>
+                                
+                                </div>
+                            </form>
+                        {{/isEdit}}
+                    </div>
+
+                    {{/isEducation}}
+
+                    {{#isSkills}}
+                        <div class="skills-range">
+                            <div class="skills_wrapper">
+                                {{#current_resume.skills}}
+                                    <div class="skill_div_{{index}}">
+                                        <div class="skill">
+                                            <span>{{skill}}</span>
+                                            <span id="delete_skill" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
+                                        </div>
+                                        <div class="range_wrapper">
+                                            <div class="skill_range" style="width: {{rangeValue}}%;"></div>
+                                        </div>
+                                    </div>
+                                {{/current_resume.skills}}
+                            </div>
+        
+                            <div class="button_wrapper">
+                                <span class="add_skill">+ Add {{#skillsArrayLength}}one more {{/skillsArrayLength}}skill</span>
+                            </div>
+
+                            <div class="form_add_skill d-none">
+                                <form>
+                                        <div class="skill_div form__group">
+                                            <label class="form__label" for="skill">Skill</label>
+                                            <input type="text" class="form__input" id="skill" name="skill" required maxlength="40"/>
+                                        </div>
+                                        <div class="input_div form__group">
+                                            <label class="form__label">Level Competency</label>
+                                            <input type="range" class="slider" id="skillRange" value="100" max="100"/>
+                                        </div>
+                                    
+                                    <div class="buttons">
+                                        <button type="button" class="btn btn_cancel btn-back" id="cancelBtn">Cancel</button>
+                                        <button type="submit" class="btn btn-next" id="btnSave">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    {{/isSkills}}
+
+                    {{#isLanguages}}
+                        <div class="languages-star">
+
+                            <div class="form_add_language">
+                                <form>
+                                        <div class="language_div form__group">
+                                            <label class="form__label" for="language">Language</label>
+                                            <input type="text" class="form__input" id="language" name="language" required maxlength="40"/>
+                                        </div>
+                                        <div class="input_div form__group">
+                                            <label class="form__label">Level Competency</label>
+                                            <fieldset class="rating">
+                                                <input type="radio" id="rating-5" name="rating" value="5" /><label for="rating-5"></label>
+                                                <input type="radio" id="rating-4" name="rating" value="4" /><label for="rating-4"></label>
+                                                <input type="radio" id="rating-3" name="rating" value="3" checked="checked"/><label for="rating-3"></label>
+                                                <input type="radio" id="rating-2" name="rating" value="2" /><label for="rating-2"></label>
+                                                <input type="radio" id="rating-1" name="rating" value="1" /><label for="rating-1"></label>                                 
+                                            </fieldset>
+                                        </div>
+                                    
+                                    <div class="buttons">
+                                        <button type="submit" class="btn btn-next" id="btnSave">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="languages_wrapper">
+                                {{#current_resume.languages}}
+                                    <div class="language_div_{{index}}">
+                                        <span class="language_name">{{language}}</span> 
+                                        <span class="rating star_{{starValue}}">
+                                            <span class="star1"></span>
+                                            <span class="star2"></span>
+                                            <span class="star3"></span>
+                                            <span class="star4"></span>
+                                            <span class="star5"></span>
+                                        </span>
+                                        <span id="delete_language" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
+                                    </div>
+                                {{/current_resume.languages}}
+                            </div>
+
+                        </div>
+
+                    {{/isLanguages}}
+
+                    {{#isProfile}}
+                        <div class="profile standard">
+                            <form>
+                                <div class="form__group">
+                                    <label class="form__label" for="description">Describe yourself shortly</label>
+                                    <textarea class="form-control" rows="10" name="profile_desc" id="profile_desc">{{#profileDesc}}{{profileDesc}}{{/profileDesc}}</textarea>
+                                </div>
+                                <div class="buttons">
+                                            <button type="submit" class="btn btn-next" id="btnSave">Submit</button>
+                                        </div>
+                            </form>
+                        </div>
+                    {{/isProfile}}
+
+                    {{#isFinalize}}
+
+                        <div class="finalize">
+                            <div class="message_screen">
+                                <p class="finalize_message">
+                                    Your CV is ready to be downloaded
+                                </p>
+
+                                <button class="btn btn-next" id="download">Download</button>
+                            </div>
+                            <div class="loader_wrapper d-none">
+                                <div class="loader"></div>
+                                <p>Your download will begin shortly</p>
+                            </div>
+                        </div>
+
+                    {{/isFinalize}}
+                </div>
+
+                <div class="navigation_buttons-desktop">
+                    <div class="buttons-desktop">
+                        <button class="btn btn-back" {{#isPersonal}}disabled{{/isPersonal}}>Back</button>
+                        <button class="btn btn-remove" {{#isPersonal}}disabled{{/isPersonal}} {{#isFinalize}}disabled{{/isFinalize}}>Remove</button>
+                        <button class="btn btn-next" {{#isFinalize}}disabled{{/isFinalize}}>Skip</button>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+    </div>
+
+    <div class="alert_toast">
+                
+    </div>
+
+    <div class="navigation_buttons">
+        <div class="buttons">
+            <button class="btn btn-back" {{#isPersonal}}disabled{{/isPersonal}}>Back</button>
+            <button class="btn btn-remove" {{#isPersonal}}disabled{{/isPersonal}} {{#isFinalize}}disabled{{/isFinalize}}>Remove</button>
+            <button class="btn btn-next" {{#isFinalize}}disabled{{/isFinalize}}>Skip</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

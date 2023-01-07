@@ -1,0 +1,32 @@
+.navigaion__menu {
+
+    @include respond(tab-port) {
+        display: block !important;
+    }
+
+    ul {
+        list-style-type: none;
+
+        li {
+            display: inline-block;
+            font-size: 2.5rem;
+            padding: 0 2rem;
+
+            a {
+                color: $color-white;
+                &:after, :before {
+                    display: block;
+                    content: '';
+                    border-bottom: solid 3px #e06b0b;
+                    transform: scaleX(0);
+                    transition: transform 250ms ease-in-out;
+                }
+                &:hover {
+                    &:after, :before{
+                        transform: scaleX(1);
+                    }
+                }
+            }
+        }
+    }
+}

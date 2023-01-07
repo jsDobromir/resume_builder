@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/styles/editor.css"/>
+    <script type="text/javascript" src="/editor.js"></script>
+    <title>Resume Builder App</title>
+</head>
+
+<body>
+    <header class="header__editor">
+
+        <div class="header__top-row">
+            <div class="header__logo-box">
+                <a href="/" class="header__atag"><span>Free CV builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
+            </div>
+            <div class="track_bar">
+                <div class="track_bar_inner">
+                    {{#trackRoutes}}
+                        <span class="route {{#active}}active{{/active}} capitalize" data-url="{{route}}">{{route}}</span>
+                    {{/trackRoutes}}
+                </div>
+            </div>
+        </div>
+    </header>
+        
+    <div class="wrapper" data-active-route="personal" data-active-cv="{{type}}" data-cv-id="{{cvId}}" data-routes="{{routes}}" data-resumes="{{resumes}}">
+
+        <div class="row comp_container">
+            <div class="col-12 col-md-6 cvcomp">
+                
+                    <div class="cv1_editor">
+
+                            <div class="row cv_container cv_editor">
+                                <div class="leftCol col-4">
+                                    <div class="personal">
+                                        <div class="persolan_top_wrapper">
+                                            <div class="image_cont">
+                                                <img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/images/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/>
+                                            </div>
+
+                                            <h2>Personal</h2>
+                                        </div>
+                                        <div class="bio">
+                                            <div class="bio_group">
+                                                <span class="weighted address" data-text="Address">
+                                                    {{#current_resume.personal.address}}
+                                                        Address
+                                                    {{/current_resume.personal.address}}
+                                                </span>
+                                                <span class="address" id="address">{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}</span>
+                                                <span class="city" id="city">{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}</span>
+                                            </div>
+                                            <div class="bio_group">
+                                                <span class="weighted phone" data-text="Phone">
+                                                    {{#current_resume.personal.phone}}
+                                                        Phone
+                                                    {{/current_resume.personal.phone}}
+                                                </span>
+                                                <span class="phone" id="phone">{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}</span>
+                                            </div>
+                                            <div class="bio_group">
+                                                <span class="weighted email" data-text="Email">
+                                                    {{#current_resume.personal.email}}
+                                                        Email
+                                                    {{/current_resume.personal.email}}
+                                                </span>
+                                                <span id="email">{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    {{#skills}}
+                                        <div class="skills">
+                                            <h2>Skills</h2>
+                                            {{#current_resume.skills}}
+                                                <div class="skill_div_{{index}}">
+                                                    <div class="skill">{{skill}}</div>
+                                                    <div class="range_wrapper">
+                                                        <div class="skill_range" style="width: {{rangeValue}}%;"></div>
+                                                    </div>
+                                                </div>
+                                            {{/current_resume.skills}}
+                                        </div>
+                                    {{/skills}}
+
+                                    {{#languages}}
+                                        <div class="languages">
+                                            <h2>Languages</h2>
+                                            
+                                            {{#current_resume.languages}}
+                                                <div class="language_div_{{index}}">
+                                                    <span class="language_name">{{language}}</span>
+                                                    <span class="rating star_{{starValue}}">
+                                                        <span class="star1"></span>
+                                                        <span class="star2"></span>
+                                                        <span class="star3"></span>
+                                                        <span class="star4"></span>
+                                                        <span class="star5"></span>
+                                                    </span>
+                                                </div>
+                                            {{/current_resume.languages}}
+
+                                        </div>
+                                    {{/languages}}
+
+                                </div>
+                                <div class="rightCol col-8">
+                                    <div class="name">
+                                        <h1><span id="firstName">
+                                            {{#current_resume.personal.firstName}}
+                                                {{current_resume.personal.firstName}}
+                                            {{/current_resume.personal.firstName}}
+                                            {{^current_resume.personal.firstName}}
+                                                Name
+                                            {{/current_resume.personal.firstName}}
+                                        </span> <span id="lastName">
+                                            {{#current_resume.personal.lastName}}
+                                                {{current_resume.personal.lastName}}
+                                            {{/current_resume.personal.lastName}}
+                                            {{^current_resume.personal.lastName}}
+                                                Name
+                                            {{/current_resume.personal.lastName}}
+                                        </span></h1>
+                                    </div>
+                                {{#profile}}    
+                                    <div class="profile">
+                                        {{#current_resume.profile.profile_desc}}
+                                            {{current_resume.profile.profile_desc}}
+                                        {{/current_resume.profile.profile_desc}}
+                                    </div>
+                                {{/profile}}
+                                {{#experience}}
+                                    <div class="experience">
+                                        <h3 class="experience__title">Work Experience</h3>
+                                        <div class="experience__list">
+                                            {{#current_resume.experience}}
+                                                <div class="experience__list__item experience__list__item__{{index}}">
+                                                    <span class="position">{{position}}</span>
+                                                    <div class="company_wrapper editor">
+                                                        <span class="company">{{company}}</span>
+                                                        <span class="dates">
+                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                            <span class="date_span delimeter"> - </span>
+                                                            {{#endMonth}}
+                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                            {{/endMonth}}
+                                                            {{^endMonth}}
+                                                                <span class="date_span present">Present</span>
+                                                            {{/endMonth}}
+                                                        </span>
+                                                    </div>
+                                                    {{#textarea_type_div}}
+                                                        <div class="description">
+                                                            {{textarea_prof_desc}}
+                                                        </div>
+                                                    {{/textarea_type_div}}
+                                                    {{^textarea_type_div}}
+                                                        <ul class="description ul_holder">
+                                                            {{{textarea_prof_desc}}}
+                                                        </ul>
+                                                    {{/textarea_type_div}}
+                                                </div>
+                                            {{/current_resume.experience}}
+                                        </div>
+                                    </div>
+                                {{/experience}}
+                                {{#education}}
+                                    <div class="education">
+                                        <h3 class="education__title">Education</h3>
+                                        <div class="education__list">
+                                            {{#current_resume.education}}
+                                                <div class="education__list__item education__list__item__{{index}}">
+                                                    <span class="degree">{{degree}}</span>
+                                                    <div class="company_wrapper editor">
+                                                        <span class="school">{{school}}</span>
+                                                        <span class="dates">
+                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                            <span class="date_span delimeter"> - </span>
+                                                            {{#endMonth}}
+                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                            {{/endMonth}}
+                                                            {{^endMonth}}
+                                                                <span class="date_span">Present</span>
+                                                            {{/endMonth}}
+                                                        </span>
+                                                    </div>
+                                                    {{#textarea_type_div}}
+                                                        <div class="description">
+                                                            {{textarea_prof_desc}}
+                                                        </div>
+                                                    {{/textarea_type_div}}
+                                                    {{^textarea_type_div}}
+                                                        <ul class="description ul_holder">
+                                                            {{{textarea_prof_desc}}}
+                                                        </ul>
+                                                    {{/textarea_type_div}}
+                                                </div>
+                                            {{/current_resume.education}}
+                                        </div>
+                                    </div>
+                                {{/education}}
+                                </div>
+                            </div>
+                    </div>
+            </div>
+            <div class="formcomp_wrapper">
+                <div class="col-12 col-md-6 formcomp">
+
+                    <div class="personal">
+
+                        <form enctype="multipart/form-data" class="form">
+
+                            <div class="form__group">
+                                <label class="form__label" for="firstName">First Name</label>
+                                <input type="text" class="form__input" id="firstName" name="firstName" required maxlength="40" value="{{#current_resume.personal.firstName}}{{current_resume.personal.firstName}}{{/current_resume.personal.firstName}}"/>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="lastName">Last Name</label>
+                                <input type="text" class="form__input" id="lastName" name="lastName" required maxlength="40" value="{{#current_resume.personal.lastName}}{{current_resume.personal.lastName}}{{/current_resume.personal.lastName}}"/>
+                            </div>
+                            
+                            <div class="form__group">
+                                    <label class="form__label form__label__file"> Profile Photo
+                                        <input type="file" class="form__input" id="profilePhoto" name="profilePhoto">
+                                        <span class="btn btn_upload">Upload photo</span>
+                                    </label>
+                            </div>
+                            
+                            <div class="form__group">
+                                <label class="form__label" for="phone">Address</label>
+                                <input type="text" class="form__input" id="address" name="address" required maxlength="40" value="{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}"/>
+                            </div>
+
+                            <div class="form__group">
+                                <label class="form__label" for="phone">City</label>
+                                <input type="text" class="form__input" id="city" name="city" required maxlength="40" value="{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}"/>
+                            </div>
+                                    
+                            <div class="form__group">
+                                <label class="form__label" for="phone">Phone</label>
+                                <input type="text" class="form__input" id="phone" name="phone" pattern="^[+0-9-]*$" required maxlength="40" value="{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}"/>
+                                
+                            </div>
+                            
+                            <div class="form__group">
+                                <label class="form__label" for="email">Email</label>
+                                <input type="email" class="form__input" id="email" name="email" required maxlength="50" value="{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}"/>
+                                        
+                            </div>
+
+                            <div class="btn-group">
+                                <button type="submit" class="btn btn_submit">Submit</button>
+                            </div>
+                        </form>
+
+                    </div>   
+
+                </div>
+
+                <div class="navigation_buttons-desktop">
+                    <div class="buttons-desktop">
+                        <button class="btn btn-back" {{#isPersonal}}disabled{{/isPersonal}}>Back</button>
+                        <button class="btn btn-remove" {{#isPersonal}}disabled{{/isPersonal}}>Remove</button>
+                        <button class="btn btn-next">Skip</button>
+                    </div>
+                </div>
+
+            </div> 
+        </div>
+
+    </div>
+
+    <div class="alert_toast">
+                
+    </div>
+
+    <div class="navigation_buttons">
+        <div class="buttons">
+            <button class="btn btn-back" {{#isPersonal}}disabled{{/isPersonal}}>Back</button>
+            <button class="btn btn-remove" {{#isPersonal}}disabled{{/isPersonal}}>Remove</button>
+            <button class="btn btn-next">Skip</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

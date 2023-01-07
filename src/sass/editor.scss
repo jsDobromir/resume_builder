@@ -1,0 +1,40 @@
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+@import "../../node_modules/bootstrap/scss/functions";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/forms";
+
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button";
+@import "components/form";
+@import "components/loader";
+
+@import "layout/grid";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/experience";
+@import "layout/education";
+@import "layout/skillsrange";
+@import "layout/skillsstar";
+@import "layout/certifications";
+@import "layout/portfolio";
+@import "layout/socialLinks";
+@import "layout/languagestar";
+
+@import "pages/home";
+@import "pages/editor";
+@import "pages/newcv";
+@import "pages/resumes";
+
+@import "cvs/cv1";
+@import "cvs/cv2";
+@import "cvs/cv3";
+@import "cvs/cv4";
+@import "cvs/editor/cv1";
+@import "cvs/editor/cv2";

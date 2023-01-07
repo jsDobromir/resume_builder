@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__top-row">
+            <div class="header__logo-box">
+                <a href="/" class="header__atag"><span>Free CV builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
+            </div>
+    
+            <nav class="navigaion__menu d-none">
+                <ul>
+                    <li><a href="/resumes">Your resumes</a></li>
+                    <li><a href="#">Templates</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+        </div>
+        
+
+        <div class="header__text-box">
+            <h1 class="heading-primary">
+                <span class="heading-primary--main">Build your</span>
+                <span class="heading-primary--sub">CV completely free</span>
+            </h1>
+
+            <a href="/newcv" class="btn btn--white btn--animated">Create your CV</a>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="section-about">
+            <h3 class="heading-secondary">No registration or credit card required!!!</h3>
+        </section>
+
+        <section class="templates">
+
+            <div class="text-padding u-center-text">
+                <h1 class="primary-text">Select template</h1>
+            </div>
+
+            <div class="row templates_div">
+                
+                <div class="col-12 col-lg-6" id="template_link" data-active-cv="standard">
+
+                <div class="cv1 home">
+                    <div class="row cv_container home">
+                        <div class="leftCol col-4">
+                            <div class="personal">
+                                <div class="persolan_top_wrapper">
+                                    <div class="image_cont">
+                                        <img class="prof_image" src="/public/profile_man.jpg" loading="lazy" alt="profile picture"/>
+                                    </div>
+
+                                    <h2>Personal</h2>
+                                </div>
+                                <div class="bio">
+                                    <div class="bio_group">
+                                        <span class="weighted">Address</span>
+                                        <span class="street">841 John Hopkins Rd</span>
+                                        <span class="city">London</span>
+                                    </div>
+                                    <div class="bio_group">
+                                        <span class="weighted">Phone Number</span>
+                                        <span class="number">+44 1231 123122</span>
+                                    </div>
+                                    <div class="bio_group">
+                                        <span class="weighted">Email</span>
+                                        <span>john@gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                         
+
+                            <div class="skills">
+                                <h2>Skills</h2>
+                                <div class="skill">
+                                    Web Development
+                                    <div class="range_wrapper">
+                                        <div class="skill_range" style="width: 80%;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    HTML5
+                                    <div class="range_wrapper">
+                                        <div class="skill_range" style="width: 60%;"></div>
+                                    </div>
+                                </div>
+                                <div class="skill">
+                                    CSS
+                                    <div class="range_wrapper">
+                                        <div class="skill_range" style="width: 50%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="languages">
+
+                                <h2>Languages</h2>
+                                <div class="lang_rating1">
+                                    <span class="lang_name">French</span>
+                                    <span class="rating">
+                                        <span class="star1"></span>
+                                        <span class="star2"></span>
+                                        <span class="star3"></span>
+                                        <span class="star4"></span>
+                                        <span class="star5"></span>
+                                    </span>
+                                </div>
+
+                                <div class="lang_rating2">
+                                    <span class="lang_name">Spanish</span>
+                                    <span class="rating">
+                                        <span class="star1"></span>
+                                        <span class="star2"></span>
+                                        <span class="star3"></span>
+                                        <span class="star4"></span>
+                                        <span class="star5"></span>
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="rightCol col-8">
+                            <div class="name">
+                                <h1>John Smith</h1>
+                            </div>
+
+                            <div class="desc">
+                                Passionate full stack web developer with interests in backend and frontend development. Very good skills in JavaScript, HTML, CSS, Node.js. Curios about new technologies and love to develop interesting apps.
+                            </div>
+
+                            <div class="experience">
+                                <h3 class="experience__title">Work Experience</h3>
+                                <div class="experience__list">
+                                    <div class="experience__list__item">
+                                        <div class="position">Software Engineer</div>
+                                        <div class="company_wrapper">
+                                            <span class="company">Google</span>
+                                            <span class="dates">January 2014 - March 2018</span>
+                                        </div>
+                                        <div class="description">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                        </div>
+                                    </div>
+
+                                    <div class="experience__list__item">
+                                        <div class="position">Web Developer</div>
+                                        <div class="company_wrapper">
+                                            <span class="company">Facebook</span>
+                                            <span class="dates">March 2014 - June 207</span>
+                                        </div>
+                                        <div class="description">
+                                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="education">
+                                <h3 class="education__title">Education</h3>
+                                <div class="education__list">
+                                    <div class="education__list__item">
+                                        <div class="degree">Bachelof of Engineering</div>
+                                        <div class="wrapper">
+                                            <span class="school">University of Amsterdam</span>
+                                            <span class="dates">September 2010 - June 2013</span>
+                                        </div>
+                                        <div class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                        </div>
+                                    </div>
+
+                                    <div class="education__list__item">
+                                        <div class="degree">Bachelof of Engineering</div>
+                                        <div class="wrapper">
+                                            <span class="school">University of Amsterdam</span>
+                                            <span class="dates">September 2010 - June 2013</span>
+                                        </div>
+                                        <div class="description">
+                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="select-button">
+                            <a class="btn-text-select" href="/editor/{{id1}}/standard">Choose this template</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-12 col-lg-6" id="template_link" data-active-cv="fancy">
+                
+                    <div class="cv2">
+                        <div class="cv_container">
+                            <div class="cv__header">
+                                <div class="pic_info">
+                                    <div class="pic"><img src="/public/profile_man2.jpg" loading="lazy" alt="profile_photo"/></div>
+                                    <div class="info">
+                                        <h1 class="name">Dobromir Ganchev</h1>
+                                        <span class="position">Software Engineer</span>
+                                    </div>
+                                </div>
+
+                                <div class="address_info">
+                                    <div class="location">
+                                        <span class="icon"><i class="fa-2xl fa-solid fa-location-dot"></i></span>
+                                        <div class="location_address">
+                                            <span class="address text">305 Harvey Street Corona</span>
+                                            <span class="city text">New Youk, USA</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="phone">
+                                        <span class="icon"><i class="fa-2xl fa-sharp fa-solid fa-phone"></i></span>
+                                        <span class="text">+359879123851</span>
+                                    </div>
+
+                                    <div class="email">
+                                        <span class="icon"><i class="fa-2xl fa-regular fa-envelope"></i></span>
+                                        <span class="text">dobrganch@gmail.com</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row cv__content">
+                                <div class="leftCol col-4">
+                                    <div class="skills">
+                                        <h2>Skills</h2>
+
+                                        <div class="skill_rating1">
+                                            <span class="skill_name">JavaScript</span>
+                                            <span class="rating">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+
+                                        <div class="skill_rating2">
+                                            <span class="skill_name">HTML5</span>
+                                            <span class="rating">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+
+                                        <div class="skill_rating3">
+                                            <span class="skill_name">CSS</span>
+                                            <span class="rating">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+
+                                        <div class="skill_rating4">
+                                            <span class="skill_name">Node.js</span>
+                                            <span class="rating">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+
+                                        <div class="skill_rating5">
+                                            <span class="skill_name">OOP</span>
+                                            <span class="rating">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="social_links">
+                                        <h2>Social Links</h2>
+                                        <div class="soc_link">
+                                            <span class="icon"><i class="fa-2xl fa-brands fa-linkedin"></i></span>
+                                            <span class="link"><a href="https://linkedin.com/profile">https://www.linkedin.com/proflile</a></span>
+                                        </div>
+
+                                        <div class="soc_link">
+                                            <span class="icon icon_youtube"><i class="fa-brands fa-youtube"></i></span>
+                                            <span class="link"><a href="https://youtbe.com/profile">https://www.youtube.com/proflile</a></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="portfolio">
+                                        <h2>Portfolio</h2>
+                                        <span class="link"><a href="https://myportfolio.com">https://myportfolio.com</a></span>
+                                    </div>
+
+                                    <div class="certification">
+                                        <div class="certification__title_image">
+                                            <div class="image"><img src="/public/certificate.png" alt="certificate"/></div>
+                                            <h3 class="certification__title">Certifications</h3>
+                                        </div>
+
+                                        <div class="certification__list">
+                                            <div class="certification__list__item">
+                                                <h2>Salesforce Developer</h2>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="rightCol col-8">
+                                    <div class="experience">
+                                        <div class="experience__title_image">
+                                            <div class="image"><img src="/public/briefcase.png" alt="work experience"/></div>
+                                            <h3 class="experience__title">Experience</h3>
+                                        </div>
+                                        
+                                        <div class="experience__list">
+                                            <div class="experience__list__item">
+                                                <div class="position">Software Engineer</div>
+                                                <div class="company_wrapper">
+                                                    <span class="company">Google</span>
+                                                    <span class="dates">January 2014 - March 2018</span>
+                                                </div>
+                                                <ul class="description">
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos deserunt dolor, molestiae non eius labore.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab accusantium obcaecati ea, vero ex hic?</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores animi reprehenderit saepe fugiat a iste?</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="experience__list__item">
+                                                <div class="position">Software Engineer</div>
+                                                <div class="company_wrapper">
+                                                    <span class="company">Google</span>
+                                                    <span class="dates">January 2014 - March 2018</span>
+                                                </div>
+                                                <ul class="description">
+                                                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quas voluptates soluta facilis repudiandae sapiente velit.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. In natus tempore ipsum repellat. Accusantium, totam?</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores officiis consequuntur iusto possimus rerum debitis?</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="education">
+                                        <div class="education__title_image">
+                                            <div class="image"><img src="/public/education.png" alt="education"/></div>
+                                            <h3 class="education__title">Education</h3>
+                                        </div>
+
+                                        <div class="education__list">
+                                            <div class="education__list__item">
+                                                <div class="degree">Bachelof of Engineering</div>
+                                                <div class="wrapper">
+                                                    <span class="school">University of Amsterdam</span>
+                                                    <span class="dates">September 2010 - June 2013</span>
+                                                </div>
+                                                <ul class="description">
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, expedita.</li>
+                                                    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, laborum?</li>
+                                                </ul>
+                                            </div>
+
+                                            <div class="education__list__item">
+                                                <div class="degree">Bachelof of Engineering</div>
+                                                <div class="wrapper">
+                                                    <span class="school">University of Amsterdam</span>
+                                                    <span class="dates">September 2010 - June 2013</span>
+                                                </div>
+                                                <div class="desc">
+                                                    Lorem ipsum dolor sit amet. Quo voluptatem optio et placeat fugiat ex repudiandae rerum. Ea culpa nostrum est galisum quis non expedita laudantium non nostrum maiores ut ullam autem aut magni eligendi eum tempora voluptates. Aut aliquam laboriosam ab autem autem est ipsam eveniet.
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="select-button">
+                                <a class="btn-text-select" href="/editor/{{id2}}/fancy">Choose this template</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+                <div class="col-12 col-lg-6" id="template_link" data-active-cv="custom">
+                    <div class="cv3">
+                        <div class="row cv_container">
+                            <div class="heading col-12">
+                                <div class="name">Dobromir Ganchev</div>
+                                <div class="position">Software Engineer</div>
+                                <div class="contact_info">
+                                    <span class="address"><i class="fa-solid fa-location-dot"></i> <span class="right_text">str. John Hopkins 2, New York</span></span>
+                                    <span class="phone"><i class="fa-solid fa-phone"></i> <span class="right_text">0023141231221</span></span>
+                                    <span class="email"><i class="fa-solid fa-envelope"></i> <span class="right_text">john@gmail.com</span></span>
+                                </div>
+                            </div>
+
+                            <div class="main_content col-12">
+                                
+                                <div class="row">
+                                    <div class="col-8 left_main_content">
+                                        <div class="profile">
+                                            <h3 class="profile_title">Profile</h3>
+                                            <div class="desc">
+                                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odio perspiciatis, ex dignissimos fuga ad dolore rem harum ipsa illo unde quis eaque repellendus. Maxime, fuga!
+                                            </div>
+                                        </div>
+
+                                        <div class="experience">
+                                            <h3 class="experience__title">Experience</h3>
+                                            <div class="experience__list">
+                                                <div class="experience__list__item">
+                                                    <div class="position">Software Engineer</div>
+                                                    <div class="company_wrapper">
+                                                        <span class="company">Google</span>
+                                                        <span class="dates">January 2014 - March 2018</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                                    </div>
+                                                </div>
+
+                                                <div class="experience__list__item">
+                                                    <div class="position">Web Developer</div>
+                                                    <div class="company_wrapper">
+                                                        <span class="company">Facebook</span>
+                                                        <span class="dates">March 2014 - June 207</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="education">
+                                            <h3 class="education__title">Education</h3>
+                                            <div class="education__list">
+                                                <div class="education__list__item">
+                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="wrapper">
+                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="dates">September 2010 - June 2013</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                                    </div>
+                                                </div>
+
+                                                <div class="education__list__item">
+                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="wrapper">
+                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="dates">September 2010 - June 2013</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4 right_main_content">
+                                        <div class="skills">
+                                            <h2>Skills</h2>
+
+                                            <div class="skill_rating1">
+                                                <span class="skill_name">JavaScript</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="skill_rating2">
+                                                <span class="skill_name">HTML5</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="skill_rating3">
+                                                <span class="skill_name">CSS</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="skill_rating4">
+                                                <span class="skill_name">Node.js</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="skill_rating5">
+                                                <span class="skill_name">OOP</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="languages">
+                                            <h2>Languages</h2>
+                                            <div class="language">
+                                                French
+                                                <div class="range_wrapper">
+                                                    <div class="lang_range" style="width: 80%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="language">
+                                                German
+                                                <div class="range_wrapper">
+                                                    <div class="lang_range" style="width: 60%;"></div>
+                                                </div>
+                                            </div>
+                                            <div class="language">
+                                                Danish
+                                                <div class="range_wrapper">
+                                                    <div class="lang_range" style="width: 50%;"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="certificates">
+                                            <h2 class="certification__title">Certifications</h2>
+                                            <div class="certification__list">
+                                                <div class="certification__list__item">
+                                                    <h3>JavaScript Developer</h3>
+                                                </div>
+                                                <div class="certification__list__item">
+                                                    <h3>Salesforce Commerce Cloud Developer</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="select-button">
+                                <a class="btn-text-select" href="/editor/{{id3}}/custom">Choose this template</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6" id="template_link" data-active-cv="simple">
+                    <div class="cv4">
+                        <div class="row cv_container">
+                            <div class="heading col-12">
+                                <div class="row">
+                                    <div class="col-6 heading_left">
+                                        <div class="name">Dobromir Ganchev</div>
+                                        <div class="position">Software Engineer</div>
+                                        <div class="desc">
+                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. 
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6 heading_right">
+                                        <div class="contact_info">
+                                            <span class="info address"><span><i class="fa-solid fa-location-dot"></i></span> <span class="right_text">str. John Hopkins 2, New York</span></span>
+                                            <span class="info phone"><span><i class="fa-solid fa-phone"></i></span> <span class="right_text">0023141231221</span></span>
+                                            <span class="info email"><span><i class="fa-solid fa-envelope"></i></span> <span class="right_text">john@gmail.com</span></span>
+                                            <span class="info linkedin"><span><i class="fa-brands fa-linkedin"></i></span> <span class="right_text">https://www.linkedin.com/profile</span> </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="main_content col-12">
+                                
+                                <div class="row">
+                                    <div class="col-8 left_main_content">
+
+                                        <div class="experience">
+                                            <h3 class="experience__title">Experience</h3>
+                                            <div class="experience__list">
+                                                <div class="experience__list__item">
+                                                    <div class="position">Software Engineer</div>
+                                                    <div class="company_wrapper">
+                                                        <span class="company">Google</span>
+                                                        <span class="dates">January 2014 - March 2018</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                                    </div>
+                                                </div>
+
+                                                <div class="experience__list__item">
+                                                    <div class="position">Web Developer</div>
+                                                    <div class="company_wrapper">
+                                                        <span class="company">Facebook</span>
+                                                        <span class="dates">March 2014 - June 207</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="education">
+                                            <h3 class="education__title">Education</h3>
+                                            <div class="education__list">
+                                                <div class="education__list__item">
+                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="wrapper">
+                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="dates">September 2010 - June 2013</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                                    </div>
+                                                </div>
+
+                                                <div class="education__list__item">
+                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="wrapper">
+                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="dates">September 2010 - June 2013</span>
+                                                    </div>
+                                                    <div class="description">
+                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-4 right_main_content">
+                                        <div class="skills">
+                                            <h2>Skills</h2>
+
+                                            <ul class="skills_list">
+                                                <li>JavaScript</li>
+                                                <li>HTML5</li>
+                                                <li>CSS</li>
+                                                <li>Node.js</li>
+                                                <li>OOP</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="languages">
+                                            <h2>Languages</h2>
+
+                                            <div class="lang_rating1">
+                                                <span class="lang_name">Franch</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="lang_rating2">
+                                                <span class="lang_name">German</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+
+                                            <div class="lang_rating3">
+                                                <span class="lang_name">Spanish</span>
+                                                <span class="rating">
+                                                    <span class="star1"></span>
+                                                    <span class="star2"></span>
+                                                    <span class="star3"></span>
+                                                    <span class="star4"></span>
+                                                    <span class="star5"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="certificates">
+                                            <h2 class="certification__title">Certifications</h2>
+                                            <div class="certification__list">
+                                                <div class="certification__list__item">
+                                                    <h3>JavaScript Developer</h3>
+                                                </div>
+                                                <div class="certification__list__item">
+                                                    <h3>Salesforce Commerce Cloud Developer</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="select-button">
+                                <a class="btn-text-select" href="/editor/{{id4}}/simple">Choose this template</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="content">Free Cv Builder, get your dream job</div>
+    </footer>
+    
+</body>
+</html>

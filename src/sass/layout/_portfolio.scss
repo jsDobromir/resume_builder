@@ -1,0 +1,105 @@
+.portfolio {
+    .form_wrapper {
+        border: 1px solid rgb(175, 208, 212);
+
+        form {
+            padding: 1rem;
+
+            .button_wrapper {
+                position: relative;
+
+                .button_abs {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -20%);
+                }
+            }
+        }
+        .linkrow {
+            margin-top: 1.5rem;
+        }
+    }
+
+    .portfolio_links_list {
+        width: 95%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        margin: 1rem auto;
+        height: 40vh;
+        overflow: auto;
+
+        div[class*="portfoliolink_div_"] {
+            &:not(:last-child) {
+                margin-bottom: 2rem;
+            }
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid rgb(43, 32, 32);
+
+            .portfolio_wrapper {
+                font-size: 1.7rem;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                a {
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+
+                    // Non standard for webkit
+                    word-break: break-word;
+
+                    -webkit-hyphens: auto;
+                    -moz-hyphens: auto;
+                    hyphens: auto;
+                    color: #372e5e;
+                }
+                span {
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+
+                    // Non standard for webkit
+                    word-break: break-word;
+
+                    -webkit-hyphens: auto;
+                    -moz-hyphens: auto;
+                    hyphens: auto;
+                }
+            }
+
+            #delete_portfolio {
+                font-size: 2rem;
+                margin-left: 2.5rem;
+                position: relative;
+                cursor: pointer;
+                &:before {
+                    content: attr(data-hover);
+                    visibility: hidden;
+                    opacity: 0;
+                    background-color: black;
+                    color: #fff;
+                    text-align: center;
+                    border-radius: 5px;
+                    width: 6rem;
+                    font-size: 1.5rem;
+                    padding: 5px 0;
+                    transition: opacity 1s ease-in-out;
+                
+                    position: absolute;
+                    z-index: 1;
+                    left: 0;
+                    top: 110%; 
+                }
+                &:hover:before {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *,
+        *::after,
+        *::before {
+            margin: 0;
+            padding: 0;
+            box-sizing: inherit;
+        }
+
+        html {
+            -webkit-print-color-adjust: exact;
+            font-size: 80%;
+        }
+        body {
+            box-sizing: border-box;
+            font-family: "Lato", sans-serif;
+            font-weight: 400;
+            line-height: 1.7;
+            color: #777;
+        }
+                
+        a {
+            color: unset;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+
+        }
+        .row {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        }
+        .row .col-1 {
+        grid-column: span 1;
+        }
+        .row .col-2 {
+        grid-column: span 2;
+        }
+        .row .col-3 {
+        grid-column: span 3;
+        }
+        .row .col-4 {
+        grid-column: span 4;
+        }
+        .row .col-5 {
+        grid-column: span 5;
+        }
+        .row .col-6 {
+        grid-column: span 6;
+        }
+        .row .col-7 {
+        grid-column: span 7;
+        }
+        .row .col-8 {
+        grid-column: span 8;
+        }
+        .row .col-9 {
+        grid-column: span 9;
+        }
+        .row .col-10 {
+        grid-column: span 10;
+        }
+        .row .col-11 {
+        grid-column: span 11;
+        }
+        .row .col-12 {
+        grid-column: span 12;
+        }
+        .wrapper_div {
+            height: 100vh;
+        }
+        .cvcomp {
+            height: 100%;
+        }
+        .cv_container {
+        }
+        .cv_container .cv__header {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            min-height: 20vh;
+            justify-content: space-between;
+            padding: 0.5rem;
+            background-color: #e9e0e0;
+            border-bottom: 1px solid #08260e 61;
+        }
+        .cv_container .cv__header .pic_info {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .cv_container .cv__header .pic_info .pic img {
+            border-radius: 50%;
+            width: 8rem;
+            height: 8rem;
+            object-fit: cover;
+        }
+        .cv_container .cv__header .pic_info .info {
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+        .cv_container .cv__header .pic_info .info .name {
+            font-size: 2rem;
+            font-weight: 900;
+            color: #646060;
+        }
+        .cv_container .cv__header .pic_info .info .position {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+        .cv_container .cv__header .address_info {
+            width: 17rem;
+            display: flex;
+            flex-direction: column;
+            font-size: 1.3rem;
+            flex: .6;
+        }
+        .cv_container .cv__header .address_info > div:not(:first-child) {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__header .address_info .location {
+            display: flex;
+            align-items: center;
+        }
+        .cv_container .cv__header .address_info .location .location_address {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 0.4rem;
+        }
+         .cv_container .cv__header .address_info .location .location_address .address.text, .cv_container .cv__header .address_info .location .location_address .city.text, .cv_container .cv__header .address_info .location .location_address .country.text {
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .cv__header .address_info .phone, .cv_container .cv__header .address_info .email {
+            display: flex;
+            flex-direction: row;
+        }
+         .cv_container .cv__header .address_info .phone .text, .cv_container .cv__header .address_info .email .text {
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .cv__header .address_info .email .text {
+            margin-left: 0.3rem;
+        }
+        .cv_container .cv__header .address_info .text {
+            color: #3c3d3f;
+        }
+        .cv_container .cv__header .address_info i {
+            color: #707494;
+        }
+        .cv_container .cv__content {
+            min-height: 80vh;
+            background-color: rgb(31 68 22 / 10%);
+        }
+        .cv_container .cv__content .leftCol {
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            border-right: 1px solid rgba(8, 38, 14, 0.3803921569);
+        }
+        .cv_container .cv__content .leftCol .skills h2 {
+            text-align: center;
+            font-size: 2rem;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            border-bottom: 1px solid #52b42b;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .skill_name {
+            font-size: 1.4rem;
+            flex: 1 1 0px;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .rating {
+            font-size: 1.2rem;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_1 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_1 .star2::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_1 .star3::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_1 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_1 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_2 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_2 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_2 .star3::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_2 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_2 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_3 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_3 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_3 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_3 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_3 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_4 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_4 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_4 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_4 .star4::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_4 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_5 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_5 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_5 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_5 .star4::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .skills div[class^="skill_rating"] .star_5 .star5::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .cv__content .leftCol .social_links {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cv_container .cv__content .leftCol .social_links h2 {
+            font-size: 2rem;
+        }
+        .cv_container .cv__content .leftCol .social_links > div:not(:first-child) {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .leftCol .social_links div[class*="social_link_"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        .cv_container .cv__content .leftCol .social_links div[class*="social_link_"] .icon i {
+            font-size: 2.5rem;
+        }
+        .cv_container .cv__content .leftCol .social_links div[class*="social_link_"] .link a {
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+            color: #372e5e;
+        }
+        .cv_container .cv__content .leftCol .portfolio {
+            margin-top: 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .cv_container .cv__content .leftCol .portfolio h2 {
+            font-size: 2rem;
+        }
+        .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"] {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-size: 1.4rem;
+        }
+        .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"]:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"] .desc {
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"] .link a {
+            -ms-word-break: break-all;
+            word-break: break-all;
+            word-break: break-word;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+            color: #372e5e;
+        }
+        .cv_container .cv__content .leftCol .certifications {
+            margin-top: 2rem;
+        }
+        .cv_container .cv__content .leftCol .certifications__title_image {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .cv_container .cv__content .leftCol .certifications__title_image .image img {
+            width: 3rem;
+            height: 3rem;
+        }
+        .cv_container .cv__content .leftCol .certifications__title_image .certifications__title {
+            margin-left: 0.5rem;
+            font-size: 1.7rem;
+        }
+        .cv_container .cv__content .leftCol .certifications__list {
+            margin-top: .5rem;
+        }
+        .cv_container .cv__content .leftCol .certifications div[class*="__list__item__"] {
+            text-align: center;
+            font-size: 1.7rem;
+        }
+        .cv_container .cv__content .leftCol .certifications div[class*="__list__item__"]:not(:last-child) {
+            margin-bottom: 1.5rem;
+        }
+        .cv_container .cv__content .rightCol {
+            padding: 1rem;
+        }
+        .cv_container .cv__content .rightCol .experience .experience__title_image {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .cv_container .cv__content .rightCol .experience .experience__title_image .image img {
+            width: 3rem;
+            height: 3rem;
+        }
+        .cv_container .cv__content .rightCol .experience .experience__title_image .experience__title {
+            margin-left: 0.5rem;
+            font-size: 2rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list {
+            font-size: 1rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item:not(:first-child) {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .position {
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.3rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .company {
+            font-weight: 600;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .dates {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .description {
+            font-size: 1rem;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .ul_holder {
+            padding-left: 2rem;
+        }
+        .cv_container .cv__content .rightCol .education {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .rightCol .education .education__title_image {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .cv_container .cv__content .rightCol .education .education__title_image .image img {
+            width: 3rem;
+            height: 3rem;
+        }
+        .cv_container .cv__content .rightCol .education .education__title_image .education__title {
+            margin-left: 0.5rem;
+            font-size: 2rem;
+        }
+        .cv_container .cv__content .rightCol .education__list {
+            font-size: 1rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item:not(:first-child) {
+            margin-top: 1rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .degree {
+            font-weight: 900;
+            font-size: 1.5rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 1.3rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .school {
+            font-weight: 600;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .dates {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .description {
+            font-size: 1rem;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .ul_holder {
+            padding-left: 2rem;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="row wrapper_div">
+        <div class="col-12 cvcomp">
+
+            
+                <div class="cv_container">
+                        <div class="cv__header">
+                            <div class="pic_info">
+                                    <div class="pic"><img class="prof_image" id="cvProfilePhoto" src="{{imageProfile}}" alt="profile picture"/></div>
+                                    <div class="info">
+                                        <h1 class="name"><span id="firstName">
+                                            {{#current_resume.personal.firstName}}
+                                                {{current_resume.personal.firstName}}
+                                            {{/current_resume.personal.firstName}}
+                                            {{^current_resume.personal.firstName}}
+                                                Name
+                                            {{/current_resume.personal.firstName}}
+                                            </span> <span id="lastName">
+                                            {{#current_resume.personal.lastName}}
+                                                {{current_resume.personal.lastName}}
+                                            {{/current_resume.personal.lastName}}
+                                            {{^current_resume.personal.lastName}}
+                                                Name
+                                            {{/current_resume.personal.lastName}}
+                                            </span></h1>
+                                        <span id="position" class="position">
+                                            {{#current_resume.personal.position}}
+                                                {{current_resume.personal.position}}
+                                            {{/current_resume.personal.position}}
+                                            {{^current_resume.personal.position}}
+                                                Position
+                                            {{/current_resume.personal.position}}
+                                        </span>
+                                    </div>
+                                </div>
+
+                            <div class="address_info">
+                                <div class="location">
+                                    <span class="icon">{{#current_resume.personal.address}}<i class="fa-2xl fa-solid fa-location-dot"></i>{{/current_resume.personal.address}}</span>
+                                    <div class="location_address">
+                                        <span class="address text">{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}</span>
+                                        <div class="city_country">
+                                            <span class="city text">{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}</span><span class="comma {{^current_resume.personal.country}}d-none{{/current_resume.personal.country}}">,</span>
+                                            <span class="country text">{{#current_resume.personal.country}}{{current_resume.personal.country}}{{/current_resume.personal.country}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="phone">
+                                    <span class="icon">{{#current_resume.personal.phone}}<i class="fa-2xl fa-sharp fa-solid fa-phone"></i>{{/current_resume.personal.phone}}</span>
+                                    <span id="phone" class="text">{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}</span>
+                                </div>
+
+                                <div class="email">
+                                    <span class="icon">{{#current_resume.personal.email}}<i class="fa-2xl fa-regular fa-envelope"></i>{{/current_resume.personal.email}}</span>
+                                    <span id="email" class="text">{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row cv__content">
+
+                            <div class="leftCol col-4">
+                            {{#skills}}
+                                <div class="skills">
+                                    <h2>Skills</h2>
+                                    {{#current_resume.skills}}
+                                        <div class="skill_rating{{index}}">
+                                            <span class="skill_name">{{skill}}</span>
+                                            <span class="rating star_{{starValue}}">
+                                                <span class="star1"></span>
+                                                <span class="star2"></span>
+                                                <span class="star3"></span>
+                                                <span class="star4"></span>
+                                                <span class="star5"></span>
+                                            </span>
+                                        </div>
+                                    {{/current_resume.skills}}
+                                </div>
+                            {{/skills}}
+                            {{#socialLinks}}
+                                <div class="social_links">
+                                    <h2>Social Links</h2>
+                                    {{#current_resume.sociallinks}}
+                                        <div class="social_link_{{index}}">
+                                            <span class="icon">
+                                                <i class="fa-brands fa-{{type}}"></i>
+                                            </span>
+                                            <span class="link"><a href="{{link}}" target="_blank">{{link}}</a></span>
+                                        </div>
+                                    {{/current_resume.sociallinks}}
+                                </div>       
+                            {{/socialLinks}}
+                            {{#portfolio}}
+                                <div class="portfolio">
+                                    <h2>Portfolio</h2>
+                                    {{#current_resume.portfolio}}
+                                        <div class="portfolio_link_{{index}}">
+                                            <span class="desc">{{portfolio_desc}}</span>
+                                            <span class="link"><a href="{{link}}" target="_blank">{{link}}</a></span>
+                                        </div>
+                                    {{/current_resume.portfolio}}
+                                </div>
+                            {{/portfolio}}
+                            {{#certifications}}
+                                <div class="certifications">
+                                    <div class="certifications__title_image">
+                                        <div class="image"><img src="{{certImage}}" alt="certificate"/></div>
+                                        <h3 class="certifications__title">Certifications</h3>
+                                    </div>
+
+                                    <div class="certifications__list">
+                                        {{#current_resume.certifications}}
+                                            <div class="certifications__list__item__{{index}}">
+                                                {{certification}}
+                                            </div>
+                                        {{/current_resume.certifications}}
+                                    </div>
+                                </div>
+                            {{/certifications}}
+                            </div>
+
+                            <div class="rightCol col-8">
+                            {{#experience}}
+                                <div class="experience">
+                                    <div class="experience__title_image">
+                                        <div class="image"><img src="{{experienceImage}}" alt="work experience"/></div>
+                                        <h3 class="experience__title">Experience</h3>
+                                    </div>
+                                    <div class="experience__list">
+                                        {{#current_resume.experience}}
+                                                <div class="experience__list__item experience__list__item__{{index}}">
+                                                    <span class="position">{{position}}</span>
+                                                    <div class="company_wrapper editor">
+                                                        <span class="company">{{company}}</span>
+                                                        <span class="dates">
+                                                            <span class="date_span startMonth">{{startMonth}}</span>
+                                                            <span class="date_span startYear">{{startYear}}</span>
+                                                            <span class="date_span delimeter"> - </span>
+                                                            {{#endMonth}}
+                                                                <span class="date_span endMonth">{{endMonth}}</span>
+                                                                <span class="date_span endYear">{{endYear}}</span>
+                                                            {{/endMonth}}
+                                                            {{^endMonth}}
+                                                                <span class="date_span present">Present</span>
+                                                            {{/endMonth}}
+                                                        </span>
+                                                    </div>
+                                                    {{#textarea_type_div}}
+                                                        <div class="description">
+                                                            {{textarea_prof_desc}}
+                                                        </div>
+                                                    {{/textarea_type_div}}
+                                                    {{^textarea_type_div}}
+                                                        <ul class="description ul_holder">
+                                                            {{{textarea_prof_desc}}}
+                                                        </ul>
+                                                    {{/textarea_type_div}}
+                                                </div>
+                                            {{/current_resume.experience}}                
+                                    </div>
+                                </div>
+                            {{/experience}}
+                            {{#education}}
+                                <div class="education">
+                                    <div class="education__title_image">
+                                        <div class="image"><img src="{{educationImage}}" alt="education"/></div>
+                                        <h3 class="education__title">Education</h3>
+                                    </div>
+                                    <div class="education__list">
+                                        {{#current_resume.education}}
+                                            <div class="education__list__item education__list__item__{{index}}">
+                                                <span class="degree">{{degree}}</span>
+                                                <div class="company_wrapper editor">
+                                                    <span class="school">{{school}}</span>
+                                                    <span class="dates">
+                                                        <span class="date_span startMonth">{{startMonth}}</span>
+                                                        <span class="date_span startYear">{{startYear}}</span>
+                                                        <span class="date_span delimeter"> - </span>
+                                                        {{#endMonth}}
+                                                            <span class="date_span endMonth">{{endMonth}}</span>
+                                                            <span class="date_span endYear">{{endYear}}</span>
+                                                        {{/endMonth}}
+                                                        {{^endMonth}}
+                                                            <span class="date_span">Present</span>
+                                                        {{/endMonth}}
+                                                    </span>
+                                                </div>
+                                                {{#textarea_type_div}}
+                                                    <div class="description">
+                                                        {{textarea_prof_desc}}
+                                                    </div>
+                                                {{/textarea_type_div}}
+                                                {{^textarea_type_div}}
+                                                    <ul class="description ul_holder">
+                                                        {{{textarea_prof_desc}}}
+                                                    </ul>
+                                                {{/textarea_type_div}}
+                                            </div>
+                                        {{/current_resume.education}}
+                                    </div>
+                                </div>
+                            {{/education}}
+                            
+                            </div>
+
+                        </div>
+
+                </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

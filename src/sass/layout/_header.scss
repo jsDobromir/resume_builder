@@ -1,0 +1,104 @@
+.header {
+    height: 95vh;
+    background: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+    url(../public/pi1.jpg);
+    background-size: cover;
+    background-position: left;
+    position: relative;
+
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    &__top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__logo-box {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        @include respond(tab-port) {
+            margin-left: 2rem;
+        }
+        @include respond(desktop) {
+            margin-left: 4rem;
+        }
+    }
+
+    &__atag {
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-weight: 400;
+        color: $color-black;
+    }
+
+    &__logo {
+        height: 6rem;
+        width: 6rem;
+    }
+
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+.header__editor {
+    height: 10vh;
+    background: linear-gradient(to right, rgb(229 249 225 / 17%), rgb(174 239 215 / 78%));
+    border-radius: 1rem;
+
+    .header__top-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .track_bar {
+            width: 80%;
+
+            @include media-breakpoint-up(sm) {
+                width: 65%;
+            }
+            @include media-breakpoint-up(md) {
+                width: 55%;
+            }
+
+            @include media-breakpoint-up(lg) {
+                width: 45%;
+                margin-right: 1rem;
+            }
+            @include media-breakpoint-up(xl) {
+                width: 35%;
+            }
+            font-size: 1.6rem;
+            &_inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                .route {
+                    margin: 0 .5rem;
+                }
+                span {
+                    color: black;
+                    &:not(.active) {
+                        cursor: pointer;
+                    }
+                }
+                .active {
+                    color: green;
+                    border-bottom: 1px solid green;
+                }
+            }
+        }
+    }
+}

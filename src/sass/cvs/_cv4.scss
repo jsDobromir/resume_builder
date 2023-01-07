@@ -1,0 +1,224 @@
+.cv4 {
+    height: 100%;
+    background-color: rgb(238, 238, 238);
+    .cv_container {
+        position: relative;
+        height: 100%;
+        .select-button {
+            transition: all .3s;
+            @include media-breakpoint-up(lg) {
+                opacity: 0;
+                visibility: hidden;
+            }
+            position: absolute;
+            bottom: 10rem;
+            left: 50%;
+            transform: translate(-50%, -10%);
+        }
+        .heading {
+            padding-top: 2rem;
+            padding-left: 4rem;
+            .heading_left {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .name {
+                    font-size: 2rem;
+                }
+                .position {
+                    font-size: 1.8rem;
+                    color: rgb(173, 169, 169);
+                }
+            }
+
+            .heading_right {
+                margin-left: auto;
+                color: rgb(112, 112, 112);
+                .contact_info {
+                    display: flex;
+                    flex-direction: column;
+                    font-size: 1.5rem;
+                    span:not(.address) {
+                        margin-top: .5rem;
+                    }
+                    .info {
+                        display: flex;
+                        flex: column;
+                        align-items: center;
+                        justify-content: center;
+                        .right_text{
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .main_content {
+            .left_main_content {
+                padding: 0 4rem;
+
+                .experience {
+                    &__title {
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        border-bottom: 1px solid rgba(117, 115, 115, 0.788);
+                    }
+                    &__list {
+                        font-size: 1rem;
+                        &__item {
+                            
+                            margin-top: 1rem;
+                            .position {
+                                font-weight: 900;
+                                font-size: 1.5rem;
+                            }
+                            .company_wrapper {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                                .company {
+                                    font-weight: 600;
+                                }
+                                .dates {
+                                    font-weight: 600;
+                                }
+                            }
+                            .company_wrapper.editor {
+                                font-size: 1.3rem;
+    
+                                .dates {
+                                    .startYear, .endYear{
+                                        padding-left: .3rem;
+                                    }
+                                }
+                            }
+                            .description {
+                                margin-top: .5rem;
+                            }
+    
+                            .ul_holder {
+                                padding-left: 3rem;
+                            }
+                        }   
+                    }
+                }
+
+                .education {
+                    margin-top: 1rem;
+                    &__title {
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        border-bottom: 1px solid black;
+                    }
+    
+                    &__list {
+                        font-size: 1rem;
+                        &__item {
+                            
+                            margin-top: 1rem;
+                            .degree {
+                                font-weight: 900;
+                            }
+                            .wrapper {
+                                display: flex;
+                                flex-direction: row;
+                                align-items: center;
+                                justify-content: space-between;
+                                .school {
+                                    font-weight: 600;
+                                }
+                                .dates {
+                                    font-weight: 600;
+                                }
+                            }
+    
+                            .description {
+                                margin-top: .5rem;
+                            }
+                        }   
+                    }
+                }
+            }
+
+            .right_main_content {
+                border-left: 1px solid $color-grey-light-2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .skills {
+                    width: 100%;
+                    text-align: left;
+                    h2 {
+                        text-align: center;
+                    }
+
+                    .skills_list {
+                        display: inline-block;
+                        text-align: left;
+                        padding-left: 2rem;
+                        font-size: 1.5rem;
+                        li{
+                            margin-top: .8rem;
+                        }
+                    }
+                }
+
+                .languages {
+                    width: 100%;
+                    margin-top: 3rem;
+                    h2 {
+                        text-align: center;
+                    }
+
+                    div[class^="lang_rating"] {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: .5rem;
+                        border-bottom: 1px solid rgb(82, 180, 43);
+
+                        .lang_name {
+                            font-size: 1.4rem;
+                        }
+                        .rating {
+                            font-size: 1.2rem;
+                        }
+                    }
+                    .lang_rating1 {
+                        .rating {
+                            @include fiveStar;
+                        }
+                    }
+
+                    .lang_rating2 {
+                        .rating {
+                            @include twoStar;
+                        }
+                    }
+
+                    .lang_rating3 {
+                        .rating {
+                            @include fourStar;
+                        }
+                    }
+                }
+
+                .certificates {
+                    width: 100%;
+                    margin-top: 4rem;
+                    text-align: center;
+                    .certification__list {
+                        text-align: left;
+                        &__item {
+                            margin-top: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
