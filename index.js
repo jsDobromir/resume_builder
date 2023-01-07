@@ -34,7 +34,7 @@ const dbOptions = {
     database:'dobromir',
     user: 'dobromir',
     password:'dobromir',
-    prot: 5432
+    port: 5432
 };
 
 const pgPool = new pg.Pool(dbOptions);
@@ -54,7 +54,7 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(express.static('dist'));
 
 app.use((req, res, next) => {
     req.session.resumes = req.session.resumes || [];
@@ -270,7 +270,7 @@ app.post('/download', (req, res) => {
         if (current_resume && current_resume.routes) {
             current_resume.routes.forEach(route => {
                 routes[route] = true;
-            })
+            });
         }
     }
     else if (type==='fancy') {
