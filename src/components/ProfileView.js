@@ -10,7 +10,6 @@ export default class ProfileView {
 
     render() {
         let profile = this.state.getComponentObject(this.title);
-        console.log(profile);
         const html = `<div class="profile standard">
                     <form>
                         <div class="form__group">

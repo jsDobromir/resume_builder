@@ -15,6 +15,7 @@
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-row-gap: 5rem;
+        padding-bottom: 5rem;
         @include media-breakpoint-up(md) {
             width: 95%;
             grid-template-columns: repeat(2, 1fr);
@@ -55,7 +56,7 @@
 .footer_resumes {
     background-color: #303230;
     width: 100%;
-    height: 18vh;
+    height: 18rem;
     border-radius: 5px;
     mix-blend-mode: darken;
     display: flex;

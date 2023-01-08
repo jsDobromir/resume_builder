@@ -16,10 +16,15 @@
         }
         border: 1px solid rgb(183 166 166);
         border-radius: .6rem;
-        box-shadow: 1rem 2rem 2rem $color-grey-dark;
+        box-shadow: 0.1rem 2rem 1rem $color-grey-dark;
+        @include media-breakpoint-up(lg) {
+            box-shadow: 1rem 2rem 2rem $color-grey-dark;
+        }
         transition: all .3s;
         &:hover {
-            transform: translateY(-10px);
+            @include media-breakpoint-up(lg) {
+                transform: translateY(-10px);
+            }
             
             .select-button {
                 @include media-breakpoint-up(lg) {
@@ -48,7 +53,9 @@
         }
     }
     .row.templates_div {
-        grid-row-gap: 5rem;
+        width: 95%;
+        margin: 0 auto;
+        grid-row-gap: 10rem;
         grid-column-gap: 3rem;
         @include media-breakpoint-up(xl) {
             grid-column-gap: 5rem;

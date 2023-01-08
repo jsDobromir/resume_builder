@@ -9,8 +9,14 @@
     background-position: left;
     position: relative;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+    @include media-breakpoint-up(lg) {
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        height: 95vh;
+    }
 
     &__top-row {
         display: flex;
@@ -44,16 +50,21 @@
     }
 
     &__text-box {
-        position: absolute;
-        top: 40%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        height: 100%;
+        position: relative;
+
+        .text-box-wrapper {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -30%);
+            text-align: center;
+        }
     }
 }
 
 .header__editor {
-    height: 10vh;
+    height: 10rem;
     background: linear-gradient(to right, rgb(229 249 225 / 17%), rgb(174 239 215 / 78%));
     border-radius: 1rem;
 

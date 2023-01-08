@@ -54,7 +54,7 @@ app.use(session({
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use((req, res, next) => {
     req.session.resumes = req.session.resumes || [];
@@ -223,7 +223,6 @@ app.get('/resumes', (req, res) => {
         resumesReversed.push(currResume_copy);
     }
     let resumesEmpty = resumesReversed.length===0;
-    console.log(resumesReversed);
     fs.readFile(path.join(__dirname, 'views', 'newcv', 'resumes_page.mustache'), (err, data) => {
         if (err) {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>'); 

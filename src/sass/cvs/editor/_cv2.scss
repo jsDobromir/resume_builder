@@ -110,9 +110,9 @@
         }
 
         .cv__content {
-            min-height: 70vh;
+            min-height: 70rem;
             @include media-breakpoint-up(md) {
-                height: 70vh;
+                height: 70rem;
                 overflow: auto;
             }
             background-color: rgb(31 68 22 / 10%);

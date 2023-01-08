@@ -124,7 +124,6 @@ export default class Standard {
         });
 
         this.evEmitterObj.on('delete_language', (obj) => {
-            console.log(obj);
             document.querySelector(`.cvcomp .languages .${obj.div}`).remove();
         });
 

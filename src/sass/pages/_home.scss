@@ -4,7 +4,7 @@
     align-items: center;
     justify-content: center;
     padding: 30rem 10rem;
-    margin-top: -25rem;
+    margin-top: -20vh;
     background-color: $color-grey-light-2;
     text-align: center;
 }
@@ -16,41 +16,11 @@
     padding-bottom: 15rem;
     background-color: gainsboro;
     margin-top: -20rem;
-    transform: skewY(-20deg);
+    transform: skewY(-7deg);
     background-color: rgb(223 223 223 / 78%);
-    @include media-breakpoint-up(sm) {
-        transform: skewY(-22deg);
-    }
-    @include media-breakpoint-up(md) {
-        transform: skewY(-18deg);
-    }
-
-    @include media-breakpoint-up(lg) {
-        transform: skewY(-13deg);
-    }
-    @include media-breakpoint-up(xl) {
-        transform: skewY(-8deg);
-    }
-    @include media-breakpoint-up(xxl) {
-        transform: skewY(-7deg);
-    }
+    
     & > * {
-        transform: skewY(20deg);
-        @include media-breakpoint-up(sm) {
-            transform: skewY(22deg);
-        }
-        @include media-breakpoint-up(md) {
-            transform: skewY(18deg);
-        }
-        @include media-breakpoint-up(lg) {
-            transform: skewY(13deg);
-        }
-        @include media-breakpoint-up(xl) {
-            transform: skewY(8deg);
-        }
-        @include media-breakpoint-up(xxl) {
-            transform: skewY(7deg);
-        }
+        transform: skewY(7deg);
     }
     #template_link {
         background-color: $color-grey-light-1;
@@ -63,11 +33,15 @@
         }
         border: 1px solid rgb(183 166 166);
         border-radius: .6rem;
-        box-shadow: 1rem 2rem 2rem $color-grey-dark;
+        box-shadow: 0.1rem 2rem 1rem $color-grey-dark;
+        @include media-breakpoint-up(lg) {
+            box-shadow: 1rem 2rem 2rem $color-grey-dark;
+        }
         transition: all .3s;
         &:hover {
-            transform: translateY(-10px);
-            
+            @include media-breakpoint-up(lg) {
+                transform: translateY(-10px);
+            }
             .select-button {
                 @include media-breakpoint-up(lg) {
                     visibility: visible;
@@ -95,7 +69,9 @@
         }
     }
     .row.templates_div {
-        grid-row-gap: 5rem;
+        width: 95%;
+        margin: 0 auto;
+        grid-row-gap: 10rem;
         grid-column-gap: 3rem;
         @include media-breakpoint-up(xl) {
             grid-column-gap: 5rem;

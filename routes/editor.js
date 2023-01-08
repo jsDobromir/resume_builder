@@ -48,7 +48,6 @@ router.get(['/:id/standard/', '/:id/standard/personal'], (req, res) => {
     else {
         routes = current_resume['routes'];
     }
-    console.log(current_resume);
     let trackRoutes = routes.map(route => {
         if (route==='personal') {
             return {active: true, route: route};
@@ -142,7 +141,6 @@ router.get('/:id/standard/experience/', (req, res) => {
 });
 
 router.get('/:id/standard/experience/create/', (req, res) => {
-    console.log('here');
     let current_resume = null;
     let id = req.params.id;
     for(let i=0;i<req.session.resumes.length;i++) {
@@ -1012,7 +1010,6 @@ router.get('/:id/fancy/experience/create/', (req, res) => {
         }
         else return {active: false, route: route};
     });
-    console.log(trackRoutes);
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'fancy_server.mustache'), (err, data) => {

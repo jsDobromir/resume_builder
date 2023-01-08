@@ -113,4 +113,15 @@ export default class State {
         }
         return obj;
     }
+
+    cvExists() {
+        const cv_id = document.querySelector('.wrapper').dataset.cvId;
+        for(let i=0;i<this.resumes.length;i++) {
+            const objKey = Object.keys(this.resumes[i])[0];
+            if (cv_id==objKey) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

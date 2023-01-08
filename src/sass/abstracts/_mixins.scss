@@ -200,12 +200,12 @@ $breakpoint argument choices
         &:hover {
             transform: translateY(-5px);
         }
-        height: 45vh;
+        height: 45rem;
         @include media-breakpoint-up(md) {
-            height: 50vh;
+            height: 50rem;
         }
         @include media-breakpoint-up(lg) {
-            height: 65vh;
+            height: 65rem;
         }
         overflow: hidden;
         border: 1px solid rgb(41, 38, 38);
@@ -428,7 +428,7 @@ $breakpoint argument choices
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
                         hyphens: auto;
-                        font-size: .8rem;
+                        font-size: 1.2rem;
                         &__item {
                             word-break: break-all;
                             &:not(:first-child) {
@@ -491,7 +491,7 @@ $breakpoint argument choices
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
                         hyphens: auto;
-                        font-size: .8rem;
+                        font-size: 1.2rem;
                         &__item {
                             word-break: break-all;
                             &:not(:first-child) {
@@ -551,12 +551,12 @@ $breakpoint argument choices
         &:hover {
             transform: translateY(-5px);
         }
-        height: 45vh;
+        height: 45rem;
         @include media-breakpoint-up(md) {
-            height: 50vh;
+            height: 50rem;
         }
         @include media-breakpoint-up(lg) {
-            height: 65vh;
+            height: 65rem;
         }
         overflow: hidden;
         border: 1px solid rgb(41, 38, 38);

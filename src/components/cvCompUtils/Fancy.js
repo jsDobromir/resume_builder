@@ -199,7 +199,6 @@ export default class Fancy {
         });
 
         this.evEmitterObj.on('socialLink', (obj) => {
-            console.log(obj);
             const socLinkDiv = this.createSocLinkDiv(obj);
             document.querySelector(`.cvcomp .social_links`).appendChild(socLinkDiv);
         });

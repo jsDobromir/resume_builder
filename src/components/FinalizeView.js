@@ -11,13 +11,14 @@ export default class FinalizeView {
 
 
     render() {
+        let cvExists = this.state.cvExists();
         const html = `<div class="finalize">
                         <div class="message_screen">
                             <p class="finalize_message">
-                                Your CV is ready to be downloaded
+                                ${cvExists ? 'Your resume is ready to be downloaded' : 'Fill your resume and download it'}
                             </p>
 
-                            <button class="btn btn-next" id="download">Download</button>
+                            <button class="btn btn-next" ${!cvExists ? 'disabled' : ''} id="download">Download</button>
                         </div>
                         <div class="loader_wrapper d-none">
                             <div class="loader"></div>
@@ -62,13 +63,13 @@ export default class FinalizeView {
                     var url = window.URL.createObjectURL(blob);
                     var a = document.createElement('a');
                     a.href = url;
-                    a.download = `cv_${new Date().toJSON().slice(0, 10)}.pdf`;
+                    a.download = `cv_${new Date().toJSON().slice(0, 10)}_${new Date().valueOf()}.pdf`;
                     document.body.appendChild(a);
                     a.click();
                     a.remove();
                     setTimeout(() => {
                         window.location.href = '/resumes';
-                    }, 2000)
+                    }, 5000)
                 })
             }).catch(err => {
                 document.querySelector('.finalize .message_screen').classList.remove('d-none');
