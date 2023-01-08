@@ -34,6 +34,15 @@
             .heading_right {
                 margin-left: auto;
                 color: rgb(112, 112, 112);
+                -ms-word-break: break-all;
+                        word-break: break-all;
+
+                        // Non standard for webkit
+                        word-break: break-word;
+
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        hyphens: auto;
                 .contact_info {
                     display: flex;
                     flex-direction: column;

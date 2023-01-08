@@ -24,12 +24,12 @@
     }
     #template_link {
         background-color: $color-grey-light-1;
-        min-height: 60vh;
+        min-height: 60rem;
         @include media-breakpoint-up(md) {
-            min-height: 70vh;
+            min-height: 70rem;
         }
         @include media-breakpoint-up(lg) {
-            min-height: 75vh;
+            min-height: 75rem;
         }
         border: 1px solid rgb(183 166 166);
         border-radius: .6rem;
