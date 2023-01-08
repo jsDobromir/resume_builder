@@ -93,11 +93,11 @@ router.get('/:id/standard/experience/', (req, res) => {
         }
     }
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -166,11 +166,11 @@ router.get('/:id/standard/experience/create/', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -232,11 +232,11 @@ router.get('/:id/standard/experience/:expId', (req, res) => {
         }
     }
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -349,12 +349,12 @@ router.get('/:id/standard/education/', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -487,12 +487,12 @@ router.get('/:id/standard/education/:eduId', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -601,12 +601,12 @@ router.get('/:id/standard/skills/', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -665,12 +665,12 @@ router.get('/:id/standard/languages/', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -728,12 +728,12 @@ router.get('/:id/standard/profile/', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='standard') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -1051,12 +1051,12 @@ router.get('/:id/fancy/experience/:expId', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='fancy') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {
@@ -1302,12 +1302,12 @@ router.get('/:id/fancy/education/:eduId', (req, res) => {
     }
 
     if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newcv');
+        res.redirect('/newresume');
         return;
     }
 
     if (current_resume && current_resume.type!=='fancy') {
-        return res.redirect('/newcv');
+        return res.redirect('/newresume');
     }
     let routes;
     if (!current_resume) {

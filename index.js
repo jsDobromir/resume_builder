@@ -81,9 +81,9 @@ app.get('/', (req, res) => {
     });
 });
 
-app.get('/newcv', (req, res) => {
+app.get('/newresume', (req, res) => {
     req.session.tempArr = [];
-    fs.readFile(path.join(__dirname, 'views', 'newcv', 'newcv.mustache'), (err, data) => {
+    fs.readFile(path.join(__dirname, 'views', 'newcv', 'newresume.mustache'), (err, data) => {
         if (err) {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>'); 
         }
