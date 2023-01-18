@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/editor.css"/>
     <script type="text/javascript" src="/editor.js"></script>
-    <title>Resume Builder App</title>
+    <title>Dream Resume</title>
 </head>
 
 <body>
@@ -36,7 +40,7 @@
                     <div class="cv_container">
                         <div class="cv__header">
                             <div class="pic_info">
-                                    <div class="pic"><img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/images/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/></div>
+                                    <div class="pic"><img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/public/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/></div>
                                     <div class="info">
                                         <h1 class="name"><span id="firstName">
                                             {{#current_resume.personal.firstName}}
@@ -57,16 +61,13 @@
                                             {{#current_resume.personal.position}}
                                                 {{current_resume.personal.position}}
                                             {{/current_resume.personal.position}}
-                                            {{^current_resume.personal.position}}
-                                                Position
-                                            {{/current_resume.personal.position}}
                                         </span>
                                     </div>
                                 </div>
 
                             <div class="address_info">
                                 <div class="location">
-                                    <span class="icon {{^current_resume.personal.address}}d-none{{/current_resume.personal.address}}"><i class="fa-2xl fa-solid fa-location-dot"></i></span>
+                                    <span class="icon {{^addressIcon}}d-none{{/addressIcon}}"><i class="fa-2xl fa-solid fa-location-dot"></i></span>
                                     <div class="location_address">
                                         <span class="address text">{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}</span>
                                         <div class="city_country">
@@ -135,10 +136,7 @@
 
                             {{#certifications}}
                                 <div class="certifications">
-                                    <div class="certifications__title_image">
-                                        <div class="image"><img src="/public/certificate.png" alt="certificate"/></div>
-                                        <h3 class="certifications__title">Certifications</h3>
-                                    </div>
+                                    <h2 class="certifications__title">Certifications</h2>
 
                                     <div class="certifications__list">
                                         {{#current_resume.certifications}}
@@ -163,7 +161,10 @@
                                                 <div class="experience__list__item experience__list__item__{{index}}">
                                                     <span class="position">{{position}}</span>
                                                     <div class="company_wrapper editor">
-                                                        <span class="company">{{company}}</span>
+                                                        <div class="experience_address_wrapper">
+                                                            <span class="company">{{company}}</span>
+                                                            <span class="company_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                        </div>
                                                         <span class="dates">
                                                             <span class="date_span startMonth">{{startMonth}}</span>
                                                             <span class="date_span startYear">{{startYear}}</span>
@@ -203,7 +204,10 @@
                                             <div class="education__list__item education__list__item__{{index}}">
                                                 <span class="degree">{{degree}}</span>
                                                 <div class="company_wrapper editor">
-                                                    <span class="school">{{school}}</span>
+                                                    <div class="education_address_wrapper">
+                                                        <span class="school">{{school}}</span>
+                                                        <span class="school_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                    </div>
                                                     <span class="dates">
                                                         <span class="date_span startMonth">{{startMonth}}</span>
                                                         <span class="date_span startYear">{{startYear}}</span>
@@ -264,7 +268,7 @@
 
                             <div class="form__group">
                                 <label class="form__label" for="position">Position</label>
-                                <input type="text" class="form__input" id="position" name="position" required maxlength="50" value="{{#current_resume.personal.position}}{{current_resume.personal.position}}{{/current_resume.personal.position}}"/>
+                                <input type="text" class="form__input" id="position" name="position" maxlength="50" value="{{#current_resume.personal.position}}{{current_resume.personal.position}}{{/current_resume.personal.position}}"/>
                             </div>
                             
                             <div class="form__group">
@@ -276,35 +280,33 @@
 
                             <div class="form__group">
                                 <label class="form__label" for="address">Address</label>
-                                <input type="text" class="form__input" id="address" name="address" required maxlength="100" value="{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}"/>
+                                <input type="text" class="form__input" id="address" name="address" maxlength="50" value="{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}"/>
                             </div>
 
                             <div class="row">
                                 <div class="col-6">
                                     <div class="form__group">
                                         <label class="form__label" for="city">City</label>
-                                        <input type="text" class="form__input" id="city" name="city" required maxlength="50" value="{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}"/>
+                                        <input type="text" class="form__input" id="city" name="city" maxlength="40" value="{{#current_resume.personal.city}}{{current_resume.personal.city}}{{/current_resume.personal.city}}"/>
                                     </div>
                                 </div>
 
                                 <div class="col-6 ml">
                                     <div class="form__group">
                                         <label class="form__label" for="country">Country</label>
-                                        <input type="text" class="form__input" id="country" name="country" maxlength="50" value="{{#current_resume.personal.country}}{{current_resume.personal.country}}{{/current_resume.personal.country}}"/>
+                                        <input type="text" class="form__input" id="country" name="country" maxlength="40" value="{{#current_resume.personal.country}}{{current_resume.personal.country}}{{/current_resume.personal.country}}"/>
                                     </div>
                                 </div>
                             </div>
                                     
                             <div class="form__group">
                                 <label class="form__label" for="phone">Phone</label>
-                                <input type="text" class="form__input" id="phone" name="phone" pattern="^[+0-9-]*$" required maxlength="40" value="{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}"/>
-                                
+                                <input type="text" class="form__input" id="phone" name="phone" pattern="^[+0-9-]*$" maxlength="40" value="{{#current_resume.personal.phone}}{{current_resume.personal.phone}}{{/current_resume.personal.phone}}"/>
                             </div>
                             
                             <div class="form__group">
                                 <label class="form__label" for="email">Email</label>
-                                <input type="email" class="form__input" id="email" name="email" required maxlength="50" value="{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}"/>
-                                        
+                                <input type="email" class="form__input" id="email" name="email" maxlength="50" value="{{#current_resume.personal.email}}{{current_resume.personal.email}}{{/current_resume.personal.email}}"/>
                             </div>
 
                             <div class="btn-group">

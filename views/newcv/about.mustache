@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/styles/editor.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Dream Resume</title>
+</head>
+
+<body>
+    <div class="about__navigation">
+        <input type="checkbox" class="about__navigation__checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="about__navigation__button">
+            <span class="line"></span>
+        </label>
+
+        <nav class="about__navigation__nav">
+            <ul class="about__navigation__list">
+                <li class="about__navigation__item"><a href="/resumes" class="about__navigation__link">Your resumes {{#resumesLengthBool}}( {{resumesLength}} ){{/resumesLengthBool}}</a></li>
+                <li class="about__navigation__item"><a href="/newresume" class="about__navigation__link">Templates</a></li>
+                <li class="about__navigation__item"><span class="about__navigation__selected">About</span></li>
+            </ul>
+        </nav>
+
+    </div>
+
+    <header class="header__editor">
+        <div class="header__top-row">
+            <div class="header__logo-box">
+                <a href="/" class="header__atag"><span>Resume Builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
+            </div>
+
+            <nav class="about__navigaion__menu d-none">
+                <ul>
+                    <li><a href="/resumes">Your resumes {{#resumesLengthBool}}( {{resumesLength}} ){{/resumesLengthBool}}</a></li>
+                    <li><a href="/newresume">Templates</a></li>
+                    <li><span class="selected">About</span></li>
+                </ul>
+            </nav>
+        </div>
+        
+    </header>
+
+    <section class="about_section">
+        <h3 class="heading-secondary">For contact and requests: <span class="text_transform_lowercase">dobrganch89@gmail.com</span></h3>
+    </section>
+
+    <footer class="footer_about">
+        <div class="content">Free Resume Builder, get your dream job</div>
+    </footer>
+
+</body>
+
+
+</html>

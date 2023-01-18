@@ -182,9 +182,6 @@
                                 -ms-word-break: break-all;
                                 word-break: break-all;
 
-                                // Non standard for webkit
-                                word-break: break-word;
-
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
                                 hyphens: auto;
@@ -205,9 +202,6 @@
                             -ms-word-break: break-all;
                             word-break: break-all;
 
-                            // Non standard for webkit
-                            word-break: break-word;
-
                             -webkit-hyphens: auto;
                             -moz-hyphens: auto;
                             hyphens: auto;
@@ -218,20 +212,11 @@
 
                 .certification {
                     margin-top: 2rem;
-                    &__title_image {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        .image img {
-                            width: 3rem;
-                            height: 3rem;
-                        }
+                    
                         .certification__title {
-                            margin-left: .5rem;
                             font-size: 1.5rem;
+                            text-align: center;
                         }
-                    }
 
                     &__list {
                         text-align: center;

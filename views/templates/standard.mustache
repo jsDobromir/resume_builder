@@ -217,7 +217,6 @@
         flex: 1 1 0px;
         -ms-word-break: break-all;
         word-break: break-all;
-        word-break: break-word;
         -webkit-hyphens: auto;
         -moz-hyphens: auto;
         hyphens: auto;
@@ -332,70 +331,90 @@
             border-bottom: 1px solid black;
         }
         .cv1 .cv_container .rightCol .experience__list {
-            font-size: 1rem;
+            font-size: 1.4rem;
         }
         .cv1 .cv_container .rightCol .experience__list__item {
-            margin-top: 1rem;
+            word-break: break-all;
+        }
+        .cv1 .cv_container .rightCol .experience__list__item:not(:first-child) {
+            margin-top: 1.5rem;
         }
         .cv1 .cv_container .rightCol .experience__list__item .position {
             font-weight: 900;
             font-size: 1.5rem;
+            text-transform: capitalize;
         }
         .cv1 .cv_container .rightCol .experience__list__item .company_wrapper {
+            font-size: 1.3rem;
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: space-between;
         }
-        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .company {
+        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .experience_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .experience_address_wrapper .company {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .experience_address_wrapper .company_address {
             font-weight: 600;
         }
         .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .dates {
             font-weight: 600;
             margin-right: 0.5rem;
         }
-        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper.editor {
-            font-size: 1.3rem;
-        }
-        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper.editor .dates .startYear, .cv1 .cv_container .rightCol .experience__list__item .company_wrapper.editor .dates .endYear {
+        .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .dates .startYear, .cv1 .cv_container .rightCol .experience__list__item .company_wrapper .dates .endYear {
             padding-left: 0.3rem;
         }
         .cv1 .cv_container .rightCol .experience__list__item .description {
-        margin-top: 0.5rem;
+            margin-top: 0.5rem;
         }
         .cv1 .cv_container .rightCol .experience__list__item .ul_holder {
-        padding-left: 3rem;
+            padding-left: 3rem;
         }
         .cv1 .cv_container .rightCol .education__title {
-        border-bottom: 1px solid black;
+            border-bottom: 1px solid black;
         }
         .cv1 .cv_container .rightCol .education__list {
-        font-size: 1rem;
+            font-size: 1.4rem;
         }
         .cv1 .cv_container .rightCol .education__list__item {
-        margin-top: 1rem;
+            word-break: break-all;
+        }
+        .cv1 .cv_container .rightCol .education__list__item:not(:first-child) {
+            margin-top: 1.5rem;
         }
         .cv1 .cv_container .rightCol .education__list__item .degree {
-        font-weight: 900;
+            font-weight: 900;
+            text-transform: capitalize;
         }
         .cv1 .cv_container .rightCol .education__list__item .company_wrapper {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
+            font-size: 1.3rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
-        .cv1 .cv_container .rightCol .education__list__item .company_wrapper .company {
-        font-weight: 600;
+        .cv1 .cv_container .rightCol .education__list__item .company_wrapper .education_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv1 .cv_container .rightCol .education__list__item .company_wrapper .education_address_wrapper .school {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv1 .cv_container .rightCol .education__list__item .company_wrapper .education_address_wrapper .school_address {
+            font-weight: 600;
         }
         .cv1 .cv_container .rightCol .education__list__item .company_wrapper .dates {
-        font-weight: 600;
-        margin-right: 0.5rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
         }
-        .cv1 .cv_container .rightCol .education__list__item .company_wrapper.editor {
-        font-size: 1.3rem;
-        }
-        .cv1 .cv_container .rightCol .education__list__item .company_wrapper.editor .dates .startYear, .cv1 .cv_container .rightCol .education__list__item .company_wrapper.editor .dates .endYear {
-        padding-left: 0.3rem;
+        .cv1 .cv_container .rightCol .education__list__item .company_wrapper .dates .startYear, .cv1 .cv_container .rightCol .education__list__item .company_wrapper .dates .endYear {
+            padding-left: 0.3rem;
         }
         .cv1 .cv_container .rightCol .education__list__item .description {
             margin-top: 0.5rem;
@@ -513,7 +532,10 @@
                                                     <div class="experience__list__item experience__list__item__{{index}}">
                                                         <span class="position">{{position}}</span>
                                                         <div class="company_wrapper editor">
-                                                            <span class="company">{{company}}</span>
+                                                            <div class="experience_address_wrapper">
+                                                                <span class="company">{{company}}</span>
+                                                                <span class="company_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                            </div>
                                                             <span class="dates">
                                                                 <span class="date_span startMonth">{{startMonth}}</span>
                                                                 <span class="date_span startYear">{{startYear}}</span>
@@ -550,7 +572,10 @@
                                                     <div class="education__list__item education__list__item__{{index}}">
                                                         <span class="position">{{degree}}</span>
                                                         <div class="company_wrapper editor">
-                                                            <span class="company">{{school}}</span>
+                                                            <div class="education_address_wrapper">
+                                                                <span class="school">{{school}}</span>
+                                                                <span class="school_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                            </div>
                                                             <span class="dates">
                                                                 <span class="date_span startMonth">{{startMonth}}</span>
                                                                 <span class="date_span startYear">{{startYear}}</span>

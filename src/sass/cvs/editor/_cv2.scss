@@ -69,9 +69,6 @@
                             -ms-word-break: break-all;
                             word-break: break-all;
 
-                            // Non standard for webkit
-                            word-break: break-word;
-
                             -webkit-hyphens: auto;
                             -moz-hyphens: auto;
                             hyphens: auto;
@@ -86,9 +83,6 @@
                     .text {
                         -ms-word-break: break-all;
                         word-break: break-all;
-
-                        // Non standard for webkit
-                        word-break: break-word;
 
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
@@ -110,10 +104,12 @@
         }
 
         .cv__content {
-            min-height: 70rem;
-            @include media-breakpoint-up(md) {
-                height: 70rem;
-                overflow: auto;
+            min-height: 65rem;
+            @include media-breakpoint-up(lg) {
+                min-height: unset;
+                height: 65rem;
+                overflow: hidden;
+                overflow-y: auto;
             }
             background-color: rgb(31 68 22 / 10%);
             .leftCol {
@@ -141,9 +137,6 @@
                             flex: 1 1 0px;
                             -ms-word-break: break-all;
                             word-break: break-all;
-
-                            // Non standard for webkit
-                            word-break: break-word;
 
                             -webkit-hyphens: auto;
                             -moz-hyphens: auto;
@@ -198,9 +191,6 @@
                                 -ms-word-break: break-all;
                                 word-break: break-all;
             
-                                // Non standard for webkit
-                                word-break: break-word;
-            
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
                                 hyphens: auto;
@@ -235,9 +225,6 @@
                             -ms-word-break: break-all;
                                 word-break: break-all;
     
-                                // Non standard for webkit
-                                word-break: break-word;
-    
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
                                 hyphens: auto;
@@ -246,9 +233,6 @@
                             a {
                                 -ms-word-break: break-all;
                                 word-break: break-all;
-    
-                                // Non standard for webkit
-                                word-break: break-word;
     
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
@@ -262,21 +246,12 @@
                 }
 
                 .certifications {
-                    margin-top: 3rem;
-                    &__title_image {
-                        display: flex;
-                        flex-direction: row;
-                        align-items: center;
-                        justify-content: center;
-                        .image img {
-                            width: 3rem;
-                            height: 3rem;
-                        }
+                    margin-top: 2rem;
+                    
                         .certifications__title {
-                            margin-left: .5rem;
                             font-size: 2rem;
+                            text-align: center;
                         }
-                    }
 
                     &__list {
                         margin-top: .1rem;
@@ -313,36 +288,44 @@
                     }
 
                     &__list {
-                        font-size: 1rem;
+                        font-size: 1.4rem;
                         &__item {
                             &:not(:first-child) {
                                 margin-top: 1.5rem;
                             }
-                            margin-top: 1rem;
                             .position {
                                 font-weight: 900;
                                 font-size: 1.5rem;
+                                text-transform: capitalize;
                             }
                             .company_wrapper {
+                                font-size: 1.3rem;
                                 display: flex;
                                 flex-direction: row;
-                                align-items: center;
                                 justify-content: space-between;
-                                font-size: 1.3rem;
-                                .company {
-                                    font-weight: 600;
+                                .experience_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .company {
+                                        font-weight: 900;
+                                        text-transform: capitalize;
+                                    }
+                                    .company_address {
+                                        font-weight: 600;
+                                    }
                                 }
                                 .dates {
                                     font-weight: 600;
                                     margin-right: .5rem;
                                     .startYear, .endYear{
-                                        //padding-left: .3rem;
+                                        padding-left: .3rem;
                                     }
                                 }
                             }
     
                             .description {
-                                font-size: 1.3rem;
+                               margin-top: .5rem;
                             }
                             .ul_holder {
                                 padding-left: 2rem;
@@ -370,39 +353,46 @@
                     }
 
                     &__list {
-                        font-size: 1rem;
+                        font-size: 1.4rem;
                         &__item {
                             &:not(:first-child) {
                                 margin-top: 1.5rem;
                             }
-                            margin-top: 1rem;
                             .degree {
                                 font-weight: 900;
-                                font-size: 1.5rem;
+                                text-transform: capitalize;
                             }
                             .company_wrapper {
+                                font-size: 1.3rem;
                                 display: flex;
                                 flex-direction: row;
-                                align-items: center;
                                 justify-content: space-between;
-                                font-size: 1.3rem;
-                                .school {
-                                    font-weight: 600;
+                                .education_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .school {
+                                        font-weight: 900;
+                                        text-transform: capitalize;
+                                    }
+                                    .school_address {
+                                        font-weight: 600;
+                                    }
                                 }
                                 .dates {
                                     font-weight: 600;
                                     margin-right: .5rem;
-                                    // .startYear, .endYear{
-                                    //     padding-left: .3rem;
-                                    // }
+                                    .startYear, .endYear{
+                                        padding-left: .3rem;
+                                    }
                                 }
                             }
     
                             .description {
-                                font-size: 1.3rem;
+                                margin-top: .5rem;
                             }
                             .ul_holder {
-                                padding-left: 2rem;
+                                padding-left: 3rem;
                             }
                         }   
                     }

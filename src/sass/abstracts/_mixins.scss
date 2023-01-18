@@ -200,12 +200,10 @@ $breakpoint argument choices
         &:hover {
             transform: translateY(-5px);
         }
-        height: 45rem;
-        @include media-breakpoint-up(md) {
-            height: 50rem;
-        }
+        height: 50rem;
+
         @include media-breakpoint-up(lg) {
-            height: 65rem;
+            height: 60rem;
         }
         overflow: hidden;
         border: 1px solid rgb(41, 38, 38);
@@ -233,9 +231,6 @@ $breakpoint argument choices
                 flex-direction: column;
                 -ms-word-break: break-all;
                 word-break: break-all;
-
-                // Non standard for webkit
-                word-break: break-word;
 
                 -webkit-hyphens: auto;
                 -moz-hyphens: auto;
@@ -297,20 +292,15 @@ $breakpoint argument choices
                         border-bottom: .5rem solid #eee;
                         text-align: center;
                         font-weight: 600;
-                        font-size: 1.5rem;
+                        font-size: 1.7rem;
                         color: #644e4e;
-                        @include media-breakpoint-up(md) {
-                            border-bottom: .5rem solid #eee;
-                            font-size: 2rem;
-                        }
+                        border-bottom: .5rem solid #eee;
+                        
                     }
                     margin-top: .5rem;
                     color: #504343;
                     div[class*="skill_div_"] {
                         font-size: 1.2rem;
-                        @include media-breakpoint-up(md) {
-                            font-size: 1.5rem;
-                        }
                         &:not(:first-child) {
                             margin-top: .3rem;
                             text-align: center;
@@ -337,11 +327,8 @@ $breakpoint argument choices
                         text-align: center;
                         color: #644e4e;
                         font-weight: 600;
-                        font-size: 1.5rem;
-                        @include media-breakpoint-up(md) {
-                            border-bottom: .5rem solid #eee;
-                            font-size: 2rem;
-                        }
+                        font-size: 1.7rem;
+                        border-bottom: .5rem solid #eee;
                     }
                     margin-top: .5rem;
                     color: #504343;
@@ -361,15 +348,9 @@ $breakpoint argument choices
                         .language_name {
                             font-size: 1.2rem;
                             flex: 1 1 0px;
-                            @include media-breakpoint-up(md) {
-                                font-size: 1.5rem;
-                            }
                         }
                         .rating {
                             font-size: 1rem;
-                            @include media-breakpoint-up(md) {
-                                font-size: 1.3rem;
-                            }
                         }
     
                         .star_1 {
@@ -395,9 +376,6 @@ $breakpoint argument choices
                 display: flex;
                 flex-direction: column;
                 padding: .5rem;
-                @include media-breakpoint-up(md) {
-                    padding: 1rem;
-                }
                 & > div:nth-child(2) {
                     margin-top: 1rem;
                 }
@@ -422,9 +400,6 @@ $breakpoint argument choices
                         -ms-word-break: break-all;
                         word-break: break-all;
 
-                        // Non standard for webkit
-                        word-break: break-word;
-
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
                         hyphens: auto;
@@ -436,37 +411,36 @@ $breakpoint argument choices
                             }
                             .position {
                                 font-weight: 900;
-                                font-size: 1.3rem;
-                                @include media-breakpoint-up(md) {
-                                    font-size: 1.5rem;
-                                }
+                                font-size: 1.5rem;
+                                text-transform: capitalize;
                             }
                             .company_wrapper {
+                                font-size: 1.2rem;
                                 display: flex;
                                 flex-direction: row;
                                 align-items: center;
                                 justify-content: space-between;
-                                .company {
-                                    font-weight: 700;
+                                .experience_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .company {
+                                        font-weight: 700;
+                                        text-transform: capitalize;
+                                    }
+                                    .company_address {
+                                        font-weight: 600;
+                                    }
                                 }
                                 .dates {
                                     font-weight: 600;
-                                    margin-right: .1rem;
-                                }
-                            }
-                            .company_wrapper {
-                                font-size: 1.2rem;
-                                @include media-breakpoint-up(md) {
-                                    font-size: 1.3rem;
-                                }
-                                .dates {
                                     .startYear, .endYear{
-                                        padding-left: .1rem;
+                                        padding-left: .2rem;
                                     }
                                 }
                             }
                             .description {
-                                margin-top: .4rem;
+                                margin-top: .5rem;
                             }
     
                             .ul_holder {
@@ -485,9 +459,6 @@ $breakpoint argument choices
                         -ms-word-break: break-all;
                         word-break: break-all;
 
-                        // Non standard for webkit
-                        word-break: break-word;
-
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
                         hyphens: auto;
@@ -499,38 +470,36 @@ $breakpoint argument choices
                             }
                             .degree {
                                 font-weight: 900;
-                                font-size: 1.3rem;
-                                @include media-breakpoint-up(md) {
-                                    font-size: 1.5rem;
-                                }
+                                font-size: 1.4rem;
                             }
                             .company_wrapper {
+                                font-size: 1.2rem;
                                 display: flex;
                                 flex-direction: row;
                                 align-items: center;
                                 justify-content: space-between;
-                                .school {
-                                    font-weight: 700;
+                                .education_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .school {
+                                        font-weight: 700;
+                                        text-transform: capitalize;
+                                    }
+                                    .school_address {
+                                        font-weight: 600;
+                                    }
                                 }
                                 .dates {
                                     font-weight: 600;
-                                    margin-right: .1rem;
-                                }
-                            }
-                            .company_wrapper{
-                                font-size: 1.2rem;
-                                @include media-breakpoint-up(md) {
-                                    font-size: 1.3rem;
-                                }
-                                .dates {
                                     .startYear, .endYear{
-                                        padding-left: .1rem;
+                                        padding-left: .2rem;
                                     }
                                 }
                             }
     
                             .description {
-                                margin-top: .4rem;
+                                margin-top: .5rem;
                             }
     
                             .ul_holder {
@@ -551,12 +520,10 @@ $breakpoint argument choices
         &:hover {
             transform: translateY(-5px);
         }
-        height: 45rem;
-        @include media-breakpoint-up(md) {
-            height: 50rem;
-        }
+        height: 50rem;
+
         @include media-breakpoint-up(lg) {
-            height: 65rem;
+            height: 60rem;
         }
         overflow: hidden;
         border: 1px solid rgb(41, 38, 38);
@@ -655,9 +622,6 @@ $breakpoint argument choices
                                 -ms-word-break: break-all;
                                 word-break: break-all;
     
-                                // Non standard for webkit
-                                word-break: break-word;
-    
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
                                 hyphens: auto;
@@ -675,9 +639,6 @@ $breakpoint argument choices
                             }
                             -ms-word-break: break-all;
                             word-break: break-all;
-    
-                            // Non standard for webkit
-                            word-break: break-word;
     
                             -webkit-hyphens: auto;
                             -moz-hyphens: auto;
@@ -725,9 +686,6 @@ $breakpoint argument choices
                                 flex: 1 1 0px;
                                 -ms-word-break: break-all;
                                 word-break: break-all;
-    
-                                // Non standard for webkit
-                                word-break: break-word;
     
                                 -webkit-hyphens: auto;
                                 -moz-hyphens: auto;
@@ -782,9 +740,6 @@ $breakpoint argument choices
                                     -ms-word-break: break-all;
                                     word-break: break-all;
                 
-                                    // Non standard for webkit
-                                    word-break: break-word;
-                
                                     -webkit-hyphens: auto;
                                     -moz-hyphens: auto;
                                     hyphens: auto;
@@ -819,9 +774,6 @@ $breakpoint argument choices
                                 -ms-word-break: break-all;
                                     word-break: break-all;
         
-                                    // Non standard for webkit
-                                    word-break: break-word;
-        
                                     -webkit-hyphens: auto;
                                     -moz-hyphens: auto;
                                     hyphens: auto;
@@ -830,9 +782,6 @@ $breakpoint argument choices
                                 a {
                                     -ms-word-break: break-all;
                                     word-break: break-all;
-        
-                                    // Non standard for webkit
-                                    word-break: break-word;
         
                                     -webkit-hyphens: auto;
                                     -moz-hyphens: auto;
@@ -908,27 +857,36 @@ $breakpoint argument choices
                                 .position {
                                     font-weight: 900;
                                     font-size: 1.5rem;
+                                    text-transform: capitalize;
                                 }
                                 .company_wrapper {
+                                    font-size: 1.2rem;
                                     display: flex;
                                     flex-direction: row;
                                     align-items: center;
                                     justify-content: space-between;
-                                    font-size: 1.2rem;
-                                    .company {
-                                        font-weight: 600;
+                                    .experience_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .company {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .company_address {
+                                            font-weight: 600;
+                                        }
                                     }
                                     .dates {
                                         font-weight: 600;
-                                        margin-right: .2rem;
                                         .startYear, .endYear{
-                                            //padding-left: .3rem;
+                                            padding-left: .2rem;
                                         }
                                     }
                                 }
         
                                 .description {
-                                    font-size: 1.2rem;
+                                    margin-top: .5rem;
                                 }
                                 .ul_holder {
                                     padding-left: 3rem;
@@ -973,25 +931,199 @@ $breakpoint argument choices
                                     font-size: 1.5rem;
                                 }
                                 .company_wrapper {
+                                    font-size: 1.2rem;
                                     display: flex;
                                     flex-direction: row;
                                     align-items: center;
                                     justify-content: space-between;
-                                    font-size: 1.2rem;
-                                    .school {
-                                        font-weight: 600;
+                                    .education_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .school {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .school_address {
+                                            font-weight: 600;
+                                        }
                                     }
                                     .dates {
                                         font-weight: 600;
-                                        margin-right: .5rem;
-                                        // .startYear, .endYear{
-                                        //     padding-left: .3rem;
-                                        // }
+                                        .startYear, .endYear{
+                                            padding-left: .2rem;
+                                        }
                                     }
                                 }
         
                                 .description {
+                                    margin-top: .5rem;
+                                }
+        
+                                .ul_holder {
+                                    padding-left: 3rem;
+                                }
+                            }   
+                        }
+                    }
+    
+                }
+            }
+        }
+    }
+}
+
+@mixin resume_custom() {
+    .resume.custom {
+        transition: all .3s;
+        &:hover {
+            transform: translateY(-5px);
+        }
+        height: 50rem;
+
+        @include media-breakpoint-up(lg) {
+            height: 60rem;
+        }
+        overflow: hidden;
+        border: 1px solid rgb(41, 38, 38);
+        position: relative;
+        .select-button-wrapper {
+            position: absolute;
+            bottom: 1%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            .select-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: 2rem;
+            }
+        }
+        .cv_container { 
+            display: flex;
+            flex-direction: column;
+    
+            .heading {
+                text-align: center;
+                background-color: #212529e0;
+                color: #fff;
+                font-family: inherit;
+                min-height: 12rem;
+                width: 100%;
+                padding: 1rem;
+                .name {
+                    font-size: 2rem;
+                }
+                .position {
+                    font-size: 1.4rem;
+                    color: rgb(173, 169, 169);
+                }
+                .contact_info {
+                    margin-top: .5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    padding: 0 2rem;
+                    font-size: 1.3rem;
+                    color: $color-grey-light-1;
+                    .address {
+                        display: flex;
+                        align-items: center;
+                        flex: 1.5 1 0;
+                        .address_city_wrapper {
+                            display: flex;
+                            flex-direction: column;
+                            align-items: flex-start;
+                            text-align: left;
+                            margin-left: .5rem;
+                        }
+                    }
+                    .phone, .email {
+                        display: flex;
+                        align-items: center;
+                        flex: 1 1 0;
+                        .right_text {
+                            margin-left: .5rem;
+                            -ms-word-break: break-all;
+                            word-break: break-all;
+    
+                            -webkit-hyphens: auto;
+                            -moz-hyphens: auto;
+                            hyphens: auto;
+                        }
+                    }
+                    i {
+                        font-size: 2rem;
+                    }
+                }
+            }
+    
+            .main_content {
+                .left_main_content {
+                    padding: 2rem;
+    
+                    .profile {
+                        -ms-word-break: break-all;
+                        word-break: break-all;
+    
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        hyphens: auto;
+                        font-size: 1.2rem;
+                        .profile_title {
+                            font-size: 1.7rem;
+                            font-weight: 700;
+                            border-bottom: 1px solid rgba(117, 115, 115, 0.788);
+                        }
+                        .desc {
+                            color: inherit;
+                        }
+                    }
+    
+                    .experience {
+                        margin-top: 1rem;
+                        &__title {
+                            font-size: 1.7rem;
+                            font-weight: 700;
+                            border-bottom: 1px solid rgba(117, 115, 115, 0.788);
+                        }
+                        &__list {
+                            font-size: 1.2rem;
+                            &__item {
+                                
+                                margin-top: 1rem;
+                                .position {
+                                    font-weight: 900;
+                                    font-size: 1.5rem;
+                                    text-transform: capitalize;
+                                }
+                                .company_wrapper {
                                     font-size: 1.2rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .experience_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .company {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .company_address {
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    .dates {
+                                        font-weight: 600;
+                                        .startYear, .endYear{
+                                            padding-left: .2rem;
+                                        }
+                                    }
+                                }
+        
+                                .description {
+                                    margin-top: .5rem;
                                 }
                                 .ul_holder {
                                     padding-left: 3rem;
@@ -1000,6 +1132,456 @@ $breakpoint argument choices
                         }
                     }
     
+                    .education {
+                        margin-top: 1rem;
+                        &__title {
+                            font-size: 1.7rem;
+                            font-weight: 700;
+                            border-bottom: 1px solid rgba(117, 115, 115, 0.788);
+                        }
+        
+                        &__list {
+                            font-size: 1.4rem;
+                            &__item {
+                                
+                                margin-top: 1rem;
+                                .degree {
+                                    font-weight: 600;
+                                    font-size: 1.7rem;
+                                }
+                                .company_wrapper {
+                                    font-size: 1.2rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .education_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .school {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .school_address {
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    .dates {
+                                        font-weight: 600;
+                                        .startYear, .endYear{
+                                            padding-left: .2rem;
+                                        }
+                                    }
+                                }
+        
+                                .description {
+                                    margin-top: .5rem;
+                                }
+        
+                                .ul_holder {
+                                    padding-left: 3rem;
+                                }
+                            }   
+                        }
+                    }
+                }
+    
+                .right_main_content {
+                    border-left: 1px solid $color-grey-light-2;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 2rem;
+    
+                    .skills {
+                        width: 100%;
+                        h2 {
+                            text-align: center;
+                        }
+    
+                        div[class^="skill_rating"] {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            margin-top: .5rem;
+                            border-bottom: 1px solid rgb(82, 180, 43);
+    
+                            .skill_name {
+                                font-size: 1.2rem;
+                                flex: 1 1 0px;
+                                -ms-word-break: break-all;
+                                word-break: break-all;
+    
+                                -webkit-hyphens: auto;
+                                -moz-hyphens: auto;
+                                hyphens: auto;
+                            }
+                            .rating {
+                                font-size: 1.2rem;
+                            }
+                        }
+                        .skill_rating1 {
+                            .rating {
+                                @include oneStar;
+                            }
+                        }
+    
+                        .skill_rating2 {
+                            .rating {
+                                @include twoStar;
+                            }
+                        }
+    
+                        .skill_rating3 {
+                            .rating {
+                                @include threeStar;
+                            }
+                        }
+    
+                        .skill_rating4 {
+                            .rating {
+                                @include fourStar;
+                            }
+                        }
+    
+                        .skill_rating5 {
+                            .rating {
+                                @include fiveStar;
+                            }
+                        }
+                    }
+    
+                    .languages {
+                        width: 100%;
+                        h2 {
+                            text-align: center;
+                        }
+                        margin-top: 1.5rem;
+                        .language {
+                            text-align: center;
+                            font-size: 1.5rem;
+                            margin-top: 1rem;
+                        }    
+        
+                        .range_wrapper {
+                            background-color: rgb(94, 91, 91);
+                            width: 80%;
+                            height: .5rem;
+                            margin: 0 auto;
+                            .language_range {
+                                background-color: aliceblue;
+                                height: .5rem;
+                                background-color: #55c57a;
+                            }
+                        }
+                    }
+    
+                    .certificates {
+                        width: 100%;
+                        margin-top: 2rem;
+                        text-align: center;
+                        .certifications__list {
+                            text-align: left;
+                            div[class^="certifications__list__item__"]{
+                                margin-top: 1rem;
+                                border-bottom: 1px solid gray;
+                                font-size: 1.3rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin resume_simple() {
+    .resume.simple {
+        transition: all .3s;
+        &:hover {
+            transform: translateY(-5px);
+        }
+        height: 50rem;
+
+        @include media-breakpoint-up(lg) {
+            height: 60rem;
+        }
+        overflow: hidden;
+        border: 1px solid rgb(41, 38, 38);
+        position: relative;
+        .select-button-wrapper {
+            position: absolute;
+            bottom: 1%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            .select-wrapper {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-column-gap: 2rem;
+            }
+        }
+
+        .cv_container {
+            display: flex;
+            flex-direction: column;
+            .heading {
+                padding-top: 2rem;
+                padding-left: 2rem;
+                .border_bottom {
+                    border-bottom: 1px solid #d5cdcd;
+                }
+                .heading_left {
+                    display: flex;
+                    flex-direction: column;
+                    .name {
+                        font-size: 2rem;
+                    }
+                    .position {
+                        margin-top: 1rem;
+                        font-size: 1.8rem;
+                        color: rgb(173, 169, 169);
+                    }
+                    .profile {
+                        font-size: 1.2rem;
+                        margin-top: 2rem;
+                    }
+                }
+        
+                .heading_right {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: rgb(112, 112, 112);
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+        
+                    -webkit-hyphens: auto;
+                    -moz-hyphens: auto;
+                    hyphens: auto;
+                    .icon {
+                        font-size: 2rem;
+                    }
+                    .contact_info {
+                        display: flex;
+                        flex-direction: column;
+                        span:not(.address) {
+                            margin-top: .2rem;
+                        }
+                        .info {
+                            display: flex;
+                            flex: column;
+                            align-items: center;
+                            .right_text{
+                                margin-left: .5rem;
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+    
+            .main_content {
+                margin-top: 2rem;
+                padding: 1rem 2rem;
+                .left_main_content {
+                
+                    .experience {
+                        width: 95%;
+                        &__title {
+                            font-size: 1.7rem;
+                            font-weight: 700;
+                        }
+                        &__list {
+                            font-size: 1.2rem;
+                            &__item {
+                                
+                                margin-top: 1rem;
+                                .position {
+                                    font-weight: 900;
+                                    font-size: 1.3rem;
+                                    text-transform: capitalize;
+                                }
+                                .company_wrapper {
+                                    font-size: 1.2rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .experience_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .company {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .company_address {
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    .dates {
+                                        font-weight: 600;
+                                        .startYear, .endYear{
+                                            padding-left: .2rem;
+                                        }
+                                    }
+                                }
+        
+                                .description {
+                                    margin-top: .5rem;
+                                }
+                                .ul_holder {
+                                    padding-left: 3rem;
+                                }
+                            }   
+                        }
+                    }
+    
+                    .education {
+                        width: 95%;
+                        margin-top: 1rem;
+                        &__title {
+                            font-size: 1.7rem;
+                            font-weight: 700;
+                        }
+        
+                        &__list {
+                            font-size: 1.2rem;
+                            &__item {
+                                
+                                margin-top: 1rem;
+                                .degree {
+                                    font-weight: 900;
+                                }
+                                .company_wrapper {
+                                    font-size: 1.2rem;
+                                    display: flex;
+                                    flex-direction: row;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    .education_address_wrapper {
+                                        display: flex;
+                                        flex-direction: column;
+                                        justify-content: center;
+                                        .school {
+                                            font-weight: 700;
+                                            text-transform: capitalize;
+                                        }
+                                        .school_address {
+                                            font-weight: 600;
+                                        }
+                                    }
+                                    .dates {
+                                        font-weight: 600;
+                                        .startYear, .endYear{
+                                            padding-left: .2rem;
+                                        }
+                                    }
+                                }
+        
+                                .description {
+                                    margin-top: .5rem;
+                                }
+        
+                                .ul_holder {
+                                    padding-left: 3rem;
+                                }
+                            }   
+                        }
+                    }
+                }
+    
+                .right_main_content {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+    
+                    .skills {
+                        width: 100%;
+                        text-align: left;
+                        h2 {
+                            font-size: 1.7rem;
+                            text-align: center;
+                        }
+    
+                        .skills_list {
+                            text-align: left;
+                            padding-left: 3rem;
+                            font-size: 1.2rem;
+                            li{
+                                margin-top: .8rem;
+                            }
+                        }
+                    }
+    
+                    .languages {
+                        width: 100%;
+                        margin-top: 1rem;
+                        h2 {
+                            font-size: 1.7rem;
+                            text-align: center;
+                        }
+    
+                        div[class*="language_div_"] {
+                            &:not(:last-child) {
+                                margin-bottom: 1rem;
+                            }
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 92%;
+                            margin: .5rem auto;
+                            border-bottom: 1px solid rgb(82, 180, 43);
+        
+                            .language_name {
+                                font-size: 1.4rem;
+                                flex: 1 1 0px;
+                                -ms-word-break: break-all;
+                                word-break: break-all;
+        
+                                -webkit-hyphens: auto;
+                                -moz-hyphens: auto;
+                                hyphens: auto;
+                            }
+                            .rating {
+                                font-size: 1.2rem;
+                            }
+        
+                            .star_1 {
+                                @include oneStar;
+                            }
+                            .star_2 {
+                                @include twoStar;
+                            }
+                            .star_3 {
+                                @include threeStar;
+                            }
+                            .star_4 {
+                                @include fourStar;
+                            }
+                            .star_5 {
+                                @include fiveStar;
+                            }
+                        }
+                    }
+    
+                    .certifications {
+                        width: 100%;
+                        margin: 1rem 0;
+                        h2 {
+                            font-size: 1.7rem;
+                        }
+                        text-align: center;
+                        .certifications__list {
+                            div[class*="certifications__list__item__"]{
+                                margin-top: 1rem;
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
                 }
             }
         }

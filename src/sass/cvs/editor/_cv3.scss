@@ -1,0 +1,296 @@
+.cv3_editor {
+    width: 100%;
+
+    border: 1px solid black;
+    .cv_container { 
+        display: flex;
+        flex-direction: column;
+
+        .heading {
+            text-align: center;
+            background-color: #212529e0;
+            color: #fff;
+            font-family: inherit;
+            min-height: 12rem;
+            width: 100%;
+            padding: 1rem;
+            .name {
+                font-size: 2rem;
+            }
+            .position {
+                font-size: 1.4rem;
+                color: rgb(173, 169, 169);
+            }
+            .contact_info {
+                margin-top: .5rem;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0 2rem;
+                font-size: 1.3rem;
+                color: $color-grey-light-1;
+                .address {
+                    display: flex;
+                    align-items: center;
+                    flex: 1.5 1 0;
+                    .address_city_wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        text-align: left;
+                        margin-left: .5rem;
+                    }
+                }
+                .phone, .email {
+                    display: flex;
+                    align-items: center;
+                    flex: 1 1 0;
+                    .right_text {
+                        margin-left: .5rem;
+                        -ms-word-break: break-all;
+                        word-break: break-all;
+
+                        -webkit-hyphens: auto;
+                        -moz-hyphens: auto;
+                        hyphens: auto;
+                    }
+                }
+                i {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        .main_content {
+            min-height: 65rem;
+            @include media-breakpoint-up(lg) {
+                min-height: unset;
+                height: 60rem;
+                overflow: hidden;
+                overflow-y: auto;
+            }
+            .left_main_content {
+                padding: 2rem;
+
+                .profile {
+                    -ms-word-break: break-all;
+                    word-break: break-all;
+                    -webkit-hyphens: auto;
+                    -moz-hyphens: auto;
+                    hyphens: auto;
+                    font-size: 1.7rem;
+                    .profile_title {
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                        border-bottom: 1px solid rgba(117, 115, 115, 0.788);
+                    }
+                    .desc {
+                        color: inherit;
+                    }
+                }
+
+                .experience {
+                    &__title {
+                        border-bottom: 1px solid black;
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                    }
+    
+                    &__list {
+                        font-size: 1.4rem;
+                        &__item {
+                            word-break: break-all;
+                            &:not(:first-child) {
+                                margin-top: 1.5rem;
+                            }
+                            .position {
+                                font-weight: 900;
+                                font-size: 1.5rem;
+                                text-transform: capitalize;
+                            }
+                            .company_wrapper {
+                                font-size: 1.3rem;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                .experience_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .company {
+                                        font-weight: 900;
+                                        text-transform: capitalize;
+                                    }
+                                    .company_address {
+                                        font-weight: 600;
+                                    }
+                                }
+                                .dates {
+                                    font-weight: 600;
+                                    margin-right: .5rem;
+                                    .startYear, .endYear{
+                                        padding-left: .3rem;
+                                    }
+                                }
+                            }
+                            .description {
+                                margin-top: .5rem;
+                            }
+    
+                            .ul_holder {
+                                padding-left: 3rem;
+                            }
+                        }   
+                    }
+                }
+
+                .education {
+                    &__title {
+                        border-bottom: 1px solid black;
+                        font-size: 1.7rem;
+                        font-weight: 700;
+                    }
+    
+                    &__list {
+                        font-size: 1.4rem;
+                        &__item {
+                            word-break: break-all;
+                            &:not(:first-child) {
+                                margin-top: 1.5rem;
+                            }
+                            .degree {
+                                font-weight: 900;
+                                text-transform: capitalize;
+                            }
+                            .company_wrapper {
+                                font-size: 1.3rem;
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                                .education_address_wrapper {
+                                    display: flex;
+                                    flex-direction: column;
+                                    justify-content: center;
+                                    .school {
+                                        font-weight: 900;
+                                        text-transform: capitalize;
+                                    }
+                                    .school_address {
+                                        font-weight: 600;
+                                    }
+                                }
+                                .dates {
+                                    font-weight: 600;
+                                    margin-right: .5rem;
+                                    .startYear, .endYear{
+                                        padding-left: .3rem;
+                                    }
+                                }
+                            }
+    
+                            .description {
+                                margin-top: .5rem;
+                            }
+    
+                            .ul_holder {
+                                padding-left: 3rem;
+                            }
+                        }   
+                    }
+                }
+            }
+
+            .right_main_content {
+                border-left: 1px solid $color-grey-light-2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 2rem;
+
+                .skills {
+                    width: 100%;
+                    h2 {
+                        text-align: center;
+                    }
+
+                    div[class^="skill_rating"] {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        justify-content: space-between;
+                        margin-top: .5rem;
+                        border-bottom: 1px solid rgb(82, 180, 43);
+
+                        .skill_name {
+                            font-size: 1.4rem;
+                            flex: 1 1 0px;
+                            -ms-word-break: break-all;
+                            word-break: break-all;
+
+                            -webkit-hyphens: auto;
+                            -moz-hyphens: auto;
+                            hyphens: auto;
+                        }
+                        .rating {
+                            font-size: 1.2rem;
+                        }
+                    }
+                    .star_1 {
+                        @include oneStar;
+                    }
+                    .star_2 {
+                        @include twoStar;
+                    }
+                    .star_3 {
+                        @include threeStar;
+                    }
+                    .star_4 {
+                        @include fourStar;
+                    }
+                    .star_5 {
+                        @include fiveStar;
+                    }
+                }
+
+                .languages {
+                    width: 100%;
+                    h2 {
+                        text-align: center;
+                    }
+                    margin-top: 1.5rem;
+                    .language {
+                        text-align: center;
+                        font-size: 1.5rem;
+                        margin-top: 1rem;
+                    }    
+    
+                    .range_wrapper {
+                        background-color: rgb(94, 91, 91);
+                        width: 80%;
+                        height: .5rem;
+                        margin: 0 auto;
+                        .language_range {
+                            background-color: aliceblue;
+                            height: .5rem;
+                            background-color: #55c57a;
+                        }
+                    }
+                }
+
+                .certifications {
+                    width: 100%;
+                    margin: 2rem 0 0 0;
+                    text-align: center;
+                    .certifications__list {
+                        text-align: left;
+                        div[class^="certifications__list__item__"]{
+                            margin-top: 1rem;
+                            border-bottom: 1px solid gray;
+                            font-size: 1.7rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

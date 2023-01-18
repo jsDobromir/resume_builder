@@ -33,7 +33,10 @@ export default class Personal{
             }
             formDataReversed.append('cvType', this.state.cvType);
             formDataReversed.append('profilePhoto', formData.get('profilePhoto'));
-            
+            if (formDataReversed.has('linkedin')) {
+                let newValue = `https://${formDataReversed.get('linkedin')}`;
+                formDataReversed.set('linkedin', newValue);
+            }
             this.state.updateMultipartFormData(formDataReversed).then(() => {
                 this.routerObj.dispatchNextRouter();
             });
@@ -43,22 +46,24 @@ export default class Personal{
 
     attachFileListener() {
         let profilePhoto = document.querySelector(`.${this.title} #profilePhoto`);
-        profilePhoto.addEventListener('change', async (fileEv) => {
-            let file = profilePhoto.files[0];
-            if (!file.type.match(/image.*/) || file.size > 1000000) {
-                const alert_toast = document.querySelector(`.alert_toast`);
-                alert_toast.textContent = `File must be an image and not bigger than 1mb!`;
-                alert_toast.style.display = 'flex';
-                setTimeout(() => {
-                    alert_toast.textContent = '';
-                    alert_toast.style.display = 'none';
-                }, 3000);
-                return;
-            }
-            
-            const imgSrc = await this.convertToImgSrc(file);
-            this.evEmitterObj.emit('image_updated', {imgSrc: imgSrc});
-        });
+        if (profilePhoto) {
+            profilePhoto.addEventListener('change', async (fileEv) => {
+                let file = profilePhoto.files[0];
+                if (!file.type.match(/image.*/) || file.size > 1000000) {
+                    const alert_toast = document.querySelector(`.alert_toast`);
+                    alert_toast.textContent = `File must be an image and not bigger than 1mb!`;
+                    alert_toast.style.display = 'flex';
+                    setTimeout(() => {
+                        alert_toast.textContent = '';
+                        alert_toast.style.display = 'none';
+                    }, 3000);
+                    return;
+                }
+                
+                const imgSrc = await this.convertToImgSrc(file);
+                this.evEmitterObj.emit('image_updated', {imgSrc: imgSrc});
+            });
+        }
     }
 
     convertToImgSrc(file) {

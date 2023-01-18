@@ -92,6 +92,9 @@
         }
         .cv_container {
         }
+        d-none {
+            display: none;
+        }
         .cv_container .cv__header {
             display: flex;
             flex-direction: row;
@@ -153,7 +156,6 @@
          .cv_container .cv__header .address_info .location .location_address .address.text, .cv_container .cv__header .address_info .location .location_address .city.text, .cv_container .cv__header .address_info .location .location_address .country.text {
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -165,7 +167,6 @@
          .cv_container .cv__header .address_info .phone .text, .cv_container .cv__header .address_info .email .text {
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -206,7 +207,6 @@
             flex: 1 1 0px;
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -329,7 +329,6 @@
         .cv_container .cv__content .leftCol .social_links div[class*="social_link_"] .link a {
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -358,7 +357,6 @@
         .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"] .desc {
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -366,7 +364,6 @@
         .cv_container .cv__content .leftCol .portfolio div[class*="portfolio_link_"] .link a {
             -ms-word-break: break-all;
             word-break: break-all;
-            word-break: break-word;
             -webkit-hyphens: auto;
             -moz-hyphens: auto;
             hyphens: auto;
@@ -375,19 +372,9 @@
         .cv_container .cv__content .leftCol .certifications {
             margin-top: 2rem;
         }
-        .cv_container .cv__content .leftCol .certifications__title_image {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-        }
-        .cv_container .cv__content .leftCol .certifications__title_image .image img {
-            width: 3rem;
-            height: 3rem;
-        }
-        .cv_container .cv__content .leftCol .certifications__title_image .certifications__title {
-            margin-left: 0.5rem;
-            font-size: 1.7rem;
+        .cv_container .cv__content .leftCol .certifications .certifications__title {
+           font-size: 2rem;
+           text-align: center;
         }
         .cv_container .cv__content .leftCol .certifications__list {
             margin-top: .5rem;
@@ -409,42 +396,51 @@
             justify-content: center;
         }
         .cv_container .cv__content .rightCol .experience .experience__title_image .image img {
-            width: 3rem;
-            height: 3rem;
+            width: 4rem;
+            height: 4rem;
         }
         .cv_container .cv__content .rightCol .experience .experience__title_image .experience__title {
             margin-left: 0.5rem;
             font-size: 2rem;
         }
         .cv_container .cv__content .rightCol .experience__list {
-            font-size: 1rem;
-        }
-        .cv_container .cv__content .rightCol .experience__list__item {
-            margin-top: 1rem;
+            font-size: 1.4rem;
         }
         .cv_container .cv__content .rightCol .experience__list__item:not(:first-child) {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         .cv_container .cv__content .rightCol .experience__list__item .position {
             font-weight: 900;
             font-size: 1.5rem;
+            text-transform: capitalize;
         }
         .cv_container .cv__content .rightCol .experience__list__item .company_wrapper {
+            font-size: 1.3rem;
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: space-between;
-            font-size: 1.3rem;
         }
-        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .company {
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .experience_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .experience_address_wrapper .company {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .experience_address_wrapper .company_address {
             font-weight: 600;
         }
         .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .dates {
             font-weight: 600;
             margin-right: 0.5rem;
         }
+        .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .dates .startYear, .cv_container .cv__content .rightCol .experience__list__item .company_wrapper .dates .endYear {
+            padding-left: 0.3rem;
+        }
         .cv_container .cv__content .rightCol .experience__list__item .description {
-            font-size: 1rem;
+            margin-top: 0.5rem;
         }
         .cv_container .cv__content .rightCol .experience__list__item .ul_holder {
             padding-left: 2rem;
@@ -459,45 +455,53 @@
             justify-content: center;
         }
         .cv_container .cv__content .rightCol .education .education__title_image .image img {
-            width: 3rem;
-            height: 3rem;
+            width: 4rem;
+            height: 4rem;
         }
         .cv_container .cv__content .rightCol .education .education__title_image .education__title {
             margin-left: 0.5rem;
             font-size: 2rem;
         }
         .cv_container .cv__content .rightCol .education__list {
-            font-size: 1rem;
-        }
-        .cv_container .cv__content .rightCol .education__list__item {
-            margin-top: 1rem;
+            font-size: 1.4rem;
         }
         .cv_container .cv__content .rightCol .education__list__item:not(:first-child) {
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
         .cv_container .cv__content .rightCol .education__list__item .degree {
             font-weight: 900;
-            font-size: 1.5rem;
+            text-transform: capitalize;
         }
         .cv_container .cv__content .rightCol .education__list__item .company_wrapper {
+            font-size: 1.3rem;
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: space-between;
-            font-size: 1.3rem;
         }
-        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .school {
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .education_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .education_address_wrapper .school {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .education_address_wrapper .school_address {
             font-weight: 600;
         }
         .cv_container .cv__content .rightCol .education__list__item .company_wrapper .dates {
             font-weight: 600;
             margin-right: 0.5rem;
         }
+        .cv_container .cv__content .rightCol .education__list__item .company_wrapper .dates .startYear, .cv_container .cv__content .rightCol .education__list__item .company_wrapper .dates .endYear {
+            padding-left: 0.3rem;
+        }
         .cv_container .cv__content .rightCol .education__list__item .description {
-            font-size: 1rem;
+            margin-top: 0.5rem;
         }
         .cv_container .cv__content .rightCol .education__list__item .ul_holder {
-            padding-left: 2rem;
+            padding-left: 3rem;
         }
         
     </style>
@@ -531,16 +535,13 @@
                                             {{#current_resume.personal.position}}
                                                 {{current_resume.personal.position}}
                                             {{/current_resume.personal.position}}
-                                            {{^current_resume.personal.position}}
-                                                Position
-                                            {{/current_resume.personal.position}}
                                         </span>
                                     </div>
                                 </div>
 
                             <div class="address_info">
                                 <div class="location">
-                                    <span class="icon">{{#current_resume.personal.address}}<i class="fa-2xl fa-solid fa-location-dot"></i>{{/current_resume.personal.address}}</span>
+                                    <span class="icon">{{#addressIcon}}<i class="fa-2xl fa-solid fa-location-dot"></i>{{/addressIcon}}</span>
                                     <div class="location_address">
                                         <span class="address text">{{#current_resume.personal.address}}{{current_resume.personal.address}}{{/current_resume.personal.address}}</span>
                                         <div class="city_country">
@@ -608,10 +609,7 @@
                             {{/portfolio}}
                             {{#certifications}}
                                 <div class="certifications">
-                                    <div class="certifications__title_image">
-                                        <div class="image"><img src="{{certImage}}" alt="certificate"/></div>
-                                        <h3 class="certifications__title">Certifications</h3>
-                                    </div>
+                                    <h2 class="certifications__title">Certifications</h2>
 
                                     <div class="certifications__list">
                                         {{#current_resume.certifications}}
@@ -636,7 +634,10 @@
                                                 <div class="experience__list__item experience__list__item__{{index}}">
                                                     <span class="position">{{position}}</span>
                                                     <div class="company_wrapper editor">
-                                                        <span class="company">{{company}}</span>
+                                                        <div class="experience_address_wrapper">
+                                                            <span class="company">{{company}}</span>
+                                                            <span class="company_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                        </div>
                                                         <span class="dates">
                                                             <span class="date_span startMonth">{{startMonth}}</span>
                                                             <span class="date_span startYear">{{startYear}}</span>
@@ -676,7 +677,10 @@
                                             <div class="education__list__item education__list__item__{{index}}">
                                                 <span class="degree">{{degree}}</span>
                                                 <div class="company_wrapper editor">
-                                                    <span class="school">{{school}}</span>
+                                                    <div class="education_address_wrapper">
+                                                        <span class="school">{{school}}</span>
+                                                        <span class="school_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                    </div>
                                                     <span class="dates">
                                                         <span class="date_span startMonth">{{startMonth}}</span>
                                                         <span class="date_span startYear">{{startYear}}</span>

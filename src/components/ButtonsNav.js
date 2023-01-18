@@ -53,7 +53,25 @@ export default class ButtonsNav {
                     }
                 }
                 else if (event.target.classList.contains('btn-remove')) {
-
+                    const activeRoute = document.querySelector('.wrapper').dataset.activeRoute;
+                    const cvType = document.querySelector('.wrapper').dataset.activeCv;
+                    const cv_id = document.querySelector('.wrapper').dataset.cvId;
+                    if (window.confirm(`Are you sure you want to delete ${activeRoute} section?`)) {
+                        fetch(`/deleteResumeRoute/${cv_id}/${cvType}/${activeRoute}`, {method: 'DELETE'})
+                            .then(response => response.json())
+                            .then(data => {
+                                if (data.success) {
+                                    let index = this.router.formRoutes.indexOf(activeRoute);
+                                    let nextRouter = this.router.formRoutes[index+1];
+                                    document.querySelector(`.track_bar .track_bar_inner [data-url="${activeRoute}"]`).remove();
+                                    document.querySelector(`.track_bar .track_bar_inner [data-url="${nextRouter}"]`).classList.add('active');
+                                    let filteredRouter = filterRouter(activeRoute);
+                                    document.querySelector(`.cvcomp .${filteredRouter}`).remove();
+                                    this.router.formRoutes = data.routes;
+                                    this.router.dispatchView(nextRouter);
+                                }
+                            });
+                    }
                 }
                 else if (event.target.classList.contains('btn-next')) {
                     if (this.router.getNextRouter()) {

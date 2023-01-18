@@ -22,15 +22,19 @@
 @import "layout/education";
 @import "layout/skillsrange";
 @import "layout/skillsstar";
+@import "layout/skillslist";
 @import "layout/certifications";
 @import "layout/portfolio";
 @import "layout/socialLinks";
 @import "layout/languagestar";
+@import "layout/languagerange";
 
 @import "pages/home";
 @import "pages/editor";
 @import "pages/newcv";
 @import "pages/resumes";
+@import "pages/about";
+@import "pages/errorpage";
 
 @import "cvs/cv1";
 @import "cvs/cv2";
@@ -38,3 +42,5 @@
 @import "cvs/cv4";
 @import "cvs/editor/cv1";
 @import "cvs/editor/cv2";
+@import "cvs/editor/cv3";
+@import "cvs/editor/cv4";

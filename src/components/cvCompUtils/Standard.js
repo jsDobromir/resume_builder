@@ -1,4 +1,4 @@
-import { domBuild } from "../../utils/domHelper";
+import { domBuild, buildExperience, buildEducation } from "../../utils/domHelper";
 
 export default class Standard {
 
@@ -159,7 +159,10 @@ export default class Standard {
         let div = domBuild('div', {class: `${obj.type}__list__item ${obj.div}`}, ...[
             domBuild('span', {class: `${obj.type==='experience' ? 'position' : 'degree'}`}, document.createTextNode('')),
             domBuild('div', {class: 'company_wrapper editor'}, ...[
-                domBuild('span', {class: `${obj.type==='experience' ? 'company' : 'school'}`}, document.createTextNode('')),
+                domBuild('div', {class: `${obj.type}_address_wrapper`}, ...[
+                    domBuild('span', {class: `${obj.type==='experience' ? 'company' : 'school'}`}, document.createTextNode('')),
+                    domBuild('span', {class: `${obj.type==='experience' ? 'company' : 'school'}_address`}, document.createTextNode(''))
+                ]),
                 domBuild('span', {class: 'dates'}, ...[
                     domBuild('span', {class:`date_span startMonth`}, document.createTextNode('')),
                     domBuild('span', {class: `date_span startYear`}, document.createTextNode('')),
@@ -204,7 +207,7 @@ export default class Standard {
             if (Array.isArray(personal) && personal.length === 0) {
                 document.querySelector('.cvcomp #firstName').textContent = "Name";
                 document.querySelector('.cvcomp #lastName').textContent = "Name";
-                document.querySelector('.cvcomp #cvProfilePhoto').src = "/images/profile.png";
+                document.querySelector('.cvcomp #cvProfilePhoto').src = "/public/profile.png";
                 document.querySelector('.cvcomp .personal .bio .weighted.address').textContent = '';
                 document.querySelector('.cvcomp .personal .bio #address').textContent = '';
                 document.querySelector('.cvcomp .personal .bio #city').textContent = '';
@@ -237,137 +240,11 @@ export default class Standard {
         }
         else if (prevRoute === 'experience') {
             let experience = this.state.getComponentArray('experience');
-            let localExperience = Array.from(document.querySelectorAll('.cvcomp .experience__list .experience__list__item'));
-            for (let i = 0; i < localExperience.length; i++) {
-                document.querySelector(`.${localExperience[i].classList[1]}`).remove();
-            }
-
-            for (let i = 0; i < experience.length; i++) {
-                let divHolder = document.createElement('div');
-                divHolder.setAttribute("class", `experience__list__item experience__list__item__${experience[i].index}`);
-                let spanPosition = document.createElement('span');
-                spanPosition.setAttribute("class", "position");
-                spanPosition.textContent = experience[i].position;
-                let divCompanyWrapper = document.createElement('div');
-                divCompanyWrapper.setAttribute("class", "company_wrapper editor");
-                let spanCompany = document.createElement('span');
-                spanCompany.setAttribute("class", "company");
-                spanCompany.textContent = experience[i].company;
-                let spanDates = document.createElement('span');
-                spanDates.setAttribute("class", "dates");
-                let startMonth = document.createElement('span');
-                startMonth.setAttribute("class", "date_span startMonth");
-                startMonth.innerHTML = experience[i].startMonth + '&nbsp;';
-                spanDates.appendChild(startMonth);
-                let startYear = document.createElement('span');
-                startYear.setAttribute("class", "date_span startYear");
-                startYear.textContent = experience[i].startYear;
-                spanDates.appendChild(startYear);
-                let delimeter = document.createElement('span');
-                delimeter.setAttribute("class", 'delimeter');
-                delimeter.textContent = " - ";
-                spanDates.appendChild(delimeter);
-                if (experience[i].endMonth) {
-                    let endMonth = document.createElement('span');
-                    endMonth.setAttribute("class", "date_span endMonth");
-                    endMonth.innerHTML = experience[i].endMonth + '&nbsp;';
-                    let endYear = document.createElement('span');
-                    endYear.setAttribute("class", "date_span endYear");
-                    endYear.textContent = experience[i].endYear;
-                    spanDates.appendChild(endMonth);
-                    spanDates.appendChild(endYear);
-                }
-                else {
-                    let presentSpan = document.createElement('span');
-                    presentSpan.setAttribute("class", "present");
-                    presentSpan.textContent = "Present";
-                    spanDates.appendChild(presentSpan);
-                }
-                divCompanyWrapper.appendChild(spanCompany);
-                divCompanyWrapper.appendChild(spanDates);
-                divHolder.appendChild(spanPosition);
-                divHolder.appendChild(divCompanyWrapper);
-                if (experience[i]['textarea_type'] === 'text') {
-                    let divDesc = document.createElement('div');
-                    divDesc.setAttribute("class", "description");
-                    divDesc.innerHTML = experience[i]['textarea_prof_desc'];
-                    divHolder.appendChild(divDesc);
-                }
-                else {
-                    let ulDesc = document.createElement('ul');
-                    ulDesc.setAttribute("class", "description ul_holder");
-                    ulDesc.innerHTML = experience[i]['textarea_prof_desc'];
-                    divHolder.appendChild(ulDesc);
-                }
-                document.querySelector('.cvcomp .experience__list').appendChild(divHolder);
-            }
+            buildExperience(experience);
         }
         else if (prevRoute==='education') {
             let education = this.state.getComponentArray('education');
-            let localEducation = Array.from(document.querySelectorAll('.cvcomp .education__list .education__list__item'));
-            for (let i = 0; i < localEducation.length; i++) {
-                document.querySelector(`.${localEducation[i].classList[1]}`).remove();
-            }
-
-            for (let i = 0; i < education.length; i++) {
-                let divHolder = document.createElement('div');
-                divHolder.setAttribute("class", `education__list__item education__list__item__${education[i].index}`);
-                let spanDegree = document.createElement('span');
-                spanDegree.setAttribute("class", "degree");
-                spanDegree.textContent = education[i].degree;
-                let divCompanyWrapper = document.createElement('div');
-                divCompanyWrapper.setAttribute("class", "company_wrapper editor");
-                let spanSchool = document.createElement('span');
-                spanSchool.setAttribute("class", "school");
-                spanSchool.textContent = education[i].school;
-                let spanDates = document.createElement('span');
-                spanDates.setAttribute("class", "dates");
-                let startMonth = document.createElement('span');
-                startMonth.setAttribute("class", "date_span startMonth");
-                startMonth.innerHTML = education[i].startMonth + '&nbsp;';
-                spanDates.appendChild(startMonth);
-                let startYear = document.createElement('span');
-                startYear.setAttribute("class", "date_span startYear");
-                startYear.textContent = education[i].startYear;
-                spanDates.appendChild(startYear);
-                let delimeter = document.createElement('span');
-                delimeter.setAttribute("class", 'delimeter');
-                delimeter.textContent = " - ";
-                spanDates.appendChild(delimeter);
-                if (education[i].endMonth) {
-                    let endMonth = document.createElement('span');
-                    endMonth.setAttribute("class", "date_span endMonth");
-                    endMonth.innerHTML = education[i].endMonth + '&nbsp;';
-                    let endYear = document.createElement('span');
-                    endYear.setAttribute("class", "date_span endYear");
-                    endYear.textContent = education[i].endYear;
-                    spanDates.appendChild(endMonth);
-                    spanDates.appendChild(endYear);
-                }
-                else {
-                    let presentSpan = document.createElement('span');
-                    presentSpan.setAttribute("class", "present");
-                    presentSpan.textContent = "Present";
-                    spanDates.appendChild(presentSpan);
-                }
-                divCompanyWrapper.appendChild(spanSchool);
-                divCompanyWrapper.appendChild(spanDates);
-                divHolder.appendChild(spanDegree);
-                divHolder.appendChild(divCompanyWrapper);
-                if (education[i]['textarea_type'] === 'text') {
-                    let divDesc = document.createElement('div');
-                    divDesc.setAttribute("class", "description");
-                    divDesc.innerHTML = education[i]['textarea_prof_desc'];
-                    divHolder.appendChild(divDesc);
-                }
-                else {
-                    let ulDesc = document.createElement('ul');
-                    ulDesc.setAttribute("class", "description ul_holder");
-                    ulDesc.innerHTML = education[i]['textarea_prof_desc'];
-                    divHolder.appendChild(ulDesc);
-                }
-                document.querySelector('.cvcomp .education__list').appendChild(divHolder);
-            }
+            buildEducation(education);
         }
         else if (prevRoute==='profile') {
             let profile = this.state.getComponentArray('profile');

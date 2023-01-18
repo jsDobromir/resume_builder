@@ -100,10 +100,7 @@
         align-items: center;
         margin-top: 2rem;
         height: 60vh;
-        width: 80%;
-        @include media-breakpoint-up(md) {
-            width: 100%;
-        }
+        width: 100%;
         overflow: auto;
 
         .education_list {
@@ -114,11 +111,14 @@
                     margin-top: 2rem;
                 }
                 padding: .5rem 1rem;
-                border: 1px solid $color-grey-dark;
-                position: relative;
+                border: 1px solid #625858;
+                border-radius: 5px;
+                overflow: hidden;
+                height: 18rem;
                 .position {
                     font-weight: 900;
                     font-size: 1.5rem;
+                    text-transform: capitalize;
                 }
 
                 .dates_comp_wrapper {
@@ -127,71 +127,89 @@
                     font-weight: 600;
                     font-size: 1.5rem;
                     justify-content: space-between;
+                    .edu_address_wrapper {
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        .place {
+                            text-transform: capitalize;
+                        }
+                    }
                 }
                 .description {
-                    margin-top: 1rem;
+                    margin-top: .1rem;
                     font-size: 1.3rem;
                 }
                 .description.ul_holder {
                     padding-left: 3rem;
                 }
                 .buttons_icons {
-                    position: absolute;
-                    top: 0;
-                    right: 0;
-                    font-size: 2.1rem;
-                    span {
-                        cursor: pointer;
-                        margin: 0 .5rem;
+                    margin-top: .5rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .select-wrapper {
+                        display: grid;
+                        grid-template-columns: repeat(2, 1fr);
+                        grid-column-gap: 2rem;
+
+                        .btn-edit-resume {
+                            &,
+                            &:link,
+                            &:visited {
+                                font-size: 1.8rem;
+                                border-radius: 5%;
+                                width: 8rem;
+                                text-align: center;
+                                color: black;
+                                display: inline-block;
+                                text-decoration: none;
+                                background: rgba(85, 197, 122, .9);
+                                transition: all .2s;
+                                padding: 1rem;
+                            }
+
+                            &:hover {
+                                box-shadow: 0 1rem 2rem rgba($color-primary, .15);
+                                background: rgba(85, 197, 122, 1);
+                                cursor: pointer;
+                            }   
+
+                            &:active {
+                                box-shadow: 0 .5rem 1rem rgba($color-primary, .15);
+                                transform: translateY(0);
+                            }
+                        }
+
+                        .btn-delete-resume {
+                            &,
+                            &:link,
+                            &:visited {
+                                font-size: 1.8rem;
+                                border-radius: 5%;
+                                width: 8rem;
+                                text-align: center;
+                                color: black;
+                                display: inline-block;
+                                text-decoration: none;
+                                background: rgba(231, 62, 62, 0.9);
+                                transition: all .2s;
+                                padding: 1rem;
+                            }
+
+                            &:hover {
+                                box-shadow: 0 1rem 2rem rgba($color-primary, .15);
+                                background: rgba(231, 62, 62, 0.9);
+                                cursor: pointer;
+                            }   
+
+                            &:active {
+                                box-shadow: 0 .5rem 1rem rgba($color-primary, .15);
+                                transform: translateY(0);
+                            }
+                        }
                     }
-                    #delete_exp {
-                        &:before {
-                            content: attr(data-hover);
-                            visibility: hidden;
-                            opacity: 0;
-                            background-color: black;
-                            color: #fff;
-                            text-align: center;
-                            border-radius: 5px;
-                            width: 6rem;
-                            font-size: 1.5rem;
-                            padding: 5px 0;
-                            transition: opacity 1s ease-in-out;
-                          
-                            position: absolute;
-                            z-index: 1;
-                            left: 0;
-                            top: 110%; 
-                        }
-                        &:hover:before {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-                    }
-                    #edit_exp {
-                        &:before {
-                            content: attr(data-hover);
-                            visibility: hidden;
-                            opacity: 0;
-                            background-color: black;
-                            color: #fff;
-                            text-align: center;
-                            border-radius: 5px;
-                            width: 6rem;
-                            font-size: 1.5rem;
-                            padding: 5px 0;
-                            transition: opacity 1s ease-in-out;
-                          
-                            position: absolute;
-                            z-index: 1;
-                            left: 0;
-                            top: 110%; 
-                        }
-                        &:hover:before {
-                            opacity: 1;
-                            visibility: visible;
-                        }
-                    }
+                    
                 }
             }
         }

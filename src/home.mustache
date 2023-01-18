@@ -4,40 +4,60 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/styles/editor.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>Dream Resume</title>
 </head>
 <body>
+
+    <div class="navigation">
+        <input type="checkbox" class="navigation__checkbox" id="navi-toggle">
+
+        <label for="navi-toggle" class="navigation__button">
+            <span class="line"></span>
+        </label>
+
+        <nav class="navigation__nav">
+            <ul class="navigation__list">
+                <li class="navigation__item"><a href="/resumes" class="navigation__link">Your resumes {{#resumesLengthBool}}( {{resumesLength}} ){{/resumesLengthBool}}</a></li>
+                <li class="navigation__item"><a href="/newresume" class="navigation__link">Templates</a></li>
+                <li class="navigation__item"><a href="/about" class="navigation__link">About</a></li>
+            </ul>
+        </nav>
+
+    </div>
 
     <header class="header">
         <div class="header__top-row">
             <div class="header__logo-box">
                 <a href="/" class="header__atag"><span>Resume Builder</span><img src="/public/cv.png" loading="lazy" alt="Logo" class="header__logo"></a>
             </div>
-    
+
             <nav class="navigaion__menu d-none">
                 <ul>
-                    <li><a href="/resumes">Your resumes</a></li>
-                    <li><a href="#">Templates</a></li>
-                    <li><a href="#">About</a></li>
+                    <li><a href="/resumes">Your resumes {{#resumesLengthBool}}( {{resumesLength}} ){{/resumesLengthBool}}</a></li>
+                    <li><a href="/newresume">Templates</a></li>
+                    <li><a href="/about">About</a></li>
                 </ul>
             </nav>
+
         </div>
         
 
         <div class="header__text-box">
-            <div class="text-box-wrapper">
                 <h1 class="heading-primary">
                     <span class="heading-primary--main">Build your</span>
                     <span class="heading-primary--sub">Resume completely free</span>
                 </h1>
 
                 <a href="/newresume" class="btn btn--white btn--animated">Create your Resume</a>
-            </div>
         </div>
     </header>
 
@@ -71,7 +91,7 @@
                                 <div class="bio">
                                     <div class="bio_group">
                                         <span class="weighted">Address</span>
-                                        <span class="street">841 John Hopkins Rd</span>
+                                        <span class="street">14 Park Avenue</span>
                                         <span class="city">London</span>
                                     </div>
                                     <div class="bio_group">
@@ -175,7 +195,7 @@
                                 <h3 class="education__title">Education</h3>
                                 <div class="education__list">
                                     <div class="education__list__item">
-                                        <div class="degree">Bachelof of Engineering</div>
+                                        <div class="degree">Master of Engineering</div>
                                         <div class="wrapper">
                                             <span class="school">University of Amsterdam</span>
                                             <span class="dates">September 2010 - June 2013</span>
@@ -214,7 +234,7 @@
                                 <div class="pic_info">
                                     <div class="pic"><img src="/public/profile_man2.jpg" loading="lazy" alt="profile_photo"/></div>
                                     <div class="info">
-                                        <h1 class="name">Dobromir Ganchev</h1>
+                                        <h1 class="name">Michael Stewart</h1>
                                         <span class="position">Software Engineer</span>
                                     </div>
                                 </div>
@@ -320,10 +340,7 @@
                                     </div>
 
                                     <div class="certification">
-                                        <div class="certification__title_image">
-                                            <div class="image"><img src="/public/certificate.png" alt="certificate"/></div>
-                                            <h3 class="certification__title">Certifications</h3>
-                                        </div>
+                                        <h2 class="certification__title">Certifications</h2>
 
                                         <div class="certification__list">
                                             <div class="certification__list__item">
@@ -378,7 +395,7 @@
 
                                         <div class="education__list">
                                             <div class="education__list__item">
-                                                <div class="degree">Bachelof of Engineering</div>
+                                                <div class="degree">Master of Engineering</div>
                                                 <div class="wrapper">
                                                     <span class="school">University of Amsterdam</span>
                                                     <span class="dates">September 2010 - June 2013</span>
@@ -415,12 +432,12 @@
                     <div class="cv3">
                         <div class="row cv_container">
                             <div class="heading col-12">
-                                <div class="name">Dobromir Ganchev</div>
-                                <div class="position">Software Engineer</div>
+                                <div class="name">Linda Smith</div>
+                                <div class="position">Economist</div>
                                 <div class="contact_info">
-                                    <span class="address"><i class="fa-solid fa-location-dot"></i> <span class="right_text">str. Hopkins 2, New York</span></span>
+                                    <span class="address"><i class="fa-solid fa-location-dot"></i> <span class="right_text">63 rue Saint Germain, Paris</span></span>
                                     <span class="phone"><i class="fa-solid fa-phone"></i> <span class="right_text">0023141231221</span></span>
-                                    <span class="email"><i class="fa-solid fa-envelope"></i> <span class="right_text">john@gmail.com</span></span>
+                                    <span class="email"><i class="fa-solid fa-envelope"></i> <span class="right_text">linda79@gmail.com</span></span>
                                 </div>
                             </div>
 
@@ -439,7 +456,7 @@
                                             <h3 class="experience__title">Experience</h3>
                                             <div class="experience__list">
                                                 <div class="experience__list__item">
-                                                    <div class="position">Software Engineer</div>
+                                                    <div class="position">Economist</div>
                                                     <div class="company_wrapper">
                                                         <span class="company">Google</span>
                                                         <span class="dates">January 2014 - March 2018</span>
@@ -450,10 +467,10 @@
                                                 </div>
 
                                                 <div class="experience__list__item">
-                                                    <div class="position">Web Developer</div>
+                                                    <div class="position">Economist</div>
                                                     <div class="company_wrapper">
                                                         <span class="company">Facebook</span>
-                                                        <span class="dates">March 2014 - June 207</span>
+                                                        <span class="dates">March 2014 - June 2017</span>
                                                     </div>
                                                     <div class="description">
                                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
@@ -466,9 +483,9 @@
                                             <h3 class="education__title">Education</h3>
                                             <div class="education__list">
                                                 <div class="education__list__item">
-                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="degree">Master of Economy</div>
                                                     <div class="wrapper">
-                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="school">University of London</span>
                                                         <span class="dates">September 2010 - June 2013</span>
                                                     </div>
                                                     <div class="description">
@@ -477,10 +494,10 @@
                                                 </div>
 
                                                 <div class="education__list__item">
-                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="degree">Bachelof of Economy</div>
                                                     <div class="wrapper">
-                                                        <span class="school">University of Amsterdam</span>
-                                                        <span class="dates">September 2010 - June 2013</span>
+                                                        <span class="school">University of London</span>
+                                                        <span class="dates">September 206 - June 2010</span>
                                                     </div>
                                                     <div class="description">
                                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
@@ -495,7 +512,7 @@
                                             <h2>Skills</h2>
 
                                             <div class="skill_rating1">
-                                                <span class="skill_name">JavaScript</span>
+                                                <span class="skill_name">Statistical Techniques</span>
                                                 <span class="rating">
                                                     <span class="star1"></span>
                                                     <span class="star2"></span>
@@ -506,7 +523,7 @@
                                             </div>
 
                                             <div class="skill_rating2">
-                                                <span class="skill_name">HTML5</span>
+                                                <span class="skill_name">Market Monitoring</span>
                                                 <span class="rating">
                                                     <span class="star1"></span>
                                                     <span class="star2"></span>
@@ -517,7 +534,7 @@
                                             </div>
 
                                             <div class="skill_rating3">
-                                                <span class="skill_name">CSS</span>
+                                                <span class="skill_name">Fundamental Analysis</span>
                                                 <span class="rating">
                                                     <span class="star1"></span>
                                                     <span class="star2"></span>
@@ -528,7 +545,7 @@
                                             </div>
 
                                             <div class="skill_rating4">
-                                                <span class="skill_name">Node.js</span>
+                                                <span class="skill_name">Organization</span>
                                                 <span class="rating">
                                                     <span class="star1"></span>
                                                     <span class="star2"></span>
@@ -539,7 +556,7 @@
                                             </div>
 
                                             <div class="skill_rating5">
-                                                <span class="skill_name">OOP</span>
+                                                <span class="skill_name">Forecasting</span>
                                                 <span class="rating">
                                                     <span class="star1"></span>
                                                     <span class="star2"></span>
@@ -576,10 +593,10 @@
                                             <h2 class="certification__title">Certifications</h2>
                                             <div class="certification__list">
                                                 <div class="certification__list__item">
-                                                    <h3>JavaScript Developer</h3>
+                                                    <h3>Certified Economic Developer</h3>
                                                 </div>
                                                 <div class="certification__list__item">
-                                                    <h3>Salesforce Commerce Cloud Developer</h3>
+                                                    <h3>Certified International Tax Analyst</h3>
                                                 </div>
                                             </div>
                                         </div>
@@ -598,20 +615,22 @@
                     <div class="cv4">
                         <div class="row cv_container">
                             <div class="heading col-12">
-                                <div class="row">
+                                <div class="row border_bottom">
                                     <div class="col-6 heading_left">
-                                        <div class="name">Dobromir Ganchev</div>
-                                        <div class="position">Software Engineer</div>
+                                        <div class="name">Kuba Szczepanowski</div>
+                                        <div class="position">Mechanical Engineer</div>
                                         <div class="desc">
-                                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. 
+                                            <div class="desc_desc">
+                                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi impedit fugit molestiae repellendus. 
+                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="col-6 heading_right">
                                         <div class="contact_info">
-                                            <span class="info address"><span><i class="fa-solid fa-location-dot"></i></span> <span class="right_text">820 OCEAN PKWY, New York</span></span>
+                                            <span class="info address"><span><i class="fa-solid fa-location-dot"></i></span> <span class="right_text">ul. Wałowa 35, Warszawa</span></span>
                                             <span class="info phone"><span><i class="fa-solid fa-phone"></i></span> <span class="right_text">0023141231221</span></span>
-                                            <span class="info email"><span><i class="fa-solid fa-envelope"></i></span> <span class="right_text">john@gmail.com</span></span>
+                                            <span class="info email"><span><i class="fa-solid fa-envelope"></i></span> <span class="right_text">kuba89@gmail.com</span></span>
                                             <span class="info linkedin"><span><i class="fa-brands fa-linkedin"></i></span> <span class="right_text">https://www.linkedin.com/profile</span> </span>
                                         </div>
                                     </div>
@@ -620,14 +639,14 @@
 
                             <div class="main_content col-12">
                                 
-                                <div class="row">
+                                <div class="row row_main_content">
                                     <div class="col-8 left_main_content">
 
                                         <div class="experience">
                                             <h3 class="experience__title">Experience</h3>
                                             <div class="experience__list">
                                                 <div class="experience__list__item">
-                                                    <div class="position">Software Engineer</div>
+                                                    <div class="position">Mechanical Engineer</div>
                                                     <div class="company_wrapper">
                                                         <span class="company">Google</span>
                                                         <span class="dates">January 2014 - March 2018</span>
@@ -638,10 +657,10 @@
                                                 </div>
 
                                                 <div class="experience__list__item">
-                                                    <div class="position">Web Developer</div>
+                                                    <div class="position">Mechanical Engineer</div>
                                                     <div class="company_wrapper">
                                                         <span class="company">Facebook</span>
-                                                        <span class="dates">March 2014 - June 207</span>
+                                                        <span class="dates">March 2014 - June 2017</span>
                                                     </div>
                                                     <div class="description">
                                                         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, quisquam enim? Id ullam, obcaecati in voluptates dolorum sed modi. Tempore aspernatur assumenda voluptas commodi consequatur illo, tenetur magni earum. Aperiam.
@@ -654,9 +673,9 @@
                                             <h3 class="education__title">Education</h3>
                                             <div class="education__list">
                                                 <div class="education__list__item">
-                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="degree">Master of Mechanical Engineering</div>
                                                     <div class="wrapper">
-                                                        <span class="school">University of Amsterdam</span>
+                                                        <span class="school">University of Warszawa</span>
                                                         <span class="dates">September 2010 - June 2013</span>
                                                     </div>
                                                     <div class="description">
@@ -665,10 +684,10 @@
                                                 </div>
 
                                                 <div class="education__list__item">
-                                                    <div class="degree">Bachelof of Engineering</div>
+                                                    <div class="degree">Bachelof of Mechanicals Engineering</div>
                                                     <div class="wrapper">
-                                                        <span class="school">University of Amsterdam</span>
-                                                        <span class="dates">September 2010 - June 2013</span>
+                                                        <span class="school">University of Warszawa</span>
+                                                        <span class="dates">September 2006 - June 2010</span>
                                                     </div>
                                                     <div class="description">
                                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Suscipit, ullam impedit. Iure blanditiis asperiores tenetur amet dicta accusantium nemo aspernatur.
@@ -683,11 +702,11 @@
                                             <h2>Skills</h2>
 
                                             <ul class="skills_list">
-                                                <li>JavaScript</li>
-                                                <li>HTML5</li>
-                                                <li>CSS</li>
-                                                <li>Node.js</li>
-                                                <li>OOP</li>
+                                                <li>AutoCAD</li>
+                                                <li>Problem Solving</li>
+                                                <li>Teamwork</li>
+                                                <li>Creativity</li>
+                                                <li>Autodesk</li>
                                             </ul>
                                         </div>
 
@@ -732,10 +751,13 @@
                                             <h2 class="certification__title">Certifications</h2>
                                             <div class="certification__list">
                                                 <div class="certification__list__item">
-                                                    <h3>JavaScript Developer</h3>
+                                                    <h3>CAD and Digital Manufacturing</h3>
                                                 </div>
                                                 <div class="certification__list__item">
-                                                    <h3>Salesforce Commerce Cloud Developer</h3>
+                                                    <h3>Certified Quality Engineer</h3>
+                                                </div>
+                                                <div class="certification__list__item">
+                                                    <h3>Certified Manufacturing Engineer</h3>
                                                 </div>
                                             </div>
                                         </div>

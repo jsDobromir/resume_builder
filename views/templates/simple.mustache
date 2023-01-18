@@ -93,8 +93,321 @@
         }
         .cv_container {
             min-height: 100vh;
-            font-size: 5rem;
         }
+        .d-none {
+            display: none;
+        }
+        .cv_container .heading {
+            padding-top: 2rem;
+            padding-left: 2rem;
+        }
+        .cv_container .heading .border_bottom {
+            border-bottom: 1px solid #d5cdcd;
+        }
+        .cv_container .heading .heading_left {
+            display: flex;
+            flex-direction: column;
+        }
+        .cv_container .heading .heading_left .name {
+            font-size: 2rem;
+        }
+        .cv_container .heading .heading_left .position {
+            margin-top: 1rem;
+            font-size: 1.8rem;
+            color: #ada9a9;
+        }
+        .cv_container .heading .heading_left .profile {
+            font-size: 1.5rem;
+            margin-top: 1rem;
+        }
+        .cv_container .heading .heading_right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #707070;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .heading .heading_right .icon {
+            font-size: 2rem;
+        }
+        .cv_container .heading .heading_right .contact_info {
+            display: flex;
+            flex-direction: column;
+            font-size: 1.5rem;
+        }
+        .cv_container .heading .heading_right .contact_info span:not(.address) {
+            margin-top: 0.5rem;
+        }
+        .cv_container .heading .heading_right .contact_info .info {
+            display: flex;
+            flex: column;
+            align-items: center;
+        }
+        .cv_container .heading .heading_right .contact_info .info .right_text {
+            margin-left: 0.5rem;
+        }
+        .cv_container .main_content {
+            height: 100%;
+            margin-top: 2rem;
+            padding: 1rem 2rem;
+        }
+        .cv_container .main_content .row_main_content {
+            height: 100%;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience {
+            width: 95%;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list {
+            font-size: 1.4rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item:not(:first-child) {
+            margin-top: 1.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .position {
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-transform: capitalize;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper {
+            font-size: 1.3rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .experience_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .experience_address_wrapper .company {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .experience_address_wrapper .company_address {
+            font-weight: 600;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .dates {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .dates .startYear, .cv_container .main_content .row_main_content .left_main_content .experience__list__item .company_wrapper .dates .endYear {
+            padding-left: 0.3rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .description {
+            margin-top: 0.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .experience__list__item .ul_holder {
+            padding-left: 3rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education {
+            width: 95%;
+            margin-top: 1rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__title {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list {
+            font-size: 1.4rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item:not(:first-child) {
+            margin-top: 1.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .degree {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper {
+            font-size: 1.3rem;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .education_address_wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .education_address_wrapper .school {
+            font-weight: 900;
+            text-transform: capitalize;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .education_address_wrapper .school_address {
+            font-weight: 600;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .dates {
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .dates .startYear, .cv_container .main_content .row_main_content .left_main_content .education__list__item .company_wrapper .dates .endYear {
+            padding-left: 0.3rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .description {
+            margin-top: 0.5rem;
+        }
+        .cv_container .main_content .row_main_content .left_main_content .education__list__item .description.ul_holder {
+            padding-left: 3rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .skills {
+            width: 100%;
+            text-align: left;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .skills h2 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .skills .skills_list {
+            display: inline-block;
+            text-align: left;
+            padding-left: 3rem;
+            font-size: 1.7rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .skills .skills_list li {
+            margin-top: 0.8rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages {
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages h2 {
+            font-size: 2rem;
+            text-align: center;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            width: 92%;
+            margin: 0.5rem auto;
+            border-bottom: 1px solid #52b42b;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"]:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .language_name {
+            font-size: 1.6rem;
+            flex: 1 1 0px;
+            -ms-word-break: break-all;
+            word-break: break-all;
+            -webkit-hyphens: auto;
+            -moz-hyphens: auto;
+            hyphens: auto;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .rating {
+            font-size: 1.5rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_1 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_1 .star2::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_1 .star3::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_1 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_1 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_2 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_2 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_2 .star3::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_2 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_2 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_3 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_3 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_3 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_3 .star4::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_3 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_4 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_4 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_4 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_4 .star4::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_4 .star5::before {
+            content: '★ ';
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_5 .star1::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_5 .star2::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_5 .star3::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_5 .star4::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .languages div[class*="language_div_"] .star_5 .star5::before {
+            content: '★ ';
+            color: #ffc700;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .certifications {
+            width: 100%;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .certifications h2 {
+            font-size: 2rem;
+        }
+        .cv_container .main_content .row_main_content .right_main_content .certifications .certifications__list div[class*="certifications__list__item__"] {
+            margin-top: 1rem;
+            font-size: 1.7rem;
+        }
+        
     </style>
 
 </head>
@@ -106,15 +419,221 @@
 
                 <div class="cv_container">
 
-                    <div class="heading">
-                        Heading
+                    <div class="heading col-12">
+                                <div class="row border_bottom">
+                                    <div class="col-6 heading_left">
+                                        <div class="name">
+                                            <span id="firstName">
+                                                {{#current_resume.personal.firstName}}
+                                                    {{current_resume.personal.firstName}}
+                                                {{/current_resume.personal.firstName}}
+                                                {{^current_resume.personal.firstName}}
+                                                    Name
+                                                {{/current_resume.personal.firstName}}
+                                                </span> <span id="lastName">
+                                                {{#current_resume.personal.lastName}}
+                                                    {{current_resume.personal.lastName}}
+                                                {{/current_resume.personal.lastName}}
+                                                {{^current_resume.personal.lastName}}
+                                                    Name
+                                                {{/current_resume.personal.lastName}}
+                                            </span>
+                                        </div>
+
+                                        <div class="position" id="position">
+                                            {{#current_resume.personal.position}}
+                                                {{current_resume.personal.position}}
+                                            {{/current_resume.personal.position}}
+                                        </div>
+                                    {{#profile}}
+                                        <div class="profile" id="profile">
+                                            <div class="profile_desc">
+                                                {{#current_resume.profile.profile_desc}}
+                                                    {{current_resume.profile.profile_desc}}
+                                                {{/current_resume.profile.profile_desc}}
+                                            </div>
+                                        </div>
+                                    {{/profile}}
+                                    </div>
+
+                                    <div class="col-6 heading_right">
+                                        <div class="contact_info">
+                                            <span class="info address">
+                                                <span class="icon icon_address {{^current_resume.personal.address}}d-none{{/current_resume.personal.address}}">
+                                                    <i class="fa-solid fa-location-dot"></i>
+                                                </span>
+                                                <span class="right_text">
+                                                    {{#current_resume.personal.address}}
+                                                        {{current_resume.personal.address}}
+                                                    {{/current_resume.personal.address}}
+                                                </span>
+                                            </span>
+                                            <span class="info phone">
+                                                <span class="icon icon_phone {{^current_resume.personal.phone}}d-none{{/current_resume.personal.phone}}">
+                                                    <i class="fa-solid fa-phone"></i>
+                                                </span>
+                                                <span class="right_text">
+                                                    {{#current_resume.personal.phone}}
+                                                        {{current_resume.personal.phone}}
+                                                    {{/current_resume.personal.phone}}
+                                                </span>
+                                            </span>
+                                            <span class="info email">
+                                                <span class="icon icon_email {{^current_resume.personal.email}}d-none{{/current_resume.personal.email}}">
+                                                    <i class="fa-solid fa-envelope"></i>
+                                                </span>
+                                                <span class="right_text">
+                                                    {{#current_resume.personal.email}}
+                                                        {{current_resume.personal.email}}
+                                                    {{/current_resume.personal.email}}
+                                                </span>
+                                            </span>
+                                            <span class="info linkedin">
+                                                <span class="icon icon_linkedin {{^current_resume.personal.linkedin}}d-none{{/current_resume.personal.linkedin}}">
+                                                    <i class="fa-brands fa-linkedin"></i>
+                                                </span>
+                                                <span class="right_text">
+                                                    {{#current_resume.personal.linkedin}}
+                                                        <a href="{{current_resume.personal.linkedin}}">{{current_resume.personal.linkedin}}</a>
+                                                    {{/current_resume.personal.linkedin}}
+                                                </span>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
                     </div>
 
-                    <div class="main_content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus porro unde repellendus qui ab non saepe ut dolore sapiente odio eaque et at vero quas repellat incidunt nesciunt fugiat, similique, facere libero voluptatem quos nulla minus? Eligendi repellat repellendus sed? Maxime non quos tempora commodi reiciendis, deleniti dolor labore voluptatum repellat suscipit porro cumque doloribus sint natus et aliquid quod, veritatis facilis soluta enim nulla facere aliquam laborum. Sequi explicabo autem amet omnis deserunt debitis nulla, corrupti tempore consequuntur, corporis at iure iste odit, asperiores suscipit porro voluptate vel culpa quae voluptatem. Cupiditate, eaque? Reprehenderit, explicabo. Adipisci perferendis eius nam quas tempora aperiam expedita neque nisi dolor maiores. Laudantium aliquam culpa iste sunt quam id esse nemo libero quis maiores quibusdam quidem accusamus ullam nostrum eaque corrupti, suscipit maxime perferendis error odio. Adipisci magni necessitatibus accusamus voluptate laudantium, blanditiis quaerat sequi dolore nulla nisi aut inventore saepe distinctio quas repellat reprehenderit numquam maiores totam laboriosam iure? Laudantium in, blanditiis veniam, expedita ullam provident vero odio voluptatem perferendis, nam asperiores doloremque ex dolorum facilis. Aperiam voluptates reprehenderit consectetur harum cumque nisi obcaecati! Quidem porro adipisci dolore saepe neque? Ducimus, perferendis perspiciatis expedita modi, culpa similique est non nemo, facilis ipsam quisquam harum suscipit minima quibusdam quis vero architecto. Corrupti impedit amet saepe excepturi recusandae quos ab quasi doloribus, commodi incidunt vero dolorem enim dolores magnam pariatur corporis perferendis provident laboriosam culpa nisi facere tempora quas. Molestiae non praesentium, a quos vel placeat dicta nisi reprehenderit harum. Recusandae sed mollitia voluptas optio. Error fuga at veritatis deserunt voluptas dolore unde, neque repellendus illo dolorem aut. Quia, veritatis corrupti impedit ipsum blanditiis quas exercitationem. Fugiat tempore minima cupiditate vitae laboriosam? Rerum esse magni delectus. Nesciunt aliquid reprehenderit perspiciatis ipsa, cumque ratione velit eius tenetur iure molestias in nisi iusto repellat nobis. Expedita, quod sit odit eveniet earum voluptatem illo quis dolor, officia et quae nesciunt facere aliquid dolores. Porro, sint nemo error atque voluptate quidem corrupti quaerat natus culpa totam placeat iusto ea quod expedita vitae reiciendis repudiandae magnam eum in suscipit dolores qui rerum. Consectetur iusto temporibus tenetur repellat voluptatem assumenda quis inventore est eum consequuntur reiciendis reprehenderit error sed, vero, iste libero ipsa delectus enim minus et? Praesentium, at ea dolores alias autem quas voluptatem hic, blanditiis aliquam iure illo dolorem. Dicta odit distinctio tempore explicabo, odio, repudiandae, obcaecati in aspernatur id incidunt exercitationem eius deleniti eaque? Recusandae error dolorum officiis ea modi quod reprehenderit, assumenda perferendis. A, accusamus veritatis nobis perferendis fugit cumque enim adipisci tempore quibusdam explicabo. At fuga explicabo nostrum sequi voluptatem, neque eligendi quidem necessitatibus ad, commodi odit iusto eum numquam voluptas eveniet totam, nemo quos fugiat dolor incidunt! Provident exercitationem mollitia culpa quasi incidunt perspiciatis voluptas excepturi voluptates amet molestiae ea, esse eaque cupiditate earum pariatur nobis nam recusandae? Voluptatibus et doloribus provident totam nihil quaerat repudiandae a quasi optio error laudantium amet accusamus eveniet, fuga in libero placeat ab! Eveniet dignissimos suscipit fugit? Vitae nobis eaque asperiores, earum assumenda explicabo sed illo quaerat, velit ipsam quis ab, dolorem unde nostrum? Reiciendis minima molestiae debitis commodi, architecto ut? Consequuntur vitae voluptates ipsum similique quod aspernatur quibusdam, impedit cupiditate! Eligendi vitae quia neque illum, voluptates enim ipsum, voluptatem error quaerat sapiente ullam, illo consectetur eaque perspiciatis laboriosam itaque molestiae ipsam minus obcaecati fuga. Ratione voluptatibus sunt omnis excepturi expedita nam! Facilis quisquam est officia iste esse, necessitatibus quae aspernatur illo ipsa a omnis voluptates quo sequi quod adipisci nisi laboriosam tempora ad commodi quis perferendis porro impedit sunt! Molestiae facilis, doloremque necessitatibus optio rerum quo dolor soluta hic quam velit neque cupiditate nostrum veritatis commodi iusto ipsam voluptatibus possimus placeat illo ipsum. Esse doloremque hic, enim mollitia sed aspernatur, quam architecto tenetur necessitatibus possimus eveniet fuga quae laboriosam nesciunt magni. Quos distinctio, totam vero obcaecati et accusamus adipisci deleniti consequuntur minus molestiae non. Deleniti doloribus veritatis quasi culpa delectus optio, vero fugiat libero ea itaque! Pariatur, alias? Possimus voluptatem autem reiciendis quisquam accusantium laborum. Eveniet eaque maxime, voluptates inventore ipsam cupiditate fugiat optio dicta velit amet dolores saepe? Qui totam dignissimos hic accusamus excepturi magnam, facilis distinctio quia repellendus velit sint similique minima alias ab inventore iure repellat, numquam, aliquam a odit aut illum nemo? Est laudantium quo, vitae sit rerum ipsa dolorem placeat id, quia quos officia sed voluptatem architecto officiis, itaque odio! Culpa optio maxime voluptas vero molestias consequuntur beatae, tempora cum laudantium nulla magni quod recusandae voluptatem modi consequatur obcaecati architecto quidem? Ipsum qui animi ipsam quibusdam dolorum molestiae, numquam debitis ducimus ea a unde nesciunt deserunt fuga error. Modi illum nulla ipsam iste, ipsum facilis praesentium quidem! Quia fugiat vero, tempore cum magnam voluptates velit neque quibusdam, tenetur illo perspiciatis consequuntur veritatis, iure quos excepturi laudantium. Ipsum aperiam quibusdam, sapiente vero vitae illum. Tenetur nostrum porro amet debitis magni laboriosam quas, maiores obcaecati ipsum nam, ratione, delectus temporibus vero et harum? Vitae asperiores minima ad praesentium maiores dolore rerum ipsa recusandae ratione pariatur harum modi minus quaerat delectus, tempora adipisci alias impedit sapiente voluptatibus dolor aperiam nihil quas veritatis in. Quas impedit quis at perspiciatis fugit, tempora sit consequuntur neque odio, id asperiores quam assumenda eligendi! Quis voluptates quaerat exercitationem iste consectetur illum officia adipisci eos. Odit cumque aliquid beatae, maiores sequi dolore ipsa! Ducimus, unde fugiat? Voluptates nisi voluptatum accusantium incidunt, dicta harum qui perspiciatis deleniti enim, deserunt nulla excepturi commodi illum architecto sed numquam inventore. Recusandae, dicta fuga minus commodi itaque ullam ab ipsam quo, unde labore, ut esse sapiente maiores consequuntur nihil earum beatae quis laudantium fugiat. Eos id a cum ut repellendus culpa accusamus saepe amet neque illum. Dolor sequi quam tenetur ducimus corrupti animi nobis quod ea velit! Corporis nisi modi aliquam assumenda ipsa facere sint at iusto saepe nihil mollitia quis doloremque quibusdam amet rem fuga rerum labore cum minima, atque eum in, numquam nobis! Distinctio impedit quam doloribus molestias ad repellat exercitationem aut quo praesentium molestiae. At eaque error facilis. Accusantium voluptatum nisi aliquam porro vitae, eligendi atque repudiandae voluptas eius, voluptatibus doloribus deserunt ex quasi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus porro unde repellendus qui ab non saepe ut dolore sapiente odio eaque et at vero quas repellat incidunt nesciunt fugiat, similique, facere libero voluptatem quos nulla minus? Eligendi repellat repellendus sed? Maxime non quos tempora commodi reiciendis, deleniti dolor labore voluptatum repellat suscipit porro cumque doloribus sint natus et aliquid quod, veritatis facilis soluta enim nulla facere aliquam laborum. Sequi explicabo autem amet omnis deserunt debitis nulla, corrupti tempore consequuntur, corporis at iure iste odit, asperiores suscipit porro voluptate vel culpa quae voluptatem. Cupiditate, eaque? Reprehenderit, explicabo. Adipisci perferendis eius nam quas tempora aperiam expedita neque nisi dolor maiores. Laudantium aliquam culpa iste sunt quam id esse nemo libero quis maiores quibusdam quidem accusamus ullam nostrum eaque corrupti, suscipit maxime perferendis error odio. Adipisci magni necessitatibus accusamus voluptate laudantium, blanditiis quaerat sequi dolore nulla nisi aut inventore saepe distinctio quas repellat reprehenderit numquam maiores totam laboriosam iure? Laudantium in, blanditiis veniam, expedita ullam provident vero odio voluptatem perferendis, nam asperiores doloremque ex dolorum facilis. Aperiam voluptates reprehenderit consectetur harum cumque nisi obcaecati! Quidem porro adipisci dolore saepe neque? Ducimus, perferendis perspiciatis expedita modi, culpa similique est non nemo, facilis ipsam quisquam harum suscipit minima quibusdam quis vero architecto. Corrupti impedit amet saepe excepturi recusandae quos ab quasi doloribus, commodi incidunt vero dolorem enim dolores magnam pariatur corporis perferendis provident laboriosam culpa nisi facere tempora quas. Molestiae non praesentium, a quos vel placeat dicta nisi reprehenderit harum. Recusandae sed mollitia voluptas optio. Error fuga at veritatis deserunt voluptas dolore unde, neque repellendus illo dolorem aut. Quia, veritatis corrupti impedit ipsum blanditiis quas exercitationem. Fugiat tempore minima cupiditate vitae laboriosam? Rerum esse magni delectus. Nesciunt aliquid reprehenderit perspiciatis ipsa, cumque ratione velit eius tenetur iure molestias in nisi iusto repellat nobis. Expedita, quod sit odit eveniet earum voluptatem illo quis dolor, officia et quae nesciunt facere aliquid dolores. Porro, sint nemo error atque voluptate quidem corrupti quaerat natus culpa totam placeat iusto ea quod expedita vitae reiciendis repudiandae magnam eum in suscipit dolores qui rerum. Consectetur iusto temporibus tenetur repellat voluptatem assumenda quis inventore est eum consequuntur reiciendis reprehenderit error sed, vero, iste libero ipsa delectus enim minus et? Praesentium, at ea dolores alias autem quas voluptatem hic, blanditiis aliquam iure illo dolorem. Dicta odit distinctio tempore explicabo, odio, repudiandae, obcaecati in aspernatur id incidunt exercitationem eius deleniti eaque? Recusandae error dolorum officiis ea modi quod reprehenderit, assumenda perferendis. A, accusamus veritatis nobis perferendis fugit cumque enim adipisci tempore quibusdam explicabo. At fuga explicabo nostrum sequi voluptatem, neque eligendi quidem necessitatibus ad, commodi odit iusto eum numquam voluptas eveniet totam, nemo quos fugiat dolor incidunt! Provident exercitationem mollitia culpa quasi incidunt perspiciatis voluptas excepturi voluptates amet molestiae ea, esse eaque cupiditate earum pariatur nobis nam recusandae? Voluptatibus et doloribus provident totam nihil quaerat repudiandae a quasi optio error laudantium amet accusamus eveniet, fuga in libero placeat ab! Eveniet dignissimos suscipit fugit? Vitae nobis eaque asperiores, earum assumenda explicabo sed illo quaerat, velit ipsam quis ab, dolorem unde nostrum? Reiciendis minima molestiae debitis commodi, architecto ut? Consequuntur vitae voluptates ipsum similique quod aspernatur quibusdam, impedit cupiditate! Eligendi vitae quia neque illum, voluptates enim ipsum, voluptatem error quaerat sapiente ullam, illo consectetur eaque perspiciatis laboriosam itaque molestiae ipsam minus obcaecati fuga. Ratione voluptatibus sunt omnis excepturi expedita nam! Facilis quisquam est officia iste esse, necessitatibus quae aspernatur illo ipsa a omnis voluptates quo sequi quod adipisci nisi laboriosam tempora ad commodi quis perferendis porro impedit sunt! Molestiae facilis, doloremque necessitatibus optio rerum quo dolor soluta hic quam velit neque cupiditate nostrum veritatis commodi iusto ipsam voluptatibus possimus placeat illo ipsum. Esse doloremque hic, enim mollitia sed aspernatur, quam architecto tenetur necessitatibus possimus eveniet fuga quae laboriosam nesciunt magni. Quos distinctio, totam vero obcaecati et accusamus adipisci deleniti consequuntur minus molestiae non. Deleniti doloribus veritatis quasi culpa delectus optio, vero fugiat libero ea itaque! Pariatur, alias? Possimus voluptatem autem reiciendis quisquam accusantium laborum. Eveniet eaque maxime, voluptates inventore ipsam cupiditate fugiat optio dicta velit amet dolores saepe? Qui totam dignissimos hic accusamus excepturi magnam, facilis distinctio quia repellendus velit sint similique minima alias ab inventore iure repellat, numquam, aliquam a odit aut illum nemo? Est laudantium quo, vitae sit rerum ipsa dolorem placeat id, quia quos officia sed voluptatem architecto officiis, itaque odio! Culpa optio maxime voluptas vero molestias consequuntur beatae, tempora cum laudantium nulla magni quod recusandae voluptatem modi consequatur obcaecati architecto quidem? Ipsum qui animi ipsam quibusdam dolorum molestiae, numquam debitis ducimus ea a unde nesciunt deserunt fuga error. Modi illum nulla ipsam iste, ipsum facilis praesentium quidem! Quia fugiat vero, tempore cum magnam voluptates velit neque quibusdam, tenetur illo perspiciatis consequuntur veritatis, iure quos excepturi laudantium. Ipsum aperiam quibusdam, sapiente vero vitae illum. Tenetur nostrum porro amet debitis magni laboriosam quas, maiores obcaecati ipsum nam, ratione, delectus temporibus vero et harum? Vitae asperiores minima ad praesentium maiores dolore rerum ipsa recusandae ratione pariatur harum modi minus quaerat delectus, tempora adipisci alias impedit sapiente voluptatibus dolor aperiam nihil quas veritatis in. Quas impedit quis at perspiciatis fugit, tempora sit consequuntur neque odio, id asperiores quam assumenda eligendi! Quis voluptates quaerat exercitationem iste consectetur illum officia adipisci eos. Odit cumque aliquid beatae, maiores sequi dolore ipsa! Ducimus, unde fugiat? Voluptates nisi voluptatum accusantium incidunt, dicta harum qui perspiciatis deleniti enim, deserunt nulla excepturi commodi illum architecto sed numquam inventore. Recusandae, dicta fuga minus commodi itaque ullam ab ipsam quo, unde labore, ut esse sapiente maiores consequuntur nihil earum beatae quis laudantium fugiat. Eos id a cum ut repellendus culpa accusamus saepe amet neque illum. Dolor sequi quam tenetur ducimus corrupti animi nobis quod ea velit! Corporis nisi modi aliquam assumenda ipsa facere sint at iusto saepe nihil mollitia quis doloremque quibusdam amet rem fuga rerum labore cum minima, atque eum in, numquam nobis! Distinctio impedit quam doloribus molestias ad repellat exercitationem aut quo praesentium molestiae. At eaque error facilis. Accusantium voluptatum nisi aliquam porro vitae, eligendi atque repudiandae voluptas eius, voluptatibus doloribus deserunt ex quasi.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus porro unde repellendus qui ab non saepe ut dolore sapiente odio eaque et at vero quas repellat incidunt nesciunt fugiat, similique, facere libero voluptatem quos nulla minus? Eligendi repellat repellendus sed? Maxime non quos tempora commodi reiciendis, deleniti dolor labore voluptatum repellat suscipit porro cumque doloribus sint natus et aliquid quod, veritatis facilis soluta enim nulla facere aliquam laborum. Sequi explicabo autem amet omnis deserunt debitis nulla, corrupti tempore consequuntur, corporis at iure iste odit, asperiores suscipit porro voluptate vel culpa quae voluptatem. Cupiditate, eaque? Reprehenderit, explicabo. Adipisci perferendis eius nam quas tempora aperiam expedita neque nisi dolor maiores. Laudantium aliquam culpa iste sunt quam id esse nemo libero quis maiores quibusdam quidem accusamus ullam nostrum eaque corrupti, suscipit maxime perferendis error odio. Adipisci magni necessitatibus accusamus voluptate laudantium, blanditiis quaerat sequi dolore nulla nisi aut inventore saepe distinctio quas repellat reprehenderit numquam maiores totam laboriosam iure? Laudantium in, blanditiis veniam, expedita ullam provident vero odio voluptatem perferendis, nam asperiores doloremque ex dolorum facilis. Aperiam voluptates reprehenderit consectetur harum cumque nisi obcaecati! Quidem porro adipisci dolore saepe neque? Ducimus, perferendis perspiciatis expedita modi, culpa similique est non nemo, facilis ipsam quisquam harum suscipit minima quibusdam quis vero architecto. Corrupti impedit amet saepe excepturi recusandae quos ab quasi doloribus, commodi incidunt vero dolorem enim dolores magnam pariatur corporis perferendis provident laboriosam culpa nisi facere tempora quas. Molestiae non praesentium, a quos vel placeat dicta nisi reprehenderit harum. Recusandae sed mollitia voluptas optio. Error fuga at veritatis deserunt voluptas dolore unde, neque repellendus illo dolorem aut. Quia, veritatis corrupti impedit ipsum blanditiis quas exercitationem. Fugiat tempore minima cupiditate vitae laboriosam? Rerum esse magni delectus. Nesciunt aliquid reprehenderit perspiciatis ipsa, cumque ratione velit eius tenetur iure molestias in nisi iusto repellat nobis. Expedita, quod sit odit eveniet earum voluptatem illo quis dolor, officia et quae nesciunt facere aliquid dolores. Porro, sint nemo error atque voluptate quidem corrupti quaerat natus culpa totam placeat iusto ea quod expedita vitae reiciendis repudiandae magnam eum in suscipit dolores qui rerum. Consectetur iusto temporibus tenetur repellat voluptatem assumenda quis inventore est eum consequuntur reiciendis reprehenderit error sed, vero, iste libero ipsa delectus enim minus et? Praesentium, at ea dolores alias autem quas voluptatem hic, blanditiis aliquam iure illo dolorem. Dicta odit distinctio tempore explicabo, odio, repudiandae, obcaecati in aspernatur id incidunt exercitationem eius deleniti eaque? Recusandae error dolorum officiis ea modi quod reprehenderit, assumenda perferendis. A, accusamus veritatis nobis perferendis fugit cumque enim adipisci tempore quibusdam explicabo. At fuga explicabo nostrum sequi voluptatem, neque eligendi quidem necessitatibus ad, commodi odit iusto eum numquam voluptas eveniet totam, nemo quos fugiat dolor incidunt! Provident exercitationem mollitia culpa quasi incidunt perspiciatis voluptas excepturi voluptates amet molestiae ea, esse eaque cupiditate earum pariatur nobis nam recusandae? Voluptatibus et doloribus provident totam nihil quaerat repudiandae a quasi optio error laudantium amet accusamus eveniet, fuga in libero placeat ab! Eveniet dignissimos suscipit fugit? Vitae nobis eaque asperiores, earum assumenda explicabo sed illo quaerat, velit ipsam quis ab, dolorem unde nostrum? Reiciendis minima molestiae debitis commodi, architecto ut? Consequuntur vitae voluptates ipsum similique quod aspernatur quibusdam, impedit cupiditate! Eligendi vitae quia neque illum, voluptates enim ipsum, voluptatem error quaerat sapiente ullam, illo consectetur eaque perspiciatis laboriosam itaque molestiae ipsam minus obcaecati fuga. Ratione voluptatibus sunt omnis excepturi expedita nam! Facilis quisquam est officia iste esse, necessitatibus quae aspernatur illo ipsa a omnis voluptates quo sequi quod adipisci nisi laboriosam tempora ad commodi quis perferendis porro impedit sunt! Molestiae facilis, doloremque necessitatibus optio rerum quo dolor soluta hic quam velit neque cupiditate nostrum veritatis commodi iusto ipsam voluptatibus possimus placeat illo ipsum. Esse doloremque hic, enim mollitia sed aspernatur, quam architecto tenetur necessitatibus possimus eveniet fuga quae laboriosam nesciunt magni. Quos distinctio, totam vero obcaecati et accusamus adipisci deleniti consequuntur minus molestiae non. Deleniti doloribus veritatis quasi culpa delectus optio, vero fugiat libero ea itaque! Pariatur, alias? Possimus voluptatem autem reiciendis quisquam accusantium laborum. Eveniet eaque maxime, voluptates inventore ipsam cupiditate fugiat optio dicta velit amet dolores saepe? Qui totam dignissimos hic accusamus excepturi magnam, facilis distinctio quia repellendus velit sint similique minima alias ab inventore iure repellat, numquam, aliquam a odit aut illum nemo? Est laudantium quo, vitae sit rerum ipsa dolorem placeat id, quia quos officia sed voluptatem architecto officiis, itaque odio! Culpa optio maxime voluptas vero molestias consequuntur beatae, tempora cum laudantium nulla magni quod recusandae voluptatem modi consequatur obcaecati architecto quidem? Ipsum qui animi ipsam quibusdam dolorum molestiae, numquam debitis ducimus ea a unde nesciunt deserunt fuga error. Modi illum nulla ipsam iste, ipsum facilis praesentium quidem! Quia fugiat vero, tempore cum magnam voluptates velit neque quibusdam, tenetur illo perspiciatis consequuntur veritatis, iure quos excepturi laudantium. Ipsum aperiam quibusdam, sapiente vero vitae illum. Tenetur nostrum porro amet debitis magni laboriosam quas, maiores obcaecati ipsum nam, ratione, delectus temporibus vero et harum? Vitae asperiores minima ad praesentium maiores dolore rerum ipsa recusandae ratione pariatur harum modi minus quaerat delectus, tempora adipisci alias impedit sapiente voluptatibus dolor aperiam nihil quas veritatis in. Quas impedit quis at perspiciatis fugit, tempora sit consequuntur neque odio, id asperiores quam assumenda eligendi! Quis voluptates quaerat exercitationem iste consectetur illum officia adipisci eos. Odit cumque aliquid beatae, maiores sequi dolore ipsa! Ducimus, unde fugiat? Voluptates nisi voluptatum accusantium incidunt, dicta harum qui perspiciatis deleniti enim, deserunt nulla excepturi commodi illum architecto sed numquam inventore. Recusandae, dicta fuga minus commodi itaque ullam ab ipsam quo, unde labore, ut esse sapiente maiores consequuntur nihil earum beatae quis laudantium fugiat. Eos id a cum ut repellendus culpa accusamus saepe amet neque illum. Dolor sequi quam tenetur ducimus corrupti animi nobis quod ea velit! Corporis nisi modi aliquam assumenda ipsa facere sint at iusto saepe nihil mollitia quis doloremque quibusdam amet rem fuga rerum labore cum minima, atque eum in, numquam nobis! Distinctio impedit quam doloribus molestias ad repellat exercitationem aut quo praesentium molestiae. At eaque error facilis. Accusantium voluptatum nisi aliquam porro vitae, eligendi atque repudiandae voluptas eius, voluptatibus doloribus deserunt ex quasi.
+                    <div class="main_content col-12">
+                                <div class="row row_main_content">
+                                    <div class="col-8 left_main_content">
+                                        {{#experience}}
+                                            <div class="experience">
+                                                <h3 class="experience__title">Experience</h3>
+                                                <div class="experience__list">
+                                                    {{#current_resume.experience}}
+                                                            <div class="experience__list__item experience__list__item__{{index}}">
+                                                                <span class="position">{{position}}</span>
+                                                                <div class="company_wrapper editor">
+                                                                    <div class="experience_address_wrapper">
+                                                                        <span class="company">{{company}}</span>
+                                                                        <span class="company_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                                    </div>
+                                                                    <span class="dates">
+                                                                        <span class="date_span startMonth">{{startMonth}}</span>
+                                                                        <span class="date_span startYear">{{startYear}}</span>
+                                                                        <span class="date_span delimeter"> - </span>
+                                                                        {{#endMonth}}
+                                                                            <span class="date_span endMonth">{{endMonth}}</span>
+                                                                            <span class="date_span endYear">{{endYear}}</span>
+                                                                        {{/endMonth}}
+                                                                        {{^endMonth}}
+                                                                            <span class="date_span present">Present</span>
+                                                                        {{/endMonth}}
+                                                                    </span>
+                                                                </div>
+                                                                {{#textarea_type_div}}
+                                                                    <div class="description">
+                                                                        {{textarea_prof_desc}}
+                                                                    </div>
+                                                                {{/textarea_type_div}}
+                                                                {{^textarea_type_div}}
+                                                                    <ul class="description ul_holder">
+                                                                        {{{textarea_prof_desc}}}
+                                                                    </ul>
+                                                                {{/textarea_type_div}}
+                                                            </div>
+                                                        {{/current_resume.experience}}                
+                                                </div>
+                                            </div>
+                                        {{/experience}}
+                                        {{#education}}
+                                            <div class="education">
+                                                <h3 class="education__title">Education</h3>
+                                                <div class="education__list">
+                                                    {{#current_resume.education}}
+                                                        <div class="education__list__item education__list__item__{{index}}">
+                                                            <span class="degree">{{degree}}</span>
+                                                            <div class="company_wrapper editor">
+                                                                <div class="education_address_wrapper">
+                                                                    <span class="school">{{school}}</span>
+                                                                    <span class="school_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                                </div>
+                                                                <span class="dates">
+                                                                    <span class="date_span startMonth">{{startMonth}}</span>
+                                                                    <span class="date_span startYear">{{startYear}}</span>
+                                                                    <span class="date_span delimeter"> - </span>
+                                                                    {{#endMonth}}
+                                                                        <span class="date_span endMonth">{{endMonth}}</span>
+                                                                        <span class="date_span endYear">{{endYear}}</span>
+                                                                    {{/endMonth}}
+                                                                    {{^endMonth}}
+                                                                        <span class="date_span">Present</span>
+                                                                    {{/endMonth}}
+                                                                </span>
+                                                            </div>
+                                                            {{#textarea_type_div}}
+                                                                <div class="description">
+                                                                    {{textarea_prof_desc}}
+                                                                </div>
+                                                            {{/textarea_type_div}}
+                                                            {{^textarea_type_div}}
+                                                                <ul class="description ul_holder">
+                                                                    {{{textarea_prof_desc}}}
+                                                                </ul>
+                                                            {{/textarea_type_div}}
+                                                        </div>
+                                                    {{/current_resume.education}}
+                                                </div>
+                                            </div>
+                                        {{/education}}
+                                    </div>
 
+                                    <div class="col-4 right_main_content">
+                                        {{#skills}}
+                                            <div class="skills">
+                                                <h2>Skills</h2>
+                                                <ul class="skills_list">
+                                                    {{#current_resume.skills}}
+                                                        <li class="skill_li skill_li_{{index}}">{{skill}}</li>
+                                                    {{/current_resume.skills}}
+                                                </ul>
+                                            </div>
+                                        {{/skills}}
+
+                                        {{#languages}}
+                                            <div class="languages">
+                                                <h2>Languages</h2>
+                                                
+                                                {{#current_resume.languages}}
+                                                    <div class="language_div_{{index}}">
+                                                        <span class="language_name">{{language}}</span>
+                                                        <span class="rating star_{{starValue}}">
+                                                            <span class="star1"></span>
+                                                            <span class="star2"></span>
+                                                            <span class="star3"></span>
+                                                            <span class="star4"></span>
+                                                            <span class="star5"></span>
+                                                        </span>
+                                                    </div>
+                                                {{/current_resume.languages}}
+
+                                            </div>
+                                        {{/languages}}
+
+                                        {{#certifications}}
+                                                <div class="certifications">
+                                                    <h2 class="certification__title">Certifications</h2>
+                                                    <div class="certifications__list">
+                                                        {{#current_resume.certifications}}
+                                                            <div class="certifications__list__item__{{index}}">
+                                                                {{certification}}
+                                                            </div>
+                                                        {{/current_resume.certifications}}
+                                                    </div>
+                                                </div>
+                                        {{/certifications}}
+                                    </div>
+                                </div>
                     </div>
                 </div>
 

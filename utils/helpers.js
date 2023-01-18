@@ -48,6 +48,12 @@ module.exports = {
                 'finalize'
             ];
         }
+        else if (cvType==='custom') {
+            return ['personal', 'profile', 'experience', 'education', 'skills', 'languages', 'certifications', 'finalize'];
+        }
+        else if (cvType==='simple') {
+            return ['personal', 'profile', 'experience', 'education', 'skills', 'languages', 'certifications', 'finalize'];
+        }
     },
     buildMonths: function () {
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

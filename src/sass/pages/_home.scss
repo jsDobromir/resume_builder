@@ -9,7 +9,7 @@
     text-align: center;
 }
 .templates.row {
-    grid-gap: 3rem;
+    grid-gap: 2rem;
 }
 .templates {
     padding-top: 10rem;
@@ -71,7 +71,7 @@
     .row.templates_div {
         width: 95%;
         margin: 0 auto;
-        grid-row-gap: 10rem;
+        grid-row-gap: 6rem;
         grid-column-gap: 3rem;
         @include media-breakpoint-up(xl) {
             grid-column-gap: 5rem;

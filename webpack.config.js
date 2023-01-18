@@ -8,7 +8,8 @@ const isProduction = true;
 
 const config = {
   entry: {
-    editor: ['./src/editor.js', './src/sass/editor.scss']
+    editor: ['./src/editor.js', './src/sass/editor.scss'],
+    resumes : './src/resumes.js'
   },
   output: {
     filename: "[name].js",

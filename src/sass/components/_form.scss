@@ -1,4 +1,15 @@
 .form {
+    &__group {
+        .link_text_wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            background-color: rgb(10, 24, 10);
+            color: white;
+            height: 100%;
+        }
+    }
     &__group:not(:last-child) {
         margin-bottom: 1rem;
     }
@@ -44,6 +55,16 @@
 
         &::-webkit-input-placeholder {
             color: $color-grey-dark-2;
+        }
+    }
+    &__social__link {
+        padding: 1.5rem .5rem;
+    }
+
+    .linkedin__input {
+        padding: 1.5rem .5rem;
+        @include media-breakpoint-up(md) {
+            padding: 1rem .5rem;
         }
     }
 

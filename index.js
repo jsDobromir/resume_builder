@@ -10,6 +10,7 @@ const multer = require('multer');
 const helmet = require('helmet');
 const helpers = require('./utils/helpers.js');
 const editorRoute = require('./routes/editor.js');
+const scheduledFunction = require('./utils/jobs');
 var customId = require("custom-id");
 
 const storage = multer.diskStorage({
@@ -27,7 +28,7 @@ const upload = multer({storage: storage}).single('profilePhoto');
 
 const app = express();
 
-//app.use(helmet());
+app.use(helmet());
 
 const dbOptions = {
     host:'localhost',
@@ -64,6 +65,8 @@ app.use((req, res, next) => {
 
 app.get('/', (req, res) => {
     req.session.tempArr = [];
+    let resumesLength = req.session.resumes.length;
+    let resumesLengthBool = resumesLength > 0;
     fs.readFile(path.join(__dirname, 'src', 'home.mustache'), (err, data) => {
         if (err) {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>');
@@ -74,7 +77,7 @@ app.get('/', (req, res) => {
         const id3 = customId({name: 'custom'});
         const id4 = customId({name: 'simple'});
         req.session.tempArr.push(id1);req.session.tempArr.push(id2);req.session.tempArr.push(id3);req.session.tempArr.push(id4);
-        const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4};
+        const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4, resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
         res.send(output);
@@ -83,6 +86,8 @@ app.get('/', (req, res) => {
 
 app.get('/newresume', (req, res) => {
     req.session.tempArr = [];
+    let resumesLength = req.session.resumes.length;
+    let resumesLengthBool = resumesLength > 0;
     fs.readFile(path.join(__dirname, 'views', 'newcv', 'newresume.mustache'), (err, data) => {
         if (err) {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>'); 
@@ -92,7 +97,18 @@ app.get('/newresume', (req, res) => {
         const id3 = customId({name: 'custom'});
         const id4 = customId({name: 'simple'});
         req.session.tempArr.push(id1);req.session.tempArr.push(id2);req.session.tempArr.push(id3);req.session.tempArr.push(id4);
-        const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4};
+        const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4, resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
+        const output = Mustache.render(data.toString(), objTemplate);
+        res.setHeader("Content-Type", "text/html");
+        res.send(output);
+    });
+});
+
+app.get('/about', (req, res) => {
+    let resumesLength = req.session.resumes.length;
+    let resumesLengthBool = resumesLength > 0;
+    fs.readFile(path.join(__dirname, 'views', 'newcv', 'about.mustache'), (err, data) => {
+        const objTemplate = {resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
         res.send(output);
@@ -122,7 +138,7 @@ app.post('/saveData', (req, res) => {
             newCvObject[req.body.current_cv_id]['routes'] = helpers.getRoutes(req.body.cvType);
         }
         req.session.resumes.push(newCvObject);
-        if (req.session.resumes.length>10) {
+        if (req.session.resumes.length>15) {
             let newResumes = req.session.resumes.slice(1);
             req.session.resumes = newResumes;
         }
@@ -153,7 +169,8 @@ app.post('/saveMutlipartData', (req, res) => {
         else {
             //build the object
             const newCvObject = {[cv_id]: {type: req.body.cvType}};
-            newCvObject[cv_id]['personal'] = personalObj;
+            let buildedObj = Object.fromEntries(Object.entries(personalObj).filter(([_, v]) => v != ''));
+            newCvObject[cv_id]['personal'] = buildedObj;
             if (!newCvObject[req.body.current_cv_id].hasOwnProperty('createdDate')) {
                 newCvObject[req.body.current_cv_id]['createdDate'] = Date.now();
             }
@@ -161,7 +178,7 @@ app.post('/saveMutlipartData', (req, res) => {
                 newCvObject[req.body.current_cv_id]['routes'] = helpers.getRoutes(req.body.cvType);
             }
             req.session.resumes.push(newCvObject);
-            if (req.session.resumes.length>10) {
+            if (req.session.resumes.length>15) {
                 let newResumes = req.session.resumes.slice(1);
                 req.session.resumes = newResumes;
             }
@@ -170,7 +187,7 @@ app.post('/saveMutlipartData', (req, res) => {
     });
 });
 
-app.get('/deleteResume/:id', (req, res) => {
+app.delete('/deleteResume/:id', (req, res) => {
     let remainingResumes = req.session.resumes.map(resume => {
         let resumeId = Object.keys(resume)[0];
         if (resumeId==req.params.id) return null;
@@ -178,7 +195,7 @@ app.get('/deleteResume/:id', (req, res) => {
     });
     remainingResumes = remainingResumes.filter(resume => resume!==null);
     req.session.resumes = remainingResumes;
-    return res.redirect('/resumes');
+    return res.json({success: true});
 });
 
 app.delete('/deleteResumeRoute/:id/:type/:route', (req, res) => {
@@ -197,7 +214,7 @@ app.delete('/deleteResumeRoute/:id/:type/:route', (req, res) => {
         let newRoutes = newCvObject[req.params.id].routes.filter(route => route!=req.params.route);
         newCvObject[req.params.id].routes = newRoutes;
         req.session.resumes.push(newCvObject);
-        if (req.session.resumes.length>10) {
+        if (req.session.resumes.length>15) {
             let newResumes = req.session.resumes.slice(1);
             req.session.resumes = newResumes;
         }
@@ -211,6 +228,8 @@ app.delete('/deleteResumeRoute/:id/:type/:route', (req, res) => {
 app.get('/resumes', (req, res) => {
     let resumesReversed = [];
     let resumes = req.session.resumes;
+    let resumesLength = req.session.resumes.length;
+    let resumesLengthBool = resumesLength > 0;
     for (let i=resumes.length-1;i>=0;i--) {
         let key = Object.keys(resumes[i])[0];
         let currResume_copy = JSON.parse(JSON.stringify(resumes[i][key]));
@@ -220,6 +239,20 @@ app.get('/resumes', (req, res) => {
             currResume_copy[`route${route}`] = true;
         });
         currResume_copy[`is${(currResume_copy.type[0].toUpperCase() + currResume_copy.type.slice(1).toLowerCase())}`] = true;
+        if (Object.prototype.hasOwnProperty.call(currResume_copy, 'experience')) {
+            currResume_copy.experience.forEach(exp => {
+                if (typeof exp.textarea_type_div!=='boolean') {
+                    exp.textarea_type_div = exp.textarea_type_div==='true';
+                }
+            });
+        }
+        if (Object.prototype.hasOwnProperty.call(currResume_copy, 'education')) {
+            currResume_copy.education.forEach(edu => {
+                if (typeof edu.textarea_type_div!=='boolean') {
+                    edu.textarea_type_div = edu.textarea_type_div==='true';
+                }
+            });
+        }
         resumesReversed.push(currResume_copy);
     }
     let resumesEmpty = resumesReversed.length===0;
@@ -228,7 +261,7 @@ app.get('/resumes', (req, res) => {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>'); 
         }
 
-        const objTemplate = {resumesEmpty: resumesEmpty, resumes: resumesReversed};
+        const objTemplate = {resumesEmpty: resumesEmpty, resumes: resumesReversed, resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
         res.send(output);
@@ -265,6 +298,7 @@ app.post('/download', (req, res) => {
     let experienceImage = undefined;
     let educationImage = undefined;
     let certImage = undefined;
+    let addressIcon = false;
     if (type==='standard') {
         if (current_resume && current_resume.routes) {
             current_resume.routes.forEach(route => {
@@ -287,8 +321,25 @@ app.post('/download', (req, res) => {
         educationImage = `data:image/png;base64, ${educationbase64}`;
         let certbase64 = fs.readFileSync(path.join(__dirname, 'dist', 'public', 'certificate.png'), 'base64');
         certImage = `data:image/png;base64, ${certbase64}`;
+        if (current_resume && current_resume.personal) {
+            addressIcon = (Boolean(current_resume.personal.address) || Boolean(current_resume.personal.city) || Boolean(current_resume.personal.country));
+        }
     }
-
+    else if (type==='custom') {
+        if (current_resume && current_resume.routes) {
+            current_resume.routes.forEach(route => {
+                routes[route] = true;
+            });
+        }
+    }
+    
+    else if (type==='simple') {
+        if (current_resume && current_resume.routes) {
+            current_resume.routes.forEach(route => {
+                routes[route] = true;
+            });
+        }
+    }
     fs.readFile(path.join(__dirname, 'views', 'templates', `${type}.mustache`), async(err, data) => {
         if (err) {
             res.status(500).json({error: true});
@@ -300,11 +351,20 @@ app.post('/download', (req, res) => {
         const dataType = path.extname(imgProfile).slice(1);
         let base64Img = fs.readFileSync(path.join(__dirname, 'dist', 'images', `${imgProfile}`), 'base64');
         let imageProfile = `data:image/${dataType};base64, ${base64Img}`;
-        const dataTemplate = {current_resume: current_resume, imageProfile: imageProfile, experienceImage: experienceImage, educationImage: educationImage, certImage: certImage, ...routes};
+        const dataTemplate = {current_resume: current_resume, imageProfile: imageProfile, experienceImage: experienceImage, educationImage: educationImage, certImage: certImage, ...routes, addressIcon: addressIcon};
         const output = Mustache.render(data.toString(), dataTemplate);
         const pdfBuffer = await generatePdf(output);
         res.setHeader("Content-Type", "application/pdf");
         res.status(200).send(pdfBuffer);
+    });
+});
+
+app.all('*', (req, res) => {
+    fs.readFile(path.join(__dirname, 'views', 'newcv', '404.mustache'), (err, data) => {
+        const objTemplate = {};
+        const output = Mustache.render(data.toString(), objTemplate);
+        res.setHeader("Content-Type", "text/html");
+        res.send(output);
     });
 });
 

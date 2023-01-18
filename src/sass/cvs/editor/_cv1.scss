@@ -2,22 +2,13 @@
     
     .cv_container {
         position: relative;
-        min-height: 70rem;
-        @include media-breakpoint-up(md) {
-                height: 75rem;
-                overflow: auto;
+        min-height: 65rem;
+        @include media-breakpoint-up(lg) {
+            min-height: unset;
+                height: 70rem;
+                overflow: hidden;
+                overflow-y: auto;
             }
-        .select-button {
-            transition: all .3s;
-            @include media-breakpoint-up(lg) {
-                opacity: 0;
-                visibility: hidden;
-            }
-            position: absolute;
-            bottom: 10rem;
-            left: 50%;
-            transform: translate(-50%, -10%);
-        }
         
         font-size: 1.5rem;
         .leftCol {
@@ -124,9 +115,6 @@
                         -ms-word-break: break-all;
                         word-break: break-all;
 
-                        // Non standard for webkit
-                        word-break: break-word;
-
                         -webkit-hyphens: auto;
                         -moz-hyphens: auto;
                         hyphens: auto;
@@ -188,32 +176,36 @@
                         .position {
                             font-weight: 900;
                             font-size: 1.5rem;
+                            text-transform: capitalize;
                         }
                         .company_wrapper {
+                            font-size: 1.3rem;
                             display: flex;
                             flex-direction: row;
-                            align-items: center;
                             justify-content: space-between;
-                            .company {
-                                font-weight: 600;
+                            .experience_address_wrapper {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .company {
+                                    font-weight: 900;
+                                    text-transform: capitalize;
+                                }
+                                .company_address {
+                                    font-weight: 600;
+                                }
                             }
                             .dates {
                                 font-weight: 600;
                                 margin-right: .5rem;
-                            }
-                        }
-                        .company_wrapper {
-                            font-size: 1.3rem;
-
-                            .dates {
                                 .startYear, .endYear{
                                     padding-left: .3rem;
                                 }
                             }
                         }
-                        .description {
+                         .description {
                             margin-top: .5rem;
-                        }
+                         }
 
                         .ul_holder {
                             padding-left: 3rem;
@@ -236,24 +228,28 @@
                         }
                         .degree {
                             font-weight: 900;
+                            text-transform: capitalize;
                         }
                         .company_wrapper {
+                            font-size: 1.3rem;
                             display: flex;
                             flex-direction: row;
-                            align-items: center;
                             justify-content: space-between;
-                            .school {
-                                font-weight: 600;
+                            .education_address_wrapper {
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                .school {
+                                    font-weight: 900;
+                                    text-transform: capitalize;
+                                }
+                                .school_address {
+                                    font-weight: 600;
+                                }
                             }
                             .dates {
                                 font-weight: 600;
                                 margin-right: .5rem;
-                            }
-                        }
-                        .company_wrapper{
-                            font-size: 1.3rem;
-
-                            .dates {
                                 .startYear, .endYear{
                                     padding-left: .3rem;
                                 }

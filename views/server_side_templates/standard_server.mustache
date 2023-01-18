@@ -5,10 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="/public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png">
+    <link rel="manifest" href="/public/site.webmanifest">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="/styles/editor.css"/>
     <script type="text/javascript" src="/editor.js"></script>
-    <title>Resume Builder App</title>
+    <title>Dream Resume</title>
 </head>
 
 <body>
@@ -40,7 +44,7 @@
                                     <div class="personal">
                                         <div class="persolan_top_wrapper">
                                             <div class="image_cont">
-                                                <img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/images/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/>
+                                                <img class="prof_image" id="cvProfilePhoto" src="{{#current_resume.personal.profilePhoto}}/images/{{current_resume.personal.profilePhoto}}{{/current_resume.personal.profilePhoto}}{{^current_resume.personal.profilePhoto}}/public/profile.png{{/current_resume.personal.profilePhoto}}" loading="lazy" alt="profile picture"/>
                                             </div>
 
                                             <h2>Personal</h2>
@@ -142,7 +146,10 @@
                                                 <div class="experience__list__item experience__list__item__{{index}}">
                                                     <span class="position">{{position}}</span>
                                                     <div class="company_wrapper editor">
-                                                        <span class="company">{{company}}</span>
+                                                        <div class="experience_address_wrapper">
+                                                            <span class="company">{{company}}</span>
+                                                            <span class="company_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                        </div>
                                                         <span class="dates">
                                                             <span class="date_span startMonth">{{startMonth}}</span>
                                                             <span class="date_span startYear">{{startYear}}</span>
@@ -179,7 +186,10 @@
                                                 <div class="education__list__item education__list__item__{{index}}">
                                                     <span class="degree">{{degree}}</span>
                                                     <div class="company_wrapper editor">
-                                                        <span class="school">{{school}}</span>
+                                                        <div class="education_address_wrapper">
+                                                            <span class="school">{{school}}</span>
+                                                            <span class="school_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                        </div>
                                                         <span class="dates">
                                                             <span class="date_span startMonth">{{startMonth}}</span>
                                                             <span class="date_span startYear">{{startYear}}</span>
@@ -227,9 +237,17 @@
                                         <label class="form__label" for="position">Position</label>
                                         <input type="text" class="form__input" id="position" name="position" required maxlength="40"/>
                                     </div>
-                                    <div class="form__group col-12">
-                                        <label class="form__label" for="company">Company</label>
-                                        <input type="text" class="form__input" id="company" name="company" required maxlength="40"/>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="company">Company</label>
+                                                <input type="text" class="form__input" id="company" name="company" required maxlength="40"/>
+                                            </div>
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="company">Company Address</label>
+                                                <input type="text" class="form__input" id="company_address" name="companyaddress" maxlength="80"/>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form__group col-6 date_top">
@@ -297,9 +315,18 @@
                                 <div class="experience_list">
                                     {{#current_resume.experience}}
                                         <div class="experience_{{index}}">
+                                            <div class="buttons_icons">
+                                                <div class="select-wrapper">
+                                                    <button type="button" class="btn-edit-resume" id="edit_exp">Edit</button>
+                                                    <button type="button" class="btn-delete-resume" id="delete_exp">Delete</button>
+                                                </div>
+                                            </div>
                                             <span class="position">{{position}}</span>
                                             <div class="dates_comp_wrapper">
-                                                <span class="place">{{company}}</span>
+                                                <div class="exp_address_wrapper">
+                                                    <span class="place">{{company}}</span>
+                                                    <span class="exp_address">{{#companyaddress}}{{companyaddress}}{{/companyaddress}}</span>
+                                                </div>
                                                 <span class="dates">
                                                     <span class="date_span startMonth">{{startMonth}}</span>
                                                     <span class="date_span startYear">{{startYear}}</span>
@@ -323,10 +350,6 @@
                                                     {{{textarea_prof_desc}}}
                                                 </ul>
                                             {{/textarea_type_div}}
-                                            <div class="buttons_icons">
-                                                <span id="delete_exp" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
-                                                <span id="edit_exp" data-hover="Edit"><i class="fa-solid fa-pen"></i></span>
-                                            </div>
                                         </div>
                                     {{/current_resume.experience}}
                                 </div>
@@ -345,9 +368,17 @@
                                         <label class="form__label" for="position">Position</label>
                                         <input type="text" class="form__input" id="position" name="position" required maxlength="40" value="{{expItem.position}}"/>
                                     </div>
-                                    <div class="form__group col-12">
-                                        <label class="form__label" for="company">Company</label>
-                                        <input type="text" class="form__input" id="company" name="company" required maxlength="40" value="{{expItem.company}}"/>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="company">Company</label>
+                                                <input type="text" class="form__input" id="company" name="company" required maxlength="40" value="{{expItem.company}}"/>
+                                            </div>
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="company">Company Address</label>
+                                                <input type="text" class="form__input" id="company_address" name="companyaddress" maxlength="80" value="{{#expItem.companyaddress}}{{expItem.companyaddress}}{{/expItem.companyaddress}}"/>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form__group col-6 date_top">
@@ -446,9 +477,17 @@
                                     <label class="form__label" for="degree">Degree</label>
                                     <input type="text" class="form__input" id="degree" name="degree" required maxlength="40"/>
                                 </div>
-                                <div class="form__group col-12">
-                                    <label class="form__label" for="school">School</label>
-                                    <input type="text" class="form__input" id="school" name="school" required maxlength="40"/>
+                                <div class="col-12">
+                                        <div class="row">
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="school">School</label>
+                                                <input type="text" class="form__input" id="school" name="school" required maxlength="40"/>
+                                            </div>
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="school">School Address</label>
+                                                <input type="text" class="form__input" id="school_address" name="schooladdress" maxlength="80"/>
+                                            </div>
+                                        </div>
                                 </div>
 
                                     <div class="form__group col-6 date_top">
@@ -516,9 +555,18 @@
                                 <div class="education_list">
                                     {{#current_resume.education}}
                                         <div class="education_{{index}}">
+                                            <div class="buttons_icons">
+                                                <div class="select-wrapper">
+                                                    <button type="button" class="btn-edit-resume" id="edit_exp">Edit</button>
+                                                    <button type="button" class="btn-delete-resume" id="delete_exp">Delete</button>
+                                                </div>
+                                            </div>
                                             <span class="position">{{degree}}</span>
                                             <div class="dates_comp_wrapper">
-                                                <span class="place">{{school}}</span>
+                                                <div class="edu_address_wrapper">
+                                                    <span class="place">{{school}}</span>
+                                                    <span class="edu_address">{{#schooladdress}}{{schooladdress}}{{/schooladdress}}</span>
+                                                </div>
                                                 <span class="dates">
                                                     <span class="date_span startMonth">{{startMonth}}</span>
                                                     <span class="date_span startYear">{{startYear}}</span>
@@ -542,10 +590,6 @@
                                                     {{{textarea_prof_desc}}}
                                                 </ul>
                                             {{/textarea_type_div}}
-                                            <div class="buttons_icons">
-                                                <span id="delete_exp" data-hover="Delete"><i class="fa-sharp fa-solid fa-trash"></i></span>
-                                                <span id="edit_exp" data-hover="Edit"><i class="fa-solid fa-pen"></i></span>
-                                            </div>
                                         </div>
                                     {{/current_resume.education}}
                                 </div>
@@ -564,9 +608,17 @@
                                         <label class="form__label" for="degree">Degree</label>
                                         <input type="text" class="form__input" id="degree" name="degree" required maxlength="40" value="{{eduItem.degree}}"/>
                                     </div>
-                                    <div class="form__group col-12">
-                                        <label class="form__label" for="school">School</label>
-                                        <input type="text" class="form__input" id="school" name="school" required maxlength="40" value="{{eduItem.school}}"/>
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="school">School</label>
+                                                <input type="text" class="form__input" id="school" name="school" required maxlength="40" value="{{eduItem.school}}"/>
+                                            </div>
+                                            <div class="form__group col-6">
+                                                <label class="form__label" for="school">School Address</label>
+                                                <input type="text" class="form__input" id="school_address" name="schooladdress" maxlength="80" value="{{#eduItem.schooladdress}}{{eduItem.schooladdress}}{{/eduItem.schooladdress}}"/>
+                                            </div>
+                                        </div>
                                     </div>
 
                                     <div class="form__group col-6 date_top">
@@ -758,15 +810,16 @@
                         <div class="finalize">
                             <div class="message_screen">
                                 <p class="finalize_message">
-                                    Your CV is ready to be downloaded
+                                    {{#cvExists}}Your resume is ready to be downloaded{{/cvExists}}{{^cvExists}}Fill your resume and download it{{/cvExists}}
                                 </p>
 
-                                <button class="btn btn-next" id="download">Download</button>
+                                <button class="btn btn-next" {{^cvExists}}disabled{{/cvExists}} id="download">Download</button>
                             </div>
                             <div class="loader_wrapper d-none">
                                 <div class="loader"></div>
                                 <p>Your download will begin shortly</p>
                             </div>
+                            
                         </div>
 
                     {{/isFinalize}}

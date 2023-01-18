@@ -23,7 +23,7 @@ export default class SocialLinks {
                                         <laber class="form__label" for="social_media">Social Media Type:</label>
                                         <div class="radio_buttons">
                                             <div>
-                                                <input type="radio" class="form__radio-input" name="social_links" id="linkedin" value="linkedin" required="required"></input>
+                                                <input type="radio" class="form__radio-input" name="social_links" id="linkedin" value="linkedin"></input>
                                                 <label for="linkedin" class="form__radio-label">
                                                     <span class="form__radio-button"></span>
                                                     <i class="fa-brands fa-linkedin"></i> Linkedin
@@ -89,12 +89,19 @@ export default class SocialLinks {
                                     </div>
                                 </div>
                                 <div class="row linkrow">
-                                    <div class="form__group col-6">
+                                    <div class="form__group col-8">
                                         <label for="link" class="form__label">Link:</label>
-                                        <input type="text" name="social_link" class="form__input" id="social_link" maxlength="120" placeholder="Please provide full link including the http(s) protocol"/>
+                                        <div class="row">
+                                            <div class="col-4">
+                                                <span class="link_text_wrapper">https://</span>
+                                            </div>
+                                            <div class="col-8">
+                                                <input type="text" name="social_link" class="form__input form__social__link" id="social_link" maxlength="120" placeholder="Social media link"/>
+                                            </div>
+                                        </div>
                                     </div>
 
-                                    <div class="form__group col-6 button_wrapper">
+                                    <div class="form__group col-4 button_wrapper">
                                         <button type="submit" class="btn btn-form-submit button_abs">Save</button>
                                     </div>
                                 </div>
@@ -124,11 +131,10 @@ export default class SocialLinks {
         let form = document.querySelector('.social_links form');
         form.addEventListener('submit', (ev) => {
             ev.preventDefault();
-            let type = form.querySelector('input[name="social_links"]:checked').value;
-            let link = form.querySelector('#social_link').value;
-            if (!link.startsWith('http://') && !link.startsWith('https://')) {
+            let type = form.querySelector('input[name="social_links"]:checked');
+            if (!type) {
                 const alert_toast = document.querySelector(`.alert_toast`);
-                alert_toast.textContent = `Please provide correct link including http(s) protocol`;
+                alert_toast.textContent = `Please Select Social Media Type`;
                 alert_toast.style.display = 'flex';
                 setTimeout(() => {
                     alert_toast.textContent = '';
@@ -136,7 +142,10 @@ export default class SocialLinks {
                 }, 3000);
                 return;
             }
-            this.saveSocialLink({link, type, index: this.divIndex});
+            type = type.value;
+            let link = form.querySelector('#social_link').value;
+            let finalValue = `https://${link}`;
+            this.saveSocialLink({link: finalValue, type, index: this.divIndex});
         });
         document.querySelectorAll(`.formcomp .social_links div[class*="sociallink_div_"]`).forEach(socialLink => {
             socialLink.querySelector('#delete_social').addEventListener('click', (buttonEv) => {
