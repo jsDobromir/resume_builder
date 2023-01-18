@@ -219,6 +219,9 @@ export default class Standard {
             else {
                 document.querySelector('.cvcomp #firstName').textContent = personal['firstName'];
                 document.querySelector('.cvcomp #lastName').textContent = personal['lastName'];
+                if (personal['profilePhoto']==='profile.png') {
+                    document.querySelector('.cvcomp #cvProfilePhoto').src = '/images/' + personal['profilePhoto'];
+                }
                 document.querySelector('.cvcomp #cvProfilePhoto').src = '/images/' + personal['profilePhoto'];
                 if (personal['address'] || personal['city']) {
                     const spanText = document.querySelector('.cvcomp .personal .bio .weighted.address').dataset.text;
