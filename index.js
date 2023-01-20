@@ -49,7 +49,8 @@ app.use(session({
     resave: false,
     saveUninitialized: true,
     unset: 'destroy',
-    cookie: {secure: false, maxAge: (3600000 * 24 * 30) }
+    proxy: true,
+    cookie: {secure: true, maxAge: (3600000 * 24 * 30) }
 }));
 // /3600000 * 24 * 30
 app.use(express.json());
@@ -60,6 +61,11 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use((req, res, next) => {
     req.session.resumes = req.session.resumes || [];
     req.session.tempArr = req.session.tempArr || [];
+    var ip = req.headers["x-real-ip"];
+    var logger = fs.createWriteStream(path.join(__dirname, 'ips.txt'), {'flags': 'a'} );
+    logger.once('open', function(fd) {
+       logger.end("ip is: " + ip + "\r\n");
+    } );
     next();
 });
 
@@ -349,7 +355,8 @@ app.post('/download', (req, res) => {
         //read the image file
         const imgProfile = current_resume && current_resume.personal ? current_resume.personal.profilePhoto : 'profile.png';
         const dataType = path.extname(imgProfile).slice(1);
-        let base64Img = fs.readFileSync(path.join(__dirname, 'dist', 'images', `${imgProfile}`), 'base64');
+	let folder = imgProfile==='profile.png' ? 'public' : 'images';
+        let base64Img = fs.readFileSync(path.join(__dirname, 'dist', folder, `${imgProfile}`), 'base64');
         let imageProfile = `data:image/${dataType};base64, ${base64Img}`;
         const dataTemplate = {current_resume: current_resume, imageProfile: imageProfile, experienceImage: experienceImage, educationImage: educationImage, certImage: certImage, ...routes, addressIcon: addressIcon};
         const output = Mustache.render(data.toString(), dataTemplate);

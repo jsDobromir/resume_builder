@@ -2,12 +2,10 @@ const puppeteer =require('puppeteer');
 
 
 module.exports = async function(html= "") {
-  const browser = await puppeteer.launch();
-    const page = await browser.newPage({
-        executablePath: '/usr/bin/chromium-browser',
-        headless: true,
-        args: ['--no-sandbox']
-      });
+  const browser = await puppeteer.launch({
+		headless:true, args: ['--no-sandbox']
+	});
+    const page = await browser.newPage();
 
     await page.setContent(html, { waitUntil: 'networkidle0' });
 
