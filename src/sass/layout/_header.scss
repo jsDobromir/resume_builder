@@ -86,16 +86,14 @@
                 .route {
                     margin: 0 .5rem;
                 }
-                span {
+                a {
                     color: black;
-                    &:not(.active) {
-                        cursor: pointer;
-                    }
                 }
                 .active {
                     color: green;
                     border-bottom: 1px solid green;
-                }
+                    cursor: default;
+		}
             }
         }
     }

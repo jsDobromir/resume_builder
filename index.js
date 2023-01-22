@@ -60,7 +60,6 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use((req, res, next) => {
     req.session.resumes = req.session.resumes || [];
-    req.session.tempArr = req.session.tempArr || [];
     var ip = req.headers["x-real-ip"];
     var logger = fs.createWriteStream(path.join(__dirname, 'ips.txt'), {'flags': 'a'} );
     logger.once('open', function(fd) {
@@ -70,7 +69,6 @@ app.use((req, res, next) => {
 });
 
 app.get('/', (req, res) => {
-    req.session.tempArr = [];
     let resumesLength = req.session.resumes.length;
     let resumesLengthBool = resumesLength > 0;
     fs.readFile(path.join(__dirname, 'src', 'home.mustache'), (err, data) => {
@@ -82,7 +80,6 @@ app.get('/', (req, res) => {
         const id2 = customId({name: 'fancy'});
         const id3 = customId({name: 'custom'});
         const id4 = customId({name: 'simple'});
-        req.session.tempArr.push(id1);req.session.tempArr.push(id2);req.session.tempArr.push(id3);req.session.tempArr.push(id4);
         const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4, resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
@@ -91,7 +88,6 @@ app.get('/', (req, res) => {
 });
 
 app.get('/newresume', (req, res) => {
-    req.session.tempArr = [];
     let resumesLength = req.session.resumes.length;
     let resumesLengthBool = resumesLength > 0;
     fs.readFile(path.join(__dirname, 'views', 'newcv', 'newresume.mustache'), (err, data) => {
@@ -102,7 +98,6 @@ app.get('/newresume', (req, res) => {
         const id2 = customId({name: 'fancy'});
         const id3 = customId({name: 'custom'});
         const id4 = customId({name: 'simple'});
-        req.session.tempArr.push(id1);req.session.tempArr.push(id2);req.session.tempArr.push(id3);req.session.tempArr.push(id4);
         const objTemplate = {id1: id1, id2: id2, id3: id3, id4: id4, resumesLength: resumesLength, resumesLengthBool: resumesLengthBool};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
@@ -366,11 +361,16 @@ app.post('/download', (req, res) => {
     });
 });
 
+app.get('/sitemap.xml', (req, res) => {
+	res.sendFile(path.join(__dirname, 'sitemap.xml'));
+});
+
 app.all('*', (req, res) => {
     fs.readFile(path.join(__dirname, 'views', 'newcv', '404.mustache'), (err, data) => {
         const objTemplate = {};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
+	res.status(404);
         res.send(output);
     });
 });

@@ -25,7 +25,7 @@
             <div class="track_bar">
                 <div class="track_bar_inner">
                     {{#trackRoutes}}
-                        <span class="route {{#active}}active{{/active}} capitalize" data-url="{{route}}">{{route}}</span>
+                        <a href="{{fullUrl}}" class="route {{#active}}active{{/active}} capitalize" data-url="{{route}}">{{route}}</a>
                     {{/trackRoutes}}
                 </div>
             </div>

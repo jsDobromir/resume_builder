@@ -32,12 +32,9 @@ router.get(['/:id/standard/', '/:id/standard/personal'], (req, res) => {
             break;
         }
     }
-
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
-
     if (current_resume && current_resume.type!=='standard') {
         return res.redirect('/newresume');
     }
@@ -50,11 +47,11 @@ router.get(['/:id/standard/', '/:id/standard/personal'], (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='personal') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
-    
+
     fs.readFile(path.join(__dirname, '../', 'views', 'newcv', 'editor.mustache'), (err, data) => {
         if (err) {
             return res.send('<h1>Server is down, try again in couple of minutes</h1>'); 
@@ -93,9 +90,8 @@ router.get('/:id/standard/experience/', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='standard') {
         return res.redirect('/newresume');
@@ -118,9 +114,9 @@ router.get('/:id/standard/experience/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -166,9 +162,8 @@ router.get('/:id/standard/experience/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='standard') {
         return res.redirect('/newresume');
@@ -188,9 +183,9 @@ router.get('/:id/standard/experience/create/', (req, res) => {
     
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}/create`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -232,9 +227,8 @@ router.get('/:id/standard/experience/:expId', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='standard') {
         return res.redirect('/newresume');
@@ -260,9 +254,9 @@ router.get('/:id/standard/experience/:expId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -349,9 +343,8 @@ router.get('/:id/standard/education/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -375,9 +368,9 @@ router.get('/:id/standard/education/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -419,9 +412,8 @@ router.get('/:id/standard/education/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -442,9 +434,9 @@ router.get('/:id/standard/education/create/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}/create`};
     });
 
     let months = helpers.buildMonths();
@@ -487,9 +479,8 @@ router.get('/:id/standard/education/:eduId', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -525,9 +516,9 @@ router.get('/:id/standard/education/:eduId', (req, res) => {
     let years = helpers.buildYear();
     let startMonthsTemplate = months.map(month => {
         if (month==educationItem.startMonth) {
-            return {active: true, month: month}
+            return {active: true, month: month, fullUrl: `/editor/${id}/standard/${route}`}
         }
-        else return {active: false, month: month};
+        else return {active: false, month: month, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let startYearTemplate = years.map(year => {
         if (year==educationItem.startYear) {
@@ -601,9 +592,8 @@ router.get('/:id/standard/skills/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -622,9 +612,9 @@ router.get('/:id/standard/skills/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='skills') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let skillsArrayLength = current_resume ? (current_resume.skills && current_resume.skills.length > 0) : false;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'standard_server.mustache'), (err, data) => {
@@ -665,9 +655,8 @@ router.get('/:id/standard/languages/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -686,9 +675,9 @@ router.get('/:id/standard/languages/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='languages') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'standard_server.mustache'), (err, data) => {
         if (err) {
@@ -728,9 +717,8 @@ router.get('/:id/standard/profile/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -749,9 +737,9 @@ router.get('/:id/standard/profile/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='profile') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let profileDesc = (current_resume && current_resume.profile && current_resume.profile.profile_desc) ? current_resume.profile.profile_desc : undefined;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'standard_server.mustache'), (err, data) => {
@@ -792,9 +780,8 @@ router.get('/:id/standard/finalize/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='standard') {
@@ -809,9 +796,9 @@ router.get('/:id/standard/finalize/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='finalize') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/standard/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/standard/${route}`};
     });
     let cvExists = helpers.cvExists(req.session.resumes, id);
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'standard_server.mustache'), (err, data) => {
@@ -855,9 +842,8 @@ router.get(['/:id/fancy/', '/:id/fancy/personal/'], (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -872,9 +858,9 @@ router.get(['/:id/fancy/', '/:id/fancy/personal/'], (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='personal') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let addressIcon = false;
     if (current_resume && current_resume.personal) {
@@ -918,9 +904,8 @@ router.get('/:id/fancy/experience/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -944,9 +929,9 @@ router.get('/:id/fancy/experience/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -992,9 +977,8 @@ router.get('/:id/fancy/experience/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1015,9 +999,9 @@ router.get('/:id/fancy/experience/create/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}/create`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -1063,9 +1047,8 @@ router.get('/:id/fancy/experience/:expId', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1092,9 +1075,9 @@ router.get('/:id/fancy/experience/:expId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -1180,9 +1163,8 @@ router.get('/:id/fancy/education/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1206,9 +1188,9 @@ router.get('/:id/fancy/education/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -1254,9 +1236,8 @@ router.get('/:id/fancy/education/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1277,9 +1258,9 @@ router.get('/:id/fancy/education/create/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}/create`};
     });
 
     let months = helpers.buildMonths();
@@ -1326,9 +1307,8 @@ router.get('/:id/fancy/education/:eduId', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1355,9 +1335,9 @@ router.get('/:id/fancy/education/:eduId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -1443,9 +1423,8 @@ router.get('/:id/fancy/certifications/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1460,9 +1439,9 @@ router.get('/:id/fancy/certifications/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='certifications') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let certificationsArrayLength = current_resume ? (current_resume.certifications && current_resume.certifications.length > 0) : false;
     let addressIcon = false;
@@ -1507,9 +1486,8 @@ router.get('/:id/fancy/skills/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1524,9 +1502,9 @@ router.get('/:id/fancy/skills/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='skills') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let skillsArrayLength = current_resume ? (current_resume.skills && current_resume.skills.length > 0) : false;
     let addressIcon = false;
@@ -1571,9 +1549,8 @@ router.get('/:id/fancy/socialLinks/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1588,9 +1565,9 @@ router.get('/:id/fancy/socialLinks/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='socialLinks') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let addressIcon = false;
     if (current_resume && current_resume.personal) {
@@ -1634,9 +1611,8 @@ router.get('/:id/fancy/portfolio/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1651,9 +1627,9 @@ router.get('/:id/fancy/portfolio/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='portfolio') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let addressIcon = false;
     if (current_resume && current_resume.personal) {
@@ -1697,9 +1673,8 @@ router.get('/:id/fancy/finalize/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='fancy') {
@@ -1714,9 +1689,9 @@ router.get('/:id/fancy/finalize/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='finalize') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/fancy/${route}`};
     });
     let cvExists = helpers.cvExists(req.session.resumes, id);
     let addressIcon = false;
@@ -1764,9 +1739,8 @@ router.get(['/:id/custom/', '/:id/custom/personal/'], (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -1781,9 +1755,9 @@ router.get(['/:id/custom/', '/:id/custom/personal/'], (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='personal') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     fs.readFile(path.join(__dirname, '../', 'views', 'newcv', 'editor3.mustache'), (err, data) => {
         if (err) {
@@ -1823,9 +1797,8 @@ router.get('/:id/custom/experience/', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='custom') {
         return res.redirect('/newresume');
@@ -1848,9 +1821,9 @@ router.get('/:id/custom/experience/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -1896,9 +1869,8 @@ router.get('/:id/custom/experience/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='custom') {
         return res.redirect('/newresume');
@@ -1918,9 +1890,9 @@ router.get('/:id/custom/experience/create/', (req, res) => {
     
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}/create`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -1962,9 +1934,8 @@ router.get('/:id/custom/experience/:expId', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='custom') {
         return res.redirect('/newresume');
@@ -1990,9 +1961,9 @@ router.get('/:id/custom/experience/:expId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -2079,9 +2050,8 @@ router.get('/:id/custom/education/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2105,9 +2075,9 @@ router.get('/:id/custom/education/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -2149,9 +2119,8 @@ router.get('/:id/custom/education/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2172,9 +2141,9 @@ router.get('/:id/custom/education/create/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}/create`};
     });
 
     let months = helpers.buildMonths();
@@ -2217,9 +2186,8 @@ router.get('/:id/custom/education/:eduId', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2246,9 +2214,9 @@ router.get('/:id/custom/education/:eduId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -2330,9 +2298,8 @@ router.get('/:id/custom/profile/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2351,9 +2318,9 @@ router.get('/:id/custom/profile/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='profile') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let profileDesc = (current_resume && current_resume.profile && current_resume.profile.profile_desc) ? current_resume.profile.profile_desc : undefined;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'custom_server.mustache'), (err, data) => {
@@ -2395,9 +2362,8 @@ router.get('/:id/custom/skills/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2416,9 +2382,9 @@ router.get('/:id/custom/skills/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='skills') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let skillsArrayLength = current_resume ? (current_resume.skills && current_resume.skills.length > 0) : false;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'custom_server.mustache'), (err, data) => {
@@ -2459,9 +2425,8 @@ router.get('/:id/custom/languages/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2480,9 +2445,9 @@ router.get('/:id/custom/languages/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='languages') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'custom_server.mustache'), (err, data) => {
         if (err) {
@@ -2522,9 +2487,8 @@ router.get('/:id/custom/certifications/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2539,9 +2503,9 @@ router.get('/:id/custom/certifications/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='certifications') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let certificationsArrayLength = current_resume ? (current_resume.certifications && current_resume.certifications.length > 0) : false;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'custom_server.mustache'), (err, data) => {
@@ -2582,9 +2546,8 @@ router.get('/:id/custom/finalize/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='custom') {
@@ -2599,9 +2562,9 @@ router.get('/:id/custom/finalize/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='finalize') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/custom/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/custom/${route}`};
     });
     let cvExists = helpers.cvExists(req.session.resumes, id);
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'custom_server.mustache'), (err, data) => {
@@ -2645,9 +2608,8 @@ router.get(['/:id/simple/', '/:id/simple/personal/'], (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -2662,9 +2624,9 @@ router.get(['/:id/simple/', '/:id/simple/personal/'], (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='personal') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     fs.readFile(path.join(__dirname, '../', 'views', 'newcv', 'editor4.mustache'), (err, data) => {
         if (err) {
@@ -2704,9 +2666,8 @@ router.get('/:id/simple/experience/', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='simple') {
         return res.redirect('/newresume');
@@ -2729,9 +2690,9 @@ router.get('/:id/simple/experience/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -2777,9 +2738,8 @@ router.get('/:id/simple/experience/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='simple') {
         return res.redirect('/newresume');
@@ -2799,9 +2759,9 @@ router.get('/:id/simple/experience/create/', (req, res) => {
     
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}/create`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -2843,9 +2803,8 @@ router.get('/:id/simple/experience/:expId', (req, res) => {
             break;
         }
     }
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
     if (current_resume && current_resume.type!=='standard') {
         return res.redirect('/newresume');
@@ -2871,9 +2830,9 @@ router.get('/:id/simple/experience/:expId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='experience') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -2960,9 +2919,8 @@ router.get('/:id/simple/education/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -2986,9 +2944,9 @@ router.get('/:id/simple/education/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}/create`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}/create`};
     });
     let months = helpers.buildMonths();
     let years = helpers.buildYear();
@@ -3030,9 +2988,8 @@ router.get('/:id/simple/education/create/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -3053,9 +3010,9 @@ router.get('/:id/simple/education/create/', (req, res) => {
 
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -3098,9 +3055,8 @@ router.get('/:id/simple/education/:eduId', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -3127,9 +3083,9 @@ router.get('/:id/simple/education/:eduId', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='education') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
 
     let months = helpers.buildMonths();
@@ -3211,9 +3167,8 @@ router.get('/:id/simple/profile/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -3232,9 +3187,9 @@ router.get('/:id/simple/profile/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='profile') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     let profileDesc = (current_resume && current_resume.profile && current_resume.profile.profile_desc) ? current_resume.profile.profile_desc : undefined;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'simple_server.mustache'), (err, data) => {
@@ -3275,9 +3230,8 @@ router.get('/:id/simple/skills/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -3296,9 +3250,9 @@ router.get('/:id/simple/skills/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='skills') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     let skillsArrayLength = current_resume ? (current_resume.skills && current_resume.skills.length > 0) : false;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'simple_server.mustache'), (err, data) => {
@@ -3339,11 +3293,9 @@ router.get('/:id/simple/languages/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
-
     if (current_resume && current_resume.type!=='simple') {
         return res.redirect('/newresume');
     }
@@ -3360,9 +3312,9 @@ router.get('/:id/simple/languages/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='languages') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'simple_server.mustache'), (err, data) => {
         if (err) {
@@ -3402,11 +3354,9 @@ router.get('/:id/simple/certifications/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
-
     if (current_resume && current_resume.type!=='simple') {
         return res.redirect('/newresume');
     }
@@ -3419,9 +3369,9 @@ router.get('/:id/simple/certifications/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='certifications') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     let certificationsArrayLength = current_resume ? (current_resume.certifications && current_resume.certifications.length > 0) : false;
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'simple_server.mustache'), (err, data) => {
@@ -3462,9 +3412,8 @@ router.get('/:id/simple/finalize/', (req, res) => {
         }
     }
 
-    if (!current_resume && req.session.tempArr.indexOf(id)===-1) {
-        res.redirect('/newresume');
-        return;
+    if (id.length!==8) {
+        return res.redirect('/newresume');
     }
 
     if (current_resume && current_resume.type!=='simple') {
@@ -3479,9 +3428,9 @@ router.get('/:id/simple/finalize/', (req, res) => {
     }
     let trackRoutes = routes.map(route => {
         if (route==='finalize') {
-            return {active: true, route: route};
+            return {active: true, route: route, fullUrl: `/editor/${id}/simple/${route}`};
         }
-        else return {active: false, route: route};
+        else return {active: false, route: route, fullUrl: `/editor/${id}/simple/${route}`};
     });
     let cvExists = helpers.cvExists(req.session.resumes, id);
     fs.readFile(path.join(__dirname, '../', 'views', 'server_side_templates', 'simple_server.mustache'), (err, data) => {

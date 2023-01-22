@@ -8,8 +8,9 @@ export default class TrackBar {
     }
 
     attachEventListeners() {
-        document.querySelector('.track_bar').querySelectorAll('span').forEach(route => {
+        document.querySelector('.track_bar').querySelectorAll('a').forEach(route => {
             route.addEventListener('click', (event) => {
+		event.preventDefault();
                 if (event.target.classList.contains('active')) return;
                 document.querySelector('.track_bar .active').classList.remove('active');
                 const route = event.target.dataset.url;
