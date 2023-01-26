@@ -28,7 +28,7 @@ const upload = multer({storage: storage}).single('profilePhoto');
 
 const app = express();
 
-app.use(helmet());
+//app.use(helmet());
 
 const dbOptions = {
     host:'localhost',
@@ -60,11 +60,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 app.use((req, res, next) => {
     req.session.resumes = req.session.resumes || [];
-    var ip = req.headers["x-real-ip"];
-    var logger = fs.createWriteStream(path.join(__dirname, 'ips.txt'), {'flags': 'a'} );
-    logger.once('open', function(fd) {
-       logger.end("ip is: " + ip + "\r\n");
-    } );
+    req.session.resumes_ids = req.session.resumes_ids || {};
     next();
 });
 
@@ -350,7 +346,7 @@ app.post('/download', (req, res) => {
         //read the image file
         const imgProfile = current_resume && current_resume.personal ? current_resume.personal.profilePhoto : 'profile.png';
         const dataType = path.extname(imgProfile).slice(1);
-	let folder = imgProfile==='profile.png' ? 'public' : 'images';
+	    let folder = imgProfile==='profile.png' ? 'public' : 'images';
         let base64Img = fs.readFileSync(path.join(__dirname, 'dist', folder, `${imgProfile}`), 'base64');
         let imageProfile = `data:image/${dataType};base64, ${base64Img}`;
         const dataTemplate = {current_resume: current_resume, imageProfile: imageProfile, experienceImage: experienceImage, educationImage: educationImage, certImage: certImage, ...routes, addressIcon: addressIcon};
@@ -370,7 +366,18 @@ app.all('*', (req, res) => {
         const objTemplate = {};
         const output = Mustache.render(data.toString(), objTemplate);
         res.setHeader("Content-Type", "text/html");
-	res.status(404);
+	    res.status(404);
+        res.send(output);
+    });
+});
+
+app.use((err, req, res, next) => {
+    console.log(err);
+    fs.readFile(path.join(__dirname, 'views', 'newcv', '404.mustache'), (err, data) => {
+        const objTemplate = {};
+        const output = Mustache.render(data.toString(), objTemplate);
+        res.setHeader("Content-Type", "text/html");
+	    res.status(404);
         res.send(output);
     });
 });

@@ -55,6 +55,10 @@ module.exports = {
             return ['personal', 'profile', 'experience', 'education', 'skills', 'languages', 'certifications', 'finalize'];
         }
     },
+    routeExists: function(activeRoute) {
+        let routes = ['personal', 'experience', 'education', 'skills', 'languages', 'certifications', 'socialLinks', 'portfolio', 'profile', 'finalize'];
+        return routes.includes(activeRoute);
+    },
     buildMonths: function () {
         return ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     },
@@ -65,5 +69,11 @@ module.exports = {
             yearsArray.push(currentYear);
         }
         return yearsArray;
+    },
+    getType: function(type) {
+        if (type==='standard') return 'editor';
+        else if (type==='fancy') return 'editor2';
+        else if (type==='custom') return 'editor3';
+        else if (type==='simple') return 'editor4';
     }
 };

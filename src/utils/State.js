@@ -1,4 +1,3 @@
-import {v4 as uuidv4} from "uuid";
 
 export default class State {
 
@@ -8,11 +7,11 @@ export default class State {
         this.cvType = cvType;
     }
 
-    updateView(id, nextView, params) {
-        this.renderView(id, nextView, params);
+    updateView(nextView, params) {
+        this.renderView(nextView, params);
     }
 
-    renderView(id, view, params) {
+    renderView(view, params) {
         let prevRoute = document.querySelector('.wrapper').dataset.activeRoute;
         let viewInstance = this.componentsMap[view];
         let cvCompInstance = this.componentsMap['cvCompInstance'];

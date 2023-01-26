@@ -1,4 +1,3 @@
-import { getFormRoutes } from "./domHelper";
 
 export default class Router {
 
@@ -9,25 +8,46 @@ export default class Router {
 
     getNextRouter() {
         let currentActiveRouter = document.querySelector('.wrapper').dataset.activeRoute;
-        let current_cv_id = document.querySelector('.wrapper').dataset.cvId;
+        let mode = document.querySelector('.wrapper').dataset.mode;
+        const cvType = document.querySelector('.wrapper').dataset.activeCv;
+        const cvId = document.querySelector('.wrapper').dataset.cvId;
         let index = this.formRoutes.indexOf(currentActiveRouter);
         if (index===-1 || index===this.formRoutes.length-1) return undefined;
         let nextRouter = this.formRoutes[index+1];
         nextRouter += this.stateObject.getViewRoute(nextRouter);
-        const cvType = this.stateObject.cvType;
-        const compRouter = `/editor/${current_cv_id}/${cvType}/${nextRouter}`;
+        let compRouter = '';
+        if (mode==='new') {
+            compRouter = `/editor/new/${cvType}/${nextRouter}`;
+        }
+        else if (mode==='edit') {
+            compRouter = `/editor/${cvId}/${cvType}/${nextRouter}`;
+        }
+        else {
+            compRouter = `/editor/${cvType}/${nextRouter}`;
+        }
+        console.log(compRouter);
         return compRouter;
     }
 
     getPrevRouter() {
         let currentActiveRouter = document.querySelector('.wrapper').dataset.activeRoute;
+        let mode = document.querySelector('.wrapper').dataset.mode;
         let index = this.formRoutes.indexOf(currentActiveRouter);
-        let current_cv_id = document.querySelector('.wrapper').dataset.cvId;
+        const cvType = document.querySelector('.wrapper').dataset.activeCv;
+        const cvId = document.querySelector('.wrapper').dataset.cvId;
         if (index===-1 || index===0) return undefined;
         let backRouter = this.formRoutes[index-1];
         backRouter += this.stateObject.getViewRoute(backRouter);
-        const cvType = this.stateObject.cvType;
-        const compRouter = `/editor/${current_cv_id}/${cvType}/${backRouter}`;
+        let compRouter = '';
+        if (mode==='new') {
+            compRouter = `/editor/new/${cvType}/${backRouter}`;
+        }
+        else if (mode==='edit') {
+            compRouter = `/editor/${cvId}/${cvType}/${backRouter}`;
+        }
+        else {
+            compRouter = `/editor/${cvType}/${backRouter}`
+        }
         return compRouter;
     }
 
@@ -47,16 +67,37 @@ export default class Router {
     }
 
     dispatchView(view) {
-        let current_cv_id = document.querySelector('.wrapper').dataset.cvId;
-        let router = `/editor/${current_cv_id}/${this.stateObject.cvType}/${view}` + this.stateObject.getViewRoute(view);
+        let mode = document.querySelector('.wrapper').dataset.mode;
+        const cvId = document.querySelector('.wrapper').dataset.cvId;
+        let router = '';
+        if (mode==='new') {
+            router = `/editor/new/${this.stateObject.cvType}/${view}` + this.stateObject.getViewRoute(view);
+        }
+        else if (mode==='edit') {
+            router = `/editor/${cvId}/${this.stateObject.cvType}/${view}` + this.stateObject.getViewRoute(view);
+        }
+        else {
+            router = `/editor/${this.stateObject.cvType}/${view}` + this.stateObject.getViewRoute(view);
+        }
         window.history.pushState('', '', window.location.origin + router);
         window.dispatchEvent(new PopStateEvent('popstate', {state: router}));
     }
 
     dispatchAbsView(route) {
-        let current_cv_id = document.querySelector('.wrapper').dataset.cvId;
-        window.history.pushState('', '', window.location.origin + `/editor/${current_cv_id}/${this.stateObject.cvType}/${route}`);
-        window.dispatchEvent(new PopStateEvent('popstate', {state: `/editor/${current_cv_id}/${this.stateObject.cvType}/${route}`}));
+        let mode = document.querySelector('.wrapper').dataset.mode;
+        const cvId = document.querySelector('.wrapper').dataset.cvId;
+        let router = '';
+        if (mode==='new') {
+            router = `/editor/new/${this.stateObject.cvType}/${route}`;
+        }
+        else if (mode==='edit') {
+            router = `/editor/${cvId}/${this.stateObject.cvType}/${route}`;
+        }
+        else {
+            router = `/editor/${this.stateObject.cvType}/${route}`;
+        }
+        window.history.pushState('', '', window.location.origin + router);
+        window.dispatchEvent(new PopStateEvent('popstate', {state: router}));
     }
 
     listenForRouteEvent() {
@@ -64,12 +105,25 @@ export default class Router {
             //change div here
             //let prevActiveRouter = document.querySelector('.cv-form').dataset.activeClass;
             let pathnameArray = window.location.pathname.split('/').filter(url => url!=='');
-            if (pathnameArray.length>=4) {
-                let id = pathnameArray[1];
+            console.log(pathnameArray);
+            let mode = document.querySelector('.wrapper').dataset.mode;
+            if (mode==='new') {
                 let cvType = pathnameArray[2];
                 let view = pathnameArray[3];
                 let params = pathnameArray.slice(4);
-                this.stateObject.updateView(id, view, params);
+                this.stateObject.updateView(view, params);
+            }
+            else if (mode==='edit') {
+                let cvType = pathnameArray[2];
+                let view = pathnameArray[3];
+                let params = pathnameArray.slice(4);
+                this.stateObject.updateView(view, params);
+            }
+            else {
+                let cvType = pathnameArray[1];
+                let view = pathnameArray[2];
+                let params = pathnameArray.slice(3);
+                this.stateObject.updateView(view, params);
             }
         });
     }

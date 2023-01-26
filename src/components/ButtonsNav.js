@@ -38,6 +38,7 @@ export default class ButtonsNav {
                     }
                 }
                 else if (event.target.classList.contains('btn-next')) {
+                    console.log(this.router.getNextRouter());
                     if (this.router.getNextRouter()) {
                         this.router.dispatchNextRouter();
                     }
