@@ -1,219 +1,279 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 		<!--	created with www.mysitemapgenerator.com	-->
 		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 	<loc>https://mydreamresume.com/</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://mydreamresume.com/resumes</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://mydreamresume.com/newresume</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
 	<loc>https://mydreamresume.com/about</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
 	<priority>1.0</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard</loc>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy</loc>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom</loc>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple</loc>
+	<lastmod>2023-01-26T21:29:23+01:00</lastmod>
+	<priority>0.8</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/new/standard</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.6</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/new/fancy</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.6</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/new/custom</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.6</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple</loc>
-	<lastmod>2023-01-21T10:46:32+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/new/simple</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.6</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/89AS68KN/standard/</loc>
-	<lastmod>2023-01-21T10:46:33+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard/personal</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/standard/experience</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22AN77NE/fancy/</loc>
-	<lastmod>2023-01-21T10:46:33+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard/education</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/56CS54LT/custom/</loc>
-	<lastmod>2023-01-21T10:46:33+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard/skills</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/standard/languages</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/standard/profile</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/standard/finalize</loc>
+	<lastmod>2023-01-26T21:29:25+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/personal</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/experience</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/98LM03BY/simple/</loc>
-	<lastmod>2023-01-21T10:46:33+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/fancy/education</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/personal</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/fancy/certifications</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/skills</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/socialLinks</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/portfolio</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/fancy/finalize</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/personal</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/profile</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/experience</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/experience</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/education</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/skills</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/custom/education</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/languages</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/custom/skills</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/languages</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/certifications</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/finalize</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/personal</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/profile</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/experience</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/profile</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/simple/education</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/53SD55GG/standard/finalize</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/simple/skills</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/languages</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/certifications</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/finalize</loc>
+	<lastmod>2023-01-26T21:29:26+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/standard/experience/create</loc>
+	<lastmod>2023-01-26T21:29:27+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/personal</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard/education/create</loc>
+	<lastmod>2023-01-26T21:29:28+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/experience</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/education</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/certifications</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/fancy/experience/create</loc>
+	<lastmod>2023-01-26T21:29:29+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/skills</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/fancy/education/create</loc>
+	<lastmod>2023-01-26T21:29:29+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/socialLinks</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/standard/certifications</loc>
+	<lastmod>2023-01-26T21:29:29+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/custom/experience/create</loc>
+	<lastmod>2023-01-26T21:29:30+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/portfolio</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/custom/education/create</loc>
+	<lastmod>2023-01-26T21:29:30+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/22CA07RC/fancy/finalize</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/fancy/profile</loc>
+	<lastmod>2023-01-26T21:29:30+01:00</lastmod>
+	<priority>0.6</priority>
+</url>
+<url>
+	<loc>https://mydreamresume.com/editor/simple/experience/create</loc>
+	<lastmod>2023-01-26T21:29:31+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/personal</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
+	<loc>https://mydreamresume.com/editor/simple/education/create</loc>
+	<lastmod>2023-01-26T21:29:31+01:00</lastmod>
 	<priority>0.4</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/profile</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.4</priority>
+	<loc>https://mydreamresume.com/editor/standard/</loc>
+	<lastmod>2023-01-26T21:29:34+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 <url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/experience</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/education</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/skills</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/languages</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/certifications</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/20MC22OZ/custom/finalize</loc>
-	<lastmod>2023-01-21T10:46:34+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/personal</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/profile</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/experience</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/education</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.2</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/skills</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/languages</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/certifications</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
-</url>
-<url>
-	<loc>https://mydreamresume.com/editor/88PP49YU/simple/finalize</loc>
-	<lastmod>2023-01-21T10:46:35+01:00</lastmod>
-	<priority>0.4</priority>
+	<loc>https://mydreamresume.com/editor/fancy/</loc>
+	<lastmod>2023-01-26T21:29:34+01:00</lastmod>
+	<priority>0.6</priority>
 </url>
 </urlset>
