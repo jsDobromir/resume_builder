@@ -163,7 +163,7 @@
 
 .templates-new-cv {
     padding-top: 10rem;
-    padding-bottom: 15rem;
+    padding-bottom: 10rem;
     background-color: gainsboro;
 
     #template_link {
@@ -240,5 +240,9 @@
         @include media-breakpoint-up(xl) {
             padding: 5rem;
         }
+    }
+
+    .more_comming {
+        margin-top: 3rem;
     }
 }

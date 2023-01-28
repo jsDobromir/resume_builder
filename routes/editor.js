@@ -981,3 +981,5 @@ router.get('/:id/:type/portfolio/', (req, res) => {
         res.send(output);
     });
 });
+
+module.exports = router;
